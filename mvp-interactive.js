@@ -1627,4 +1627,34 @@ function initFounderTweetButtons() {
     }
 }
 
+// --- BHARAT PLEDGE BELL INTERACTION ---
+let pledgeCount = 14289;
+let hasPledged = false;
+
+window.ringPledgeBell = function() {
+    const display = document.getElementById('pledge-count-display');
+    const btnText = document.getElementById('pledge-btn-text');
+    const btn = document.getElementById('ring-pledge-btn');
+
+    if (!hasPledged) {
+        hasPledged = true;
+        pledgeCount += 1;
+        if (display) display.innerText = pledgeCount.toLocaleString('en-IN');
+        if (btnText) btnText.innerText = 'Pledged! 🇮🇳';
+        if (btn) {
+            btn.classList.remove('from-orange-500', 'to-amber-600');
+            btn.classList.add('from-emerald-600', 'to-teal-700');
+        }
+        if (window.sfx && sfx.playSuccess) sfx.playSuccess();
+        if (typeof showToast === 'function') {
+            showToast('Thank you, Founding Citizen! Your pledge is recorded.', 'award');
+        }
+    } else {
+        if (typeof showToast === 'function') {
+            showToast('You have already pledged your support for Bharat!', 'check');
+        }
+        if (window.sfx && sfx.playClick) sfx.playClick();
+    }
+};
+
 
