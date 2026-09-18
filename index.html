@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RashtraLink | India's Sovereign AI Social Network</title>
+
+<!-- SEO: Core -->
+<meta name="description" content="RashtraLink is India's next-generation AI-based sovereign social networking platform. Built by Indians, for Indians — featuring a Deterministic Sovereign Algorithm, Charcha Arena evidence discourse, and 10K-Zero Creator Model. Founded by Debaprabho Paul under Rashtra Group.">
+<meta name="keywords" content="RashtraLink, Rashtra Group, Debaprabho Paul, Indian social media platform, sovereign algorithm, Charcha Arena, Viksit Bharat, creator economy India, DPDP Act 2023">
+<meta name="author" content="Debaprabho Paul, Rashtra Group">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://rashtralink.netlify.app/">
+
+<!-- SEO: Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rashtralink.netlify.app/">
+<meta property="og:title" content="RashtraLink | India's Sovereign AI Social Network">
+<meta property="og:description" content="India's next-gen AI social platform with Sovereign Algorithm, Charcha Arena, and 10K-Zero Creator Economy. A Rashtra Group venture.">
+<meta property="og:image" content="https://rashtralink.netlify.app/Rashtralinkproperlogo.png">
+<meta property="og:site_name" content="RashtraLink">
+<meta property="og:locale" content="en_IN">
+
+<!-- SEO: Twitter/X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://rashtralink.netlify.app/">
+<meta name="twitter:title" content="RashtraLink | India's Sovereign AI Social Network">
+<meta name="twitter:description" content="India's next-gen sovereign AI social platform. Deterministic Algorithm. Charcha Arena. Founded by Debaprabho Paul (Rashtra Group).">
+<meta name="twitter:image" content="https://rashtralink.netlify.app/Rashtralinkproperlogo.png">
+
+<!-- SEO: Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "RashtraLink",
+      "url": "https://rashtralink.netlify.app/",
+      "logo": "https://rashtralink.netlify.app/Rashtralinkproperlogo.png",
+      "description": "India's Sovereign AI social networking platform by Rashtra Group.",
+      "foundingDate": "2025",
+      "founder": {
+        "@type": "Person",
+        "name": "Debaprabho Paul",
+        "jobTitle": "Founder & CEO"
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Rashtra Group"
+      }
+    }
+  ]
+}
+</script>
+    
+    <!-- Google Identity Services for Google Sheets Workspace Integration -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rashtraBlue: '#003366',
+                        rashtraOrange: '#FF5622',
+                        indiaSaffron: '#FF9933',
+                        indiaGreen: '#138808',
+                        bgSaffron: '#FFFDF9',
+                        bgMint: '#F0FDF4',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FAFAFC;
+            color: #003366;
+            overflow-x: hidden;
+            font-feature-settings: "ss01", "cv01";
+            overflow-y: hidden; /* Locked until preloader finishes */
+        }
+
+        /* Abstract Gradient Mesh Overlay */
+        .gradient-mesh {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 10% 0%, rgba(255, 153, 51, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 90% 100%, rgba(19, 136, 8, 0.06) 0%, transparent 45%),
+                linear-gradient(180deg, #FFF9F2 0%, #FFFFFF 35%, #FFFFFF 65%, #F2FBF5 100%);
+            z-index: -2;
+        }
+
+        #network-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(0, 51, 102, 0.08);
+            box-shadow: 0 20px 40px -15px rgba(0, 51, 102, 0.05);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+        }
+        
+        .glass-panel:hover {
+            box-shadow: 0 30px 60px -15px rgba(0, 51, 102, 0.09);
+        }
+
+        .title-gradient {
+            background: linear-gradient(135deg, #003366 0%, #0B4785 50%, #FF5622 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .viksit-bharat-gradient {
+            background: linear-gradient(90deg, #FF9933 0%, #003366 50%, #138808 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .phone-chassis {
+            box-shadow: 0 40px 100px -20px rgba(0, 51, 102, 0.25), 0 0 0 12px #1E293B, 0 0 0 14px #0F172A;
+        }
+
+        /* Custom Scrollbars */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(0, 51, 102, 0.2); border-radius: 10px; }
+
+        /* Holographic Card Effect */
+        .hologram-card {
+            background: linear-gradient(135deg, #001F3F 0%, #003366 40%, #0B2545 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hologram-card::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255, 153, 51, 0.15) 48%, rgba(255, 255, 255, 0.3) 50%, rgba(19, 136, 8, 0.15) 52%, transparent 60%);
+            transform: rotate(25deg);
+            animation: holoShift 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes holoShift {
+            0% { transform: translate(-30%, -30%) rotate(25deg); }
+            50% { transform: translate(30%, 30%) rotate(25deg); }
+            100% { transform: translate(-30%, -30%) rotate(25deg); }
+        }
+
+        /* Click Ripple */
+        .click-ripple {
+            position: fixed;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 86, 34, 0.5);
+            transform: translate(-50%, -50%) scale(0);
+            animation: ripple-anim 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        @keyframes ripple-anim {
+            0% { transform: translate(-50%, -50%) scale(0.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-rashtraOrange selection:text-white">
+
+    <!-- 0. PRELOADER SCREEN -->
+    <div id="preloader" class="fixed inset-0 z-[10000] bg-white flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="overflow-hidden mb-1">
+            <h1 id="preloader-text" class="text-3xl md:text-5xl font-black text-rashtraBlue tracking-tighter translate-y-full uppercase">
+                RashtraLink
+            </h1>
+        </div>
+        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Sovereign Social Network</p>
+        <div class="w-48 h-1.5 bg-slate-100 mt-5 rounded-full overflow-hidden">
+            <div id="preloader-bar" class="h-full bg-gradient-to-r from-indiaSaffron via-rashtraOrange to-indiaGreen w-0"></div>
+        </div>
+    </div>
+
+    <!-- Ambient Backgrounds & Parallax Depth Layers -->
+    <div class="gradient-mesh"></div>
+    <canvas id="network-canvas"></canvas>
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" id="parallax-bg">
+        <!-- Floating Ambient Luminous Orbs -->
+        <div class="parallax-orb absolute -top-24 -left-20 w-96 h-96 rounded-full bg-orange-300/20 blur-3xl animate-pulse" style="animation-duration: 8s;" data-speed="0.2"></div>
+        <div class="parallax-orb absolute top-1/3 -right-24 w-[34rem] h-[34rem] rounded-full bg-blue-300/18 blur-3xl animate-pulse" style="animation-duration: 12s;" data-speed="0.35"></div>
+        <div class="parallax-orb absolute top-2/3 -left-24 w-96 h-96 rounded-full bg-emerald-200/18 blur-3xl" data-speed="0.18"></div>
+        <div class="parallax-orb absolute bottom-12 right-12 w-96 h-96 rounded-full bg-amber-200/18 blur-3xl" data-speed="0.25"></div>
+        <div class="parallax-orb absolute top-1/2 left-1/4 w-80 h-80 rounded-full bg-orange-100/20 blur-3xl" data-speed="0.15"></div>
+
+        <!-- High-Tech Floating Sovereign Telemetry Badges (Subtle Ambient Tech Backdrop) -->
+        <div class="parallax-element absolute top-[18%] left-[8%] px-3 py-1.5 rounded-xl border border-blue-900/10 bg-white/40 backdrop-blur-xs text-[10px] font-mono text-slate-400 select-none hidden lg:flex items-center gap-2 shadow-xs" data-speed="0.14">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>NODE: IN-NORTH-01 // BHARAT CLOUD</span>
+        </div>
+        <div class="parallax-element absolute top-[42%] right-[6%] px-3 py-1.5 rounded-xl border border-orange-500/10 bg-white/40 backdrop-blur-xs text-[10px] font-mono text-slate-400 select-none hidden lg:flex items-center gap-2 shadow-xs" data-speed="0.22">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+            <span>ALGO: DETERMINISTIC CONSENSUS v2.4</span>
+        </div>
+        <div class="parallax-element absolute top-[68%] left-[5%] px-3 py-1.5 rounded-xl border border-emerald-500/10 bg-white/40 backdrop-blur-xs text-[10px] font-mono text-slate-400 select-none hidden lg:flex items-center gap-2 shadow-xs" data-speed="0.18">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+            <span>DPDP ACT 2023 // DATA SOVEREIGNTY</span>
+        </div>
+        <div class="parallax-element absolute top-[85%] right-[10%] px-3 py-1.5 rounded-xl border border-purple-500/10 bg-white/40 backdrop-blur-xs text-[10px] font-mono text-slate-400 select-none hidden lg:flex items-center gap-2 shadow-xs" data-speed="0.25">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            <span>INDIC NLP: 12 BHARAT LANGUAGES ACTIVE</span>
+        </div>
+
+        <!-- High-Tech Sovereign Chakra / Constellation Mandala (Parallax + Gentle Spin) -->
+        <div class="parallax-element absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] opacity-[0.038] pointer-events-none" data-speed="0.12">
+            <svg viewBox="0 0 400 400" class="w-full h-full animate-[spin_240s_linear_infinite]" fill="none" stroke="#003366">
+                <circle cx="200" cy="200" r="185" stroke-width="2" stroke-dasharray="6 6" />
+                <circle cx="200" cy="200" r="150" stroke-width="1.5" />
+                <circle cx="200" cy="200" r="95" stroke-width="1.5" stroke-dasharray="3 3" />
+                <circle cx="200" cy="200" r="38" stroke-width="2" stroke="#FF5622" />
+                <!-- 24 Sovereign Spokes -->
+                <g stroke-width="1">
+                    <line x1="200" y1="200" x2="200" y2="15" />
+                    <line x1="200" y1="200" x2="200" y2="385" />
+                    <line x1="200" y1="200" x2="15" y2="200" />
+                    <line x1="200" y1="200" x2="385" y2="200" />
+                    <line x1="200" y1="200" x2="69" y2="69" />
+                    <line x1="200" y1="200" x2="331" y2="331" />
+                    <line x1="200" y1="200" x2="69" y2="331" />
+                    <line x1="200" y1="200" x2="331" y2="69" />
+                    <line x1="200" y1="200" x2="135" y2="26" />
+                    <line x1="200" y1="200" x2="265" y2="374" />
+                    <line x1="200" y1="200" x2="26" y2="135" />
+                    <line x1="200" y1="200" x2="374" y2="265" />
+                    <line x1="200" y1="200" x2="265" y2="26" />
+                    <line x1="200" y1="200" x2="135" y2="374" />
+                    <line x1="200" y1="200" x2="26" y2="265" />
+                    <line x1="200" y1="200" x2="374" y2="135" />
+                </g>
+            </svg>
+        </div>
+
+        <!-- Subtle Tech Matrix Grid Lines -->
+        <div class="parallax-element absolute inset-0 bg-[linear-gradient(to_right,#00336605_1px,transparent_1px),linear-gradient(to_bottom,#00336605_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none" data-speed="0.08"></div>
+    </div>
+
+    <!-- HEADER NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/75 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="Rashtralinkproperlogo.png" alt="RashtraLink Logo" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform">
+            </a>
+
+            <nav class="hidden md:flex items-center gap-7 text-xs font-bold text-slate-600">
+                <a href="#mvp-simulator" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
+                    <i data-lucide="smartphone" class="w-3.5 h-3.5 text-rashtraOrange"></i>
+                    <span>Interactive MVP</span>
+                </a>
+                <a href="#charcha-section" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
+                    <i data-lucide="scale" class="w-3.5 h-3.5 text-indiaGreen"></i>
+                    <span>Charcha Arena</span>
+                </a>
+                <a href="#pillars-section" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-rashtraBlue"></i>
+                    <span>Sovereign Pillars</span>
+                </a>
+                <a href="#founder-note-section" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
+                    <i data-lucide="feather" class="w-3.5 h-3.5 text-amber-600"></i>
+                    <span>Founder's Note</span>
+                </a>
+                <button onclick="window.switchPage('early-access')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indiaSaffron"></i>
+                    <span>Early Access Wishlist</span>
+                </button>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button id="sound-toggle-btn" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all" title="Toggle Sound Feedback">
+                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                </button>
+                <button onclick="window.switchPage('early-access')" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-rashtraOrange to-indiaSaffron text-white text-xs font-black shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+                    <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                    <span>Apply for Access</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN LANDING VIEW -->
+    <div id="view-main-site" class="w-full">
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative min-h-[90vh] flex flex-col items-center justify-center px-6 overflow-hidden pt-32 pb-16">
+        <div class="text-center w-full max-w-5xl z-10 flex flex-col items-center">
+            
+            <!-- Restored Prominent RashtraLink Logo on Front Hero -->
+            <div class="gsap-hero mb-6">
+                <img src="Rashtralinkproperlogo.png" alt="RashtraLink" class="h-24 sm:h-28 md:h-32 w-auto max-w-[280px] object-contain drop-shadow-md mx-auto hover:scale-105 transition-transform duration-300">
+            </div>
+
+            <!-- Made in India Badge -->
+            <div class="gsap-hero mb-6 inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-orange-50/90 border border-orange-200/80 text-xs font-black text-slate-800 shadow-xs">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indiaSaffron opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-indiaGreen"></span>
+                </span>
+                <span>A Sovereign Indian Social Network • Built for Bharat</span>
+            </div>
+
+            <h1 class="gsap-hero text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] text-rashtraBlue mb-6">
+                Present Better <br>
+                <span class="title-gradient">Than The Future.</span>
+            </h1>
+            
+            <p class="gsap-hero text-base sm:text-xl md:text-2xl font-bold text-slate-600 tracking-tight max-w-3xl mx-auto mb-10 leading-relaxed">
+                An Indian social network where you govern your feed, participate in evidence-backed discussions, and own your personal data.
+            </p>
+
+            <!-- CTA Cluster -->
+            <div class="gsap-hero flex flex-col sm:flex-row items-center gap-4 mb-16 w-full max-w-lg justify-center">
+                <a href="#mvp-simulator" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-rashtraBlue text-white font-extrabold text-sm shadow-xl hover:shadow-rashtraBlue/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2.5">
+                    <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+                    <span>Try Interactive MVP Live</span>
+                </a>
+                <button onclick="window.switchPage('early-access')" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white border border-slate-200 text-slate-800 font-extrabold text-sm hover:border-rashtraOrange hover:text-rashtraOrange shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-rashtraOrange"></i>
+                    <span>Apply for Early Access</span>
+                </button>
+            </div>
+
+            <!-- Metrics Bar -->
+            <div class="gsap-hero grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl text-left">
+                <div class="glass-panel p-4 rounded-2xl">
+                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Data Residency</p>
+                    <p class="text-lg font-black text-rashtraBlue">100% On-Soil</p>
+                    <p class="text-[10px] text-emerald-700 font-bold">DPDP Act 2023</p>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl">
+                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Algorithmic Feed</p>
+                    <p class="text-lg font-black text-rashtraOrange">User-Governed</p>
+                    <p class="text-[10px] text-slate-500 font-bold">Transparent Levers</p>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl">
+                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Vernacular Reach</p>
+                    <p class="text-lg font-black text-indiaGreen">Multilingual</p>
+                    <p class="text-[10px] text-slate-500 font-bold">Indic Tokenizers</p>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl">
+                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Creator Economics</p>
+                    <p class="text-lg font-black text-rashtraBlue">10K-Zero Model</p>
+                    <p class="text-[10px] text-orange-600 font-bold">0% Platform Cut</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 2. INTERACTIVE MVP SIMULATOR SECTION (From Your Screenshots) -->
+    <section id="mvp-simulator" class="relative py-28 px-4 sm:px-6 overflow-hidden bg-gradient-to-b from-transparent via-slate-100/60 to-transparent">
+        <div class="max-w-7xl mx-auto z-10 relative">
+            
+            <div class="text-center mb-14 scroll-reveal">
+                <span class="px-4 py-1.5 rounded-full bg-rashtraOrange/10 text-rashtraOrange border border-rashtraOrange/20 text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">
+                    Hands-On MVP Playground
+                </span>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-rashtraBlue mb-4">
+                    Experience the Sovereign App.
+                </h2>
+                <p class="text-slate-600 font-medium max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                    Test the real features straight from our working build: cast live Bharat votes, tune algorithmic levers, trigger consensus in the Charcha Arena, and switch vernacular languages.
+                </p>
+            </div>
+
+            <!-- Simulator Deck & Smartphone Layout -->
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-10">
+                
+                <!-- Left: Quick Switcher Controller -->
+                <div class="w-full lg:w-4/12 space-y-4 scroll-reveal">
+                    <div class="glass-panel p-6 rounded-3xl">
+                        <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-100">
+                            <i data-lucide="sliders" class="w-5 h-5 text-rashtraOrange"></i>
+                            <h3 class="font-extrabold text-base text-rashtraBlue">MVP Feature Controller</h3>
+                        </div>
+                        <p class="text-xs text-slate-500 font-medium mb-4">Click any view to instantly pilot the live interface:</p>
+
+                        <div class="space-y-2">
+                            <button onclick="document.querySelector('[data-target=\'feed\']').click()" class="w-full text-left p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-rashtraOrange flex items-center justify-between transition-all group">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-xl bg-orange-50 flex items-center justify-center text-rashtraOrange group-hover:bg-rashtraOrange group-hover:text-white transition-colors">
+                                        <i data-lucide="layout-list" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-black text-xs text-slate-800">1. Bharat Feed & Polls</p>
+                                        <p class="text-[10px] text-slate-400">Stories, Verified Voices, Live UPI Poll</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 group-hover:text-rashtraOrange"></i>
+                            </button>
+
+                            <button onclick="document.querySelector('[data-target=\'charcha\']').click()" class="w-full text-left p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-rashtraOrange flex items-center justify-between transition-all group">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                                        <i data-lucide="scale" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-black text-xs text-slate-800">2. Charcha Arena (चर्चा अखाड़ा)</p>
+                                        <p class="text-[10px] text-slate-400">Live consensus engine & evidence thread</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 group-hover:text-rashtraOrange"></i>
+                            </button>
+
+                            <button id="btn-open-matrix-ctrl" onclick="document.getElementById('matrix-modal').classList.remove('hidden')" class="w-full text-left p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-rashtraOrange flex items-center justify-between transition-all group">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center text-rashtraBlue group-hover:bg-rashtraBlue group-hover:text-white transition-colors">
+                                        <i data-lucide="sliders-horizontal" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-black text-xs text-slate-800">3. Priority Matrix Control Center</p>
+                                        <p class="text-[10px] text-slate-400">User-governed transparent feed levers</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 group-hover:text-rashtraOrange"></i>
+                            </button>
+
+                            <button onclick="document.querySelector('[data-target=\'profile\']').click()" class="w-full text-left p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-rashtraOrange flex items-center justify-between transition-all group">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                                        <i data-lucide="languages" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-black text-xs text-slate-800">4. 7 Vernacular Languages</p>
+                                        <p class="text-[10px] text-slate-400">Hindi, Bengali, Tamil, Telugu, Marathi, etc.</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 group-hover:text-rashtraOrange"></i>
+                            </button>
+                        </div>
+
+                        <!-- Sovereign Security Highlight -->
+                        <div class="mt-5 pt-4 border-t border-slate-100 flex items-center gap-3 text-[11px] text-slate-600 font-bold">
+                            <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                            <span>Protected under DPDP Act 2023 & IT Rules 2021</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center: Interactive Smartphone Simulator -->
+                <div class="w-full max-w-[420px] relative scroll-reveal">
+                    
+                    <!-- Phone Shell -->
+                    <div class="w-full rounded-[3.2rem] bg-slate-900 p-3.5 phone-chassis border-4 border-slate-700/80 relative">
+                        
+                        <!-- Screen Container -->
+                        <div id="phone-screen-container" class="w-full h-[760px] rounded-[2.6rem] bg-bgSaffron overflow-hidden flex flex-col relative text-slate-800 transition-colors duration-300">
+                            
+                            <!-- Dynamic Island / Speaker Notch -->
+                            <div class="absolute top-2 left-1/2 -translate-x-1/2 z-40 h-5 w-28 bg-slate-900 rounded-full flex items-center justify-between px-3">
+                                <div class="w-2 h-2 rounded-full bg-slate-800"></div>
+                                <div class="w-2 h-2 rounded-full bg-slate-800"></div>
+                            </div>
+
+                            <!-- Phone Status Bar -->
+                            <div class="pt-2 px-6 pb-2 flex justify-end items-center text-[10px] font-black text-slate-700 z-30 select-none">
+                                <div class="flex items-center gap-1.5">
+                                    <i data-lucide="signal" class="w-3 h-3"></i>
+                                    <span class="text-[9px]">5G</span>
+                                    <i data-lucide="battery" class="w-3.5 h-3.5"></i>
+                                </div>
+                            </div>
+
+                            <!-- Mobile App Top Bar -->
+                            <div class="px-4 py-2 border-b border-slate-200/60 bg-white/90 backdrop-blur-md flex items-center justify-between z-20">
+                                <div class="flex items-center gap-2">
+                                    <img src="Rashtralinkproperlogo.png" alt="RashtraLink" class="h-6 w-auto object-contain">
+                                    <span class="font-black text-xs text-rashtraBlue tracking-tight">RASHTRALINK</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button class="p-1.5 rounded-full hover:bg-slate-100 text-slate-600" title="Search">
+                                        <i data-lucide="search" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="p-1.5 rounded-full hover:bg-slate-100 text-slate-600 relative" title="Messages">
+                                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                        <span class="absolute -top-0.5 -right-0.5 px-1 py-0.2 rounded-full bg-rashtraOrange text-[8px] text-white font-black">v2</span>
+                                    </button>
+                                    <button class="p-1.5 rounded-full hover:bg-slate-100 text-slate-600" title="Notifications">
+                                        <i data-lucide="bell" class="w-4 h-4"></i>
+                                    </button>
+                                    <button onclick="document.querySelector('[data-target=\'profile\']').click()" class="px-2 py-0.5 rounded-lg bg-slate-100 text-[10px] font-black text-rashtraBlue border border-slate-200">
+                                        EN
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- SCREEN CONTENT AREA (Scrollable Views) -->
+                            <div class="flex-grow overflow-y-auto hide-scrollbar relative">
+                                
+                                <!-- VIEW 1: BHARAT FEED -->
+                                <div id="mvp-view-feed" class="block p-3 space-y-3">
+                                    
+                                    <!-- Stories Tray -->
+                                    <div class="flex items-center gap-3 overflow-x-auto hide-scrollbar pb-1 pt-1">
+                                        <!-- Add Story -->
+                                        <div class="flex flex-col items-center flex-shrink-0 cursor-pointer" onclick="showToast('Create Sovereign Story feature open', 'camera')">
+                                            <div class="w-14 h-14 rounded-full border-2 border-dashed border-rashtraOrange flex items-center justify-center bg-orange-50">
+                                                <i data-lucide="plus" class="w-5 h-5 text-rashtraOrange"></i>
+                                            </div>
+                                            <span class="text-[9px] font-bold mt-1 text-slate-600">Add Story</span>
+                                        </div>
+
+                                        <!-- ISRO Story -->
+                                        <div class="story-trigger flex flex-col items-center flex-shrink-0 cursor-pointer" data-storyid="isro">
+                                            <div class="w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-indiaSaffron via-white to-indiaGreen shadow-sm">
+                                                <div class="w-full h-full rounded-full bg-white flex items-center justify-center text-xs font-black text-rashtraBlue border border-slate-200">
+                                                    🚀 ISRO
+                                                </div>
+                                            </div>
+                                            <span class="text-[9px] font-bold mt-1 text-slate-600 truncate w-14 text-center">@isro_co...</span>
+                                        </div>
+
+                                        <!-- Peak Bengaluru -->
+                                        <div class="story-trigger flex flex-col items-center flex-shrink-0 cursor-pointer" data-storyid="peak">
+                                            <div class="w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-rashtraOrange to-amber-400 shadow-sm">
+                                                <div class="w-full h-full rounded-full bg-white flex items-center justify-center text-xs font-black text-rashtraBlue border border-slate-200">
+                                                    💻 Peak
+                                                </div>
+                                            </div>
+                                            <span class="text-[9px] font-bold mt-1 text-slate-600 truncate w-14 text-center">@peak_be...</span>
+                                        </div>
+
+                                        <!-- Bharat History -->
+                                        <div class="story-trigger flex flex-col items-center flex-shrink-0 cursor-pointer" data-storyid="bharat">
+                                            <div class="w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-indiaGreen to-emerald-400 shadow-sm">
+                                                <div class="w-full h-full rounded-full bg-white flex items-center justify-center text-xs font-black text-rashtraBlue border border-slate-200">
+                                                    🏛️ Heritage
+                                                </div>
+                                            </div>
+                                            <span class="text-[9px] font-bold mt-1 text-slate-600 truncate w-14 text-center">@bharat_h...</span>
+                                        </div>
+
+                                        <!-- EV Bharat -->
+                                        <div class="story-trigger flex flex-col items-center flex-shrink-0 cursor-pointer" data-storyid="ev">
+                                            <div class="w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-blue-500 to-cyan-400 shadow-sm">
+                                                <div class="w-full h-full rounded-full bg-white flex items-center justify-center text-xs font-black text-rashtraBlue border border-slate-200">
+                                                    ⚡ Clean
+                                                </div>
+                                            </div>
+                                            <span class="text-[9px] font-bold mt-1 text-slate-600 truncate w-14 text-center">@ev_bharat</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Priority Levers Bar (From Screenshot) -->
+                                    <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1">
+                                        <button id="btn-tune-levers" class="px-3 py-1.5 rounded-xl bg-rashtraOrange text-white text-[11px] font-black flex items-center gap-1.5 flex-shrink-0 shadow-sm active:scale-95 transition-transform">
+                                            <i data-lucide="sliders" class="w-3.5 h-3.5"></i>
+                                            <span data-i18n="tuneLevers">Tune Levers</span>
+                                        </button>
+                                        
+                                        <button onclick="document.getElementById('matrix-modal').classList.remove('hidden')" class="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-700 text-[11px] font-black flex items-center gap-1 flex-shrink-0 hover:border-rashtraOrange transition-colors">
+                                            <i data-lucide="plus" class="w-3 h-3 text-rashtraOrange"></i>
+                                            <span data-i18n="injectLever">+ Inject Lever</span>
+                                        </button>
+
+                                        <!-- Dynamic Active Lever Chips -->
+                                        <div id="feed-active-chips" class="flex items-center gap-2"></div>
+                                    </div>
+
+                                    <!-- Posts Feed Container -->
+                                    <div id="mvp-posts-container" class="space-y-3">
+                                        <!-- Injected by JavaScript with full interactive features -->
+                                    </div>
+
+                                </div>
+
+                                <!-- VIEW 2: CHARCHA ARENA (From Screenshots 3, 5, 6) -->
+                                <div id="mvp-view-charcha" class="hidden p-3 space-y-3">
+                                    
+                                    <!-- Charcha Header -->
+                                    <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-8 h-8 rounded-xl bg-orange-50 flex items-center justify-center text-rashtraOrange">
+                                                    <i data-lucide="scale" class="w-4 h-4"></i>
+                                                </div>
+                                                <div>
+                                                    <h4 class="text-sm font-black text-rashtraBlue leading-none">Charcha Arena</h4>
+                                                    <span class="text-xs font-bold text-slate-500">(चर्चा अखाड़ा)</span>
+                                                </div>
+                                            </div>
+                                            <span class="px-2 py-0.5 rounded-full bg-rashtraOrange text-white text-[9px] font-black uppercase">
+                                                Core Differentiator
+                                            </span>
+                                        </div>
+                                        <p class="text-[11px] text-slate-500 font-medium">Structured, evidence-backed discourse replacing toxic comment loops.</p>
+                                    </div>
+
+                                    <!-- Active Debate Topic Card -->
+                                    <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <div class="w-6 h-6 rounded-full bg-rashtraBlue text-white flex items-center justify-center text-[10px] font-bold">A</div>
+                                            <div>
+                                                <p class="text-[11px] font-black text-rashtraBlue">@ananya_tech</p>
+                                                <p class="text-[9px] text-slate-400 font-bold">Debate Topic</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-slate-700 font-semibold leading-relaxed">
+                                            "India needs sovereign AI infrastructure, not just API wrappers on foreign foundational models. If our national datasets and vernacular wisdom train models hosted abroad, we surrender algorithmic sovereignty."
+                                        </p>
+                                    </div>
+
+                                    <!-- BHARAT VOICE CONSENSUS CARD (Live Engine) -->
+                                    <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <div class="flex items-center gap-2">
+                                                <i data-lucide="scale" class="w-4 h-4 text-rashtraOrange"></i>
+                                                <div>
+                                                    <h5 class="text-xs font-black text-rashtraBlue uppercase tracking-wider">Bharat Voice Consensus</h5>
+                                                    <p class="text-[9px] text-slate-400">Live structured consensus engine</p>
+                                                </div>
+                                            </div>
+                                            <span id="consensus-total-args" class="text-xs font-black text-rashtraOrange">3 arguments</span>
+                                        </div>
+
+                                        <!-- Consensus Percentage Bar -->
+                                        <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden flex my-3">
+                                            <div id="consensus-bar-favor" class="bg-emerald-500 h-full transition-all duration-500" style="width: 67%"></div>
+                                            <div id="consensus-bar-counter" class="bg-amber-500 h-full transition-all duration-500" style="width: 33%"></div>
+                                        </div>
+
+                                        <!-- Bar Metrics -->
+                                        <div class="flex justify-between text-xs font-black">
+                                            <span id="consensus-label-favor" class="text-emerald-700">In Favor: 2 (67%)</span>
+                                            <span id="consensus-label-counter" class="text-amber-700">Counter: 1 (33%)</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Arguments Filter Tabs -->
+                                    <div class="flex gap-2">
+                                        <button id="charcha-tab-all" data-filter="all" class="flex-1 py-1.5 rounded-xl bg-rashtraBlue text-white text-[11px] font-black shadow-xs transition-all">
+                                            <span id="tab-count-all">All Arguments (3)</span>
+                                        </button>
+                                        <button id="charcha-tab-favor" data-filter="favor" class="flex-1 py-1.5 rounded-xl bg-slate-100 text-slate-600 text-[11px] font-bold hover:bg-slate-200 transition-all">
+                                            <span id="tab-count-favor">✓ In Favor (2)</span>
+                                        </button>
+                                        <button id="charcha-tab-counter" data-filter="counter" class="flex-1 py-1.5 rounded-xl bg-slate-100 text-slate-600 text-[11px] font-bold hover:bg-slate-200 transition-all">
+                                            <span id="tab-count-counter">ⓘ Counter-Points (1)</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Arguments List Container -->
+                                    <div id="charcha-arguments-container" class="space-y-3">
+                                        <!-- Populated via Javascript -->
+                                    </div>
+
+                                    <!-- Contribution Box -->
+                                    <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+                                        <p class="text-xs font-black text-rashtraBlue">Contribute Evidence-Backed Argument:</p>
+                                        
+                                        <div class="flex gap-2">
+                                            <button id="charcha-type-favor" class="flex-1 py-2 px-3 rounded-xl bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-xs">
+                                                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                                                <span>✓ In Favor</span>
+                                            </button>
+                                            <button id="charcha-type-counter" class="flex-1 py-2 px-3 rounded-xl bg-slate-100 text-slate-600 font-bold text-xs flex items-center justify-center gap-1.5">
+                                                <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+                                                <span>ⓘ Counter-Argument</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="flex items-center gap-2">
+                                            <input type="checkbox" id="charcha-incognito-check" checked class="w-4 h-4 text-rashtraOrange rounded">
+                                            <label for="charcha-incognito-check" class="text-xs font-bold text-slate-600 flex items-center gap-1 cursor-pointer">
+                                                <i data-lucide="shield" class="w-3 h-3 text-rashtraOrange"></i>
+                                                <span>Post Anonymously (Incognito Citizen)</span>
+                                            </label>
+                                        </div>
+
+                                        <textarea id="charcha-text-input" rows="3" placeholder="State your supporting arguments and real-world observations..." class="w-full p-3 rounded-xl border border-slate-200 text-xs font-medium focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none resize-none"></textarea>
+
+                                        <div id="citation-input-container" class="hidden">
+                                            <input type="url" id="charcha-cite-input" placeholder="Paste PIB, research paper, or credible link..." class="w-full p-2.5 rounded-xl border border-slate-200 text-xs font-medium focus:border-rashtraOrange outline-none">
+                                        </div>
+
+                                        <div class="flex items-center justify-between">
+                                            <button id="add-citation-btn" class="text-xs font-bold text-rashtraOrange flex items-center gap-1 hover:underline">
+                                                <i data-lucide="link-2" class="w-3.5 h-3.5"></i>
+                                                <span>+ Add Research Citation / Source Link</span>
+                                            </button>
+                                            <button id="record-argument-btn" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-rashtraOrange to-indiaSaffron text-white font-black text-xs shadow-md active:scale-95 transition-transform flex items-center gap-1.5">
+                                                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                                                <span>Record Argument & Update Consensus</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- VIEW 3: SETTINGS & VERNACULAR (From Screenshots 4, 7) -->
+                                <div id="mvp-view-settings" class="hidden p-3 space-y-3">
+                                    
+                                    <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <i data-lucide="sparkles" class="w-4 h-4 text-rashtraOrange"></i>
+                                            <h4 class="text-xs font-black text-rashtraBlue">First Time User Experience (FTUE)</h4>
+                                        </div>
+                                        <p class="text-[11px] text-slate-500 font-medium">Re-experience vernacular greetings & sovereign setup.</p>
+                                    </div>
+
+                                    <!-- 7 Vernacular Languages -->
+                                    <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                                        <div class="flex items-center gap-2 mb-3">
+                                            <i data-lucide="languages" class="w-4 h-4 text-rashtraOrange"></i>
+                                            <h4 class="text-xs font-black text-rashtraBlue">Vernacular Language (7 Indian Languages)</h4>
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-2">
+                                            <button data-lang="en" class="lang-select-btn p-2.5 rounded-xl border border-rashtraOrange bg-orange-50/50 text-left transition-all">
+                                                <h5 class="text-xs font-black text-rashtraBlue">English</h5>
+                                                <p class="text-[9px] text-slate-400 font-bold">English</p>
+                                            </button>
+                                            <button data-lang="hi" class="lang-select-btn p-2.5 rounded-xl border border-slate-200 text-left hover:border-rashtraOrange transition-all">
+                                                <h5 class="text-xs font-black text-rashtraBlue">हिन्दी</h5>
+                                                <p class="text-[9px] text-slate-400 font-bold">Hindi</p>
+                                            </button>
+                                            <button data-lang="bn" class="lang-select-btn p-2.5 rounded-xl border border-slate-200 text-left hover:border-rashtraOrange transition-all">
+                                                <h5 class="text-xs font-black text-rashtraBlue">বাংলা</h5>
+                                                <p class="text-[9px] text-slate-400 font-bold">Bengali</p>
+                                            </button>
+                                            <button data-lang="ta" class="lang-select-btn p-2.5 rounded-xl border border-slate-200 text-left hover:border-rashtraOrange transition-all">
+                                                <h5 class="text-xs font-black text-rashtraBlue">தமிழ்</h5>
+                                                <p class="text-[9px] text-slate-400 font-bold">Tamil</p>
+                                            </button>
+                                            <button data-lang="te" class="lang-select-btn p-2.5 rounded-xl border border-slate-200 text-left hover:border-rashtraOrange transition-all">
+                                                <h5 class="text-xs font-black text-rashtraBlue">తెలుగు</h5>
+                                                <p class="text-[9px] text-slate-400 font-bold">Telugu</p>
+                                            </button>
+                                            <button data-lang="mr" class="lang-select-btn p-2.5 rounded-xl border border-slate-200 text-left hover:border-rashtraOrange transition-all">
+                                                <h5 class="text-xs font-black text-rashtraBlue">मराठी</h5>
+                                                <p class="text-[9px] text-slate-400 font-bold">Marathi</p>
+                                            </button>
+                                            <button data-lang="gu" class="lang-select-btn p-2.5 rounded-xl border border-slate-200 text-left hover:border-rashtraOrange transition-all">
+                                                <h5 class="text-xs font-black text-rashtraBlue">ગુજરાતી</h5>
+                                                <p class="text-[9px] text-slate-400 font-bold">Gujarati</p>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Incognito Citizen -->
+                                    <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex justify-between items-center">
+                                        <div class="pr-3">
+                                            <h5 class="text-xs font-black text-rashtraBlue flex items-center gap-1.5">
+                                                <i data-lucide="shield-check" class="w-4 h-4 text-rashtraOrange"></i>
+                                                <span>Incognito Citizen Mode</span>
+                                            </h5>
+                                            <p class="text-[10px] text-slate-400 font-medium mt-0.5">Post anonymously without displaying your handle or profile.</p>
+                                        </div>
+                                        <input type="checkbox" id="settings-incognito-check" class="w-5 h-5 text-rashtraOrange rounded cursor-pointer">
+                                    </div>
+
+                                    <!-- Personalization -->
+                                    <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-3">
+                                        <h5 class="text-xs font-black text-rashtraBlue flex items-center gap-1.5">
+                                            <i data-lucide="palette" class="w-4 h-4 text-rashtraOrange"></i>
+                                            <span>Personalization & Theme</span>
+                                        </h5>
+
+                                        <div>
+                                            <label class="text-[10px] font-bold text-slate-400 block mb-1.5">Theme</label>
+                                            <div class="flex gap-2">
+                                                <button id="theme-warm-cream" class="flex-1 py-2 rounded-xl border border-rashtraOrange bg-white text-xs font-black text-rashtraOrange flex items-center justify-center gap-1.5 shadow-xs">
+                                                    <span>☀️ Warm Cream</span>
+                                                </button>
+                                                <button id="theme-midnight-navy" class="flex-1 py-2 rounded-xl border border-slate-200 bg-slate-900 text-xs font-bold text-white flex items-center justify-center gap-1.5">
+                                                    <span>🌙 Midnight Navy</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label class="text-[10px] font-bold text-slate-400 block mb-1.5">Accent Color</label>
+                                            <div class="flex gap-2">
+                                                <button id="accent-saffron" class="flex-1 py-2 rounded-xl border-2 border-rashtraOrange bg-orange-50 text-xs font-bold text-slate-800 flex items-center justify-center gap-1.5">
+                                                    <span class="w-2.5 h-2.5 rounded-full bg-rashtraOrange"></span>
+                                                    <span>Saffron Orange</span>
+                                                </button>
+                                                <button id="accent-green" class="flex-1 py-2 rounded-xl border border-slate-200 bg-emerald-50 text-xs font-bold text-slate-800 flex items-center justify-center gap-1.5">
+                                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+                                                    <span>Viksit Green</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Indian Law Compliance Links -->
+                                    <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-2">
+                                        <button id="btn-grievance" class="w-full flex justify-between items-center text-left py-1 text-xs font-bold text-slate-700 hover:text-rashtraOrange">
+                                            <div class="flex items-center gap-2">
+                                                <i data-lucide="mail" class="w-4 h-4 text-rashtraOrange"></i>
+                                                <div>
+                                                    <p class="leading-none">Contact Us & Grievance Redressal</p>
+                                                    <p class="text-[9px] text-slate-400">IT Rules 2021 Compliant Desk</p>
+                                                </div>
+                                            </div>
+                                            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                                        </button>
+
+                                        <div class="border-t border-slate-100 my-1"></div>
+
+                                        <button id="btn-dpdp" class="w-full flex justify-between items-center text-left py-1 text-xs font-bold text-slate-700 hover:text-rashtraOrange">
+                                            <div class="flex items-center gap-2">
+                                                <i data-lucide="shield" class="w-4 h-4 text-emerald-600"></i>
+                                                <div>
+                                                    <p class="leading-none">Privacy & Security Policy (DPDP Act)</p>
+                                                    <p class="text-[9px] text-slate-400">Digital Personal Data Protection Act 2023</p>
+                                                </div>
+                                            </div>
+                                            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                                <!-- VIEW 4: EXPLORE -->
+                                <div id="mvp-view-explore" class="hidden p-3 space-y-3">
+                                    <div class="p-4 rounded-2xl bg-white border border-slate-200">
+                                        <h4 class="text-xs font-black text-rashtraBlue mb-3">Trending in Viksit Bharat:</h4>
+                                        <div class="space-y-2.5">
+                                            <div class="flex justify-between items-center text-xs font-bold">
+                                                <span class="text-rashtraOrange">#SemiconductorsBharat</span>
+                                                <span class="text-[10px] text-slate-400">42.5K posts</span>
+                                            </div>
+                                            <div class="flex justify-between items-center text-xs font-bold">
+                                                <span class="text-rashtraBlue">#GaganyaanMission</span>
+                                                <span class="text-[10px] text-slate-400">88.1K posts</span>
+                                            </div>
+                                            <div class="flex justify-between items-center text-xs font-bold">
+                                                <span class="text-emerald-700">#AgritechDrones</span>
+                                                <span class="text-[10px] text-slate-400">19.2K posts</span>
+                                            </div>
+                                            <div class="flex justify-between items-center text-xs font-bold">
+                                                <span class="text-slate-800">#Tier2Founders</span>
+                                                <span class="text-[10px] text-slate-400">14.8K posts</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Mobile App Bottom Navigation Bar -->
+                            <div class="px-3 py-2 bg-white/95 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between z-20">
+                                <button data-target="feed" class="mvp-tab-btn flex flex-col items-center flex-1 py-1 text-rashtraOrange font-black transition-colors">
+                                    <i data-lucide="home" class="w-5 h-5"></i>
+                                    <span class="text-[9px] mt-0.5" data-i18n="feed">Feed</span>
+                                </button>
+                                <button data-target="explore" class="mvp-tab-btn flex flex-col items-center flex-1 py-1 text-slate-400 font-medium transition-colors">
+                                    <i data-lucide="compass" class="w-5 h-5"></i>
+                                    <span class="text-[9px] mt-0.5" data-i18n="explore">Explore</span>
+                                </button>
+                                
+                                <!-- FAB Create Post Button -->
+                                <button id="mvp-create-btn" class="w-10 h-10 rounded-full bg-gradient-to-tr from-rashtraOrange to-indiaSaffron text-white flex items-center justify-center shadow-lg -mt-3 hover:scale-110 active:scale-95 transition-transform">
+                                    <i data-lucide="plus" class="w-5 h-5"></i>
+                                </button>
+
+                                <button data-target="charcha" class="mvp-tab-btn flex flex-col items-center flex-1 py-1 text-slate-400 font-medium transition-colors">
+                                    <i data-lucide="scale" class="w-5 h-5"></i>
+                                    <span class="text-[9px] mt-0.5" data-i18n="charcha">Charcha</span>
+                                </button>
+                                <button data-target="profile" class="mvp-tab-btn flex flex-col items-center flex-1 py-1 text-slate-400 font-medium transition-colors">
+                                    <i data-lucide="user" class="w-5 h-5"></i>
+                                    <span class="text-[9px] mt-0.5" data-i18n="profile">Profile</span>
+                                </button>
+                            </div>
+
+                            <!-- MODAL: PRIORITY MATRIX CONTROL CENTER (Screenshot 1) -->
+                            <div id="matrix-modal" class="hidden absolute inset-0 z-50 bg-black/60 backdrop-blur-xs flex flex-col justify-end p-2 transition-all">
+                                <div class="bg-white rounded-3xl p-5 max-h-[92%] overflow-y-auto hide-scrollbar shadow-2xl flex flex-col border border-slate-200">
+                                    
+                                    <!-- Modal Header -->
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="flex items-center gap-2.5">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-100/70 text-rashtraOrange flex items-center justify-center">
+                                                <i data-lucide="sliders" class="w-5 h-5"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-extrabold text-sm text-rashtraBlue">Priority Matrix Control Center</h3>
+                                                <p class="text-[10px] text-slate-400 font-bold">Direct Algorithmic Governance</p>
+                                            </div>
+                                        </div>
+                                        <button id="close-matrix-modal" class="text-slate-400 hover:text-slate-800 p-1">
+                                            <i data-lucide="x" class="w-4 h-4"></i>
+                                        </button>
+                                    </div>
+
+                                    <!-- Citizen Feed Tuning Info Card -->
+                                    <div class="p-3.5 rounded-2xl bg-sky-50/70 border border-sky-100 mb-4">
+                                        <div class="flex items-center gap-1.5 mb-1 text-sky-800 font-bold text-xs">
+                                            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-rashtraOrange"></i>
+                                            <span>Sovereign Citizen Feed Governance</span>
+                                        </div>
+                                        <p class="text-[10px] text-slate-600 font-medium">Fine-tune your personal priority sliders below to directly elevate topics you care about in your feed. No shadowbanning, strictly transparent and chronological.</p>
+                                    </div>
+
+                                    <!-- Inject Custom Hashtag Lever -->
+                                    <div class="p-3.5 rounded-2xl bg-orange-50/40 border border-orange-100 mb-4">
+                                        <label class="text-xs font-black text-rashtraOrange mb-2 block">+ Inject Custom Hashtag Lever:</label>
+                                        <div class="flex gap-2 mb-3">
+                                            <input type="text" id="inject-lever-input" placeholder="e.g. #space, #semiconductors" class="flex-grow p-2.5 rounded-xl border border-slate-200 text-xs font-bold outline-none focus:border-rashtraOrange bg-white">
+                                            <button id="inject-lever-btn" class="px-4 py-2.5 rounded-xl bg-rashtraOrange text-white font-black text-xs hover:scale-105 active:scale-95 transition-transform flex items-center gap-1">
+                                                <span>+ Inject</span>
+                                            </button>
+                                        </div>
+
+                                        <!-- Suggestions -->
+                                        <p class="text-[10px] font-bold text-slate-400 mb-1.5">Suggestions:</p>
+                                        <div class="flex flex-wrap gap-1.5">
+                                            <button class="suggestion-chip px-2.5 py-1 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-600 hover:border-rashtraOrange transition-colors" data-tag="#ai">#ai +</button>
+                                            <button class="suggestion-chip px-2.5 py-1 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-600 hover:border-rashtraOrange transition-colors" data-tag="#semiconductors">#semiconductors +</button>
+                                            <button class="suggestion-chip px-2.5 py-1 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-600 hover:border-rashtraOrange transition-colors" data-tag="#defence">#defence +</button>
+                                            <button class="suggestion-chip px-2.5 py-1 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-600 hover:border-rashtraOrange transition-colors" data-tag="#space">#space +</button>
+                                            <button class="suggestion-chip px-2.5 py-1 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-600 hover:border-rashtraOrange transition-colors" data-tag="#agritech">#agritech +</button>
+                                            <button class="suggestion-chip px-2.5 py-1 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-600 hover:border-rashtraOrange transition-colors" data-tag="#startups">#startups ✓</button>
+                                            <button class="suggestion-chip px-2.5 py-1 rounded-lg border border-slate-200 text-[10px] font-bold text-slate-600 hover:border-rashtraOrange transition-colors" data-tag="#fintech">#fintech +</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Active Levers List -->
+                                    <div class="mb-4">
+                                        <p id="active-levers-count" class="text-xs font-black text-slate-700 mb-2">Active Priority Levers (5):</p>
+                                        <div id="active-levers-list" class="space-y-2.5">
+                                            <!-- Dynamically populated -->
+                                        </div>
+                                    </div>
+
+                                    <!-- Bottom Action Buttons -->
+                                    <div class="flex gap-2 pt-2 border-t border-slate-100">
+                                        <button id="reset-levers-btn" class="flex-1 py-2.5 rounded-xl border border-slate-200 text-slate-700 font-bold text-xs hover:bg-slate-50 flex items-center justify-center gap-1">
+                                            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                                            <span>Reset Defaults</span>
+                                        </button>
+                                        <button id="cancel-matrix-modal" class="py-2.5 px-4 rounded-xl border border-slate-200 text-slate-500 font-bold text-xs">
+                                            Cancel
+                                        </button>
+                                        <button id="apply-rerank-btn" class="flex-1 py-2.5 rounded-xl bg-rashtraOrange text-white font-black text-xs hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-1.5 shadow-md">
+                                            <i data-lucide="check" class="w-4 h-4"></i>
+                                            <span>Apply & Re-rank</span>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- MODAL: CREATE POST -->
+                            <div id="mvp-create-modal" class="hidden absolute inset-0 z-50 bg-black/60 backdrop-blur-xs flex flex-col justify-end p-2">
+                                <div class="bg-white rounded-3xl p-5 shadow-2xl flex flex-col border border-slate-200">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <h4 class="text-xs font-black text-rashtraBlue">Publish Sovereign Post</h4>
+                                        <button id="close-create-modal" class="text-slate-400 p-1">
+                                            <i data-lucide="x" class="w-4 h-4"></i>
+                                        </button>
+                                    </div>
+                                    <textarea id="new-post-content" rows="4" placeholder="Share sovereign insight, research, or startup dispatch with Bharat..." class="w-full p-3 rounded-2xl border border-slate-200 text-xs font-medium focus:border-rashtraOrange outline-none resize-none mb-3"></textarea>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center gap-2 text-slate-400">
+                                            <button class="p-1 hover:text-rashtraOrange"><i data-lucide="image" class="w-4 h-4"></i></button>
+                                            <button class="p-1 hover:text-rashtraOrange"><i data-lucide="bar-chart-2" class="w-4 h-4"></i></button>
+                                            <button class="p-1 hover:text-rashtraOrange"><i data-lucide="hash" class="w-4 h-4"></i></button>
+                                        </div>
+                                        <button id="publish-post-btn" class="px-5 py-2.5 rounded-xl bg-rashtraOrange text-white font-black text-xs flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-transform">
+                                            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                                            <span>Publish</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- MODAL: STORY VIEWER -->
+                            <div id="story-viewer-modal" class="hidden absolute inset-0 z-50 bg-black text-white flex flex-col justify-between p-4">
+                                <div>
+                                    <div class="w-full h-1 bg-white/20 rounded-full overflow-hidden mb-3">
+                                        <div id="story-progress-bar" class="h-full bg-white transition-all duration-[4000ms] ease-linear w-0"></div>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-8 h-8 rounded-full bg-rashtraOrange flex items-center justify-center font-black text-xs">R</div>
+                                            <div>
+                                                <h5 id="story-author-name" class="text-xs font-black leading-none">ISRO Official</h5>
+                                                <span id="story-author-handle" class="text-[9px] text-white/60">@isro_official</span>
+                                            </div>
+                                        </div>
+                                        <button id="close-story-viewer" class="p-1 rounded-full bg-white/20 text-white">
+                                            <i data-lucide="x" class="w-4 h-4"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="my-auto p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20">
+                                    <span id="story-tag" class="px-2 py-0.5 rounded bg-rashtraOrange text-[9px] font-black uppercase mb-2 inline-block">Space</span>
+                                    <p id="story-body-text" class="text-xs font-bold leading-relaxed text-white">Gaganyaan tests completed successfully.</p>
+                                </div>
+
+                                <div class="flex items-center gap-2">
+                                    <input type="text" placeholder="Reply to story..." class="flex-grow p-2.5 rounded-full bg-white/20 text-xs font-medium placeholder-white/50 outline-none">
+                                    <button class="p-2.5 rounded-full bg-rashtraOrange text-white"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- MODAL: COMPLIANCE POPUP -->
+                            <div id="compliance-modal" class="hidden absolute inset-0 z-50 bg-black/60 backdrop-blur-xs flex flex-col justify-end p-2">
+                                <div class="bg-white rounded-3xl p-5 shadow-2xl flex flex-col border border-slate-200">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <h4 id="compliance-title" class="text-xs font-black text-rashtraBlue">DPDP Compliance</h4>
+                                        <button id="close-compliance-modal" class="text-slate-400 p-1">
+                                            <i data-lucide="x" class="w-4 h-4"></i>
+                                        </button>
+                                    </div>
+                                    <div id="compliance-body"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE MVP PRE-LAUNCH DISCLAIMER BADGE -->
+    <div class="relative py-6 px-6 flex justify-center items-center z-20 scroll-reveal">
+        <div class="max-w-2xl w-full mx-auto p-4 sm:p-5 rounded-3xl bg-amber-50/90 border border-amber-200/90 shadow-sm backdrop-blur-md flex items-center sm:items-start gap-4 transition-all hover:border-amber-300">
+            <!-- Circular Pulse Indicator -->
+            <div class="relative flex-shrink-0 flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white flex items-center justify-center shadow-md border-2 border-white">
+                    <i data-lucide="alert-circle" class="w-6 h-6"></i>
+                </div>
+                <span class="absolute -top-1 -right-1 flex h-3.5 w-3.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-orange-500"></span>
+                </span>
+            </div>
+            <div class="text-left flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-1 flex-wrap">
+                    <span class="px-2.5 py-0.5 rounded-full bg-amber-200/80 text-amber-950 font-black text-[10px] uppercase tracking-wider">
+                        Developer Preview Notice
+                    </span>
+                    <span class="text-[11px] font-bold text-amber-800">Subject to Continuous Refinement</span>
+                </div>
+                <p class="text-xs text-slate-700 font-medium leading-relaxed">
+                    <strong>Please Note:</strong> The interactive demo above is a working functional preview, not the finalized launch UI. Our design and engineering teams are actively elevating the visual polish, motion ergonomics, and adding more native features for the public debut.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. CHARCHA ARENA DEEP-DIVE (The Core Differentiator) -->
+    <section id="charcha-section" class="relative py-28 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto z-10 relative">
+            
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">
+                    Curing Toxic Comment Loops
+                </span>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-rashtraBlue mb-4">
+                    The Charcha Arena (चर्चा अखाड़ा).
+                </h2>
+                <p class="text-slate-600 font-medium max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                    Global social networks optimize for outrage and trolling. RashtraLink replaces flat replies with peer-reviewed consensus and real-world citations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
+                    <div class="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-rashtraOrange mb-6">
+                        <i data-lucide="scale" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Live Structured Consensus</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
+                        Every debate tracks supporting and counter-arguments in an auditable ledger. Mathematical ratios calculate real public consensus rather than whoever screams loudest.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-700 mb-6">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Incognito Citizen Protocol</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
+                        Engage in serious intellectual debate without fear of doxxing or targeted harassment. Posts are verified for genuine human origin while safeguarding your privacy.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-rashtraBlue mb-6">
+                        <i data-lucide="link-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Evidence & Citation Index</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
+                        Arguments linked with primary research papers, PIB bulletins, or economic data receive prioritized visibility scores over baseless speculation.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. SOVEREIGN PILLARS SECTION -->
+    <section id="pillars-section" class="relative py-24 px-6 bg-slate-50/50">
+        <div class="max-w-6xl mx-auto z-10 relative">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="px-4 py-1.5 rounded-full bg-rashtraBlue/10 text-rashtraBlue border border-rashtraBlue/20 text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">
+                    Sovereignty by Design
+                </span>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-rashtraBlue mb-4">
+                    Built for Bharat, by Bharat.
+                </h2>
+                <p class="text-slate-600 font-medium max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                    Why India must stop relying on Silicon Valley infrastructure for its national consciousness.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="glass-panel p-8 rounded-3xl scroll-reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="sliders" class="w-6 h-6 text-rashtraOrange"></i>
+                        <h3 class="text-xl font-black text-rashtraBlue">User-Governed Algorithmic Feed</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 font-medium leading-relaxed mb-4">
+                        No opaque recommendation black boxes pushing rage-bait or behavioral addictions. You directly set your topic priorities with simple, transparent feed controls.
+                    </p>
+                    <div class="p-3 rounded-xl bg-orange-50/70 border border-orange-200/80 text-xs font-bold text-slate-700 flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-rashtraOrange flex-shrink-0"></i>
+                        <span>100% User-Governed • Zero Shadowbanning • Chronological Option</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="glass-panel p-8 rounded-3xl scroll-reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-rashtraBlue"></i>
+                        <h3 class="text-xl font-black text-rashtraBlue">Indian Cloud Data Residency</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 font-medium leading-relaxed mb-3">
+                        In full compliance with the Digital Personal Data Protection (DPDP) Act 2023, all citizen data is hosted securely on certified Indian cloud infrastructure. Zero telemetry exports to foreign brokerages.
+                    </p>
+                    <div class="p-2.5 rounded-xl bg-emerald-50/60 border border-emerald-200/70 text-[11px] font-bold text-emerald-800 flex items-center gap-2">
+                        <i data-lucide="lock" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                        <span>Statutory DPDP Act 2023 Compliance</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="glass-panel p-8 rounded-3xl scroll-reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="languages" class="w-6 h-6 text-indiaSaffron"></i>
+                        <h3 class="text-xl font-black text-rashtraBlue">Multilingual Indic Intelligence</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 font-medium leading-relaxed">
+                        Trained on authentic Indic datasets across Hindi, Bengali, Tamil, Telugu, Marathi, and Gujarati — enabling fluid natural discourse in Bharat's native languages.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.5 A NOTE FROM THE FOUNDER (TWEET / MESSAGE FORMAT) -->
+    <section id="founder-note-section" class="relative py-24 px-6 overflow-hidden">
+        <div class="max-w-3xl mx-auto relative z-10">
+            
+            <div class="text-center mb-10 scroll-reveal">
+                <span class="px-4 py-1.5 rounded-full bg-orange-50 text-rashtraOrange border border-orange-200/70 text-[10px] font-black uppercase tracking-[0.2em] mb-3 inline-block">
+                    Official Dispatch
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-rashtraBlue">
+                    A Note from the Founder
+                </h2>
+            </div>
+
+            <!-- Authentic Social Post / Tweet Card -->
+            <div class="glass-panel p-6 sm:p-10 rounded-[2rem] shadow-xl border border-slate-200/90 relative overflow-hidden scroll-reveal bg-white/95">
+                
+                <!-- Tweet Header: Profile, Name, Verified Badge, Timestamp -->
+                <div class="flex items-start justify-between gap-4 mb-6">
+                    <div class="flex items-center gap-3.5">
+                        <div class="relative flex-shrink-0 group cursor-pointer" id="founder-avatar-wrapper" title="Debaprabho Paul - Founder & CEO">
+                            <img id="founder-photo" 
+                                 src="WhatsApp Image 2026-08-18 at 5.53.49 AM.jpeg" 
+                                 onerror="this.onerror=null; this.src='founder.jpg'; this.onerror=function(){ this.style.display='none'; var fb=document.getElementById('founder-avatar-fallback'); if(fb) { fb.style.display='block'; fb.classList.remove('hidden'); } };" 
+                                 alt="Debaprabho Paul - Founder & CEO" 
+                                 class="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover object-top border-2 border-white shadow-md">
+                            
+                            <!-- Detailed Studio Portrait of Debaprabho Paul matching uploaded photo (Black suit, white shirt, black tie, glasses) -->
+                            <div id="founder-avatar-fallback" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-white shadow-md bg-slate-950">
+                                <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#08090b" />
+                                            <stop offset="100%" stop-color="#141519" />
+                                        </linearGradient>
+                                        <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#c4b29e" />
+                                            <stop offset="50%" stop-color="#ab9883" />
+                                            <stop offset="100%" stop-color="#877460" />
+                                        </linearGradient>
+                                        <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#181a1f" />
+                                            <stop offset="50%" stop-color="#101114" />
+                                            <stop offset="100%" stop-color="#08090b" />
+                                        </linearGradient>
+                                    </defs>
+
+                                    <!-- Dark studio background with rim ambient -->
+                                    <rect width="200" height="200" fill="url(#bgGrad)" />
+                                    <circle cx="160" cy="85" r="70" fill="#323640" opacity="0.18" />
+                                    <circle cx="40" cy="85" r="70" fill="#323640" opacity="0.14" />
+
+                                    <!-- Shoulders & Tailored Suit Jacket -->
+                                    <path d="M 18 200 L 45 144 C 55 128, 80 126, 100 126 C 120 126, 145 128, 155 144 L 182 200 Z" fill="url(#suitGrad)" />
+                                    <!-- Lapels -->
+                                    <path d="M 45 144 L 84 200 L 68 200 L 38 152 Z" fill="#24262d" />
+                                    <path d="M 155 144 L 116 200 L 132 200 L 162 152 Z" fill="#1c1e23" />
+
+                                    <!-- White Dress Shirt V -->
+                                    <polygon points="80,134 120,134 100,186" fill="#f5f6f9" />
+                                    <!-- Shirt Collar Points -->
+                                    <polygon points="74,133 94,146 87,159 70,140" fill="#ffffff" />
+                                    <polygon points="126,133 106,146 113,159 130,140" fill="#e5e7ec" />
+
+                                    <!-- Crisp Black Necktie -->
+                                    <polygon points="93,144 107,144 104,155 96,155" fill="#0d0e11" />
+                                    <polygon points="95,155 105,155 109,200 91,200" fill="#141519" />
+
+                                    <!-- Neck -->
+                                    <path d="M 85 108 L 85 140 C 95 145, 105 145, 115 140 L 115 108 Z" fill="#9e8a75" />
+                                    <path d="M 85 110 C 95 122, 105 122, 115 110 L 115 117 C 105 128, 95 128, 85 117 Z" fill="#6d5c4c" opacity="0.6" />
+
+                                    <!-- Head & Facial Structure -->
+                                    <path d="M 68 74 C 68 44, 132 44, 132 74 C 132 108, 122 125, 100 125 C 78 125, 68 108, 68 74 Z" fill="url(#skinGrad)" />
+
+                                    <!-- Nose & Highlights -->
+                                    <path d="M 98 77 L 102 77 L 103 94 L 97 94 Z" fill="#988470" opacity="0.3" />
+                                    <path d="M 97 94 C 98 96, 102 96, 103 94" stroke="#5d4c3d" stroke-width="1.2" fill="none" />
+                                    
+                                    <!-- Lips -->
+                                    <path d="M 93 105 C 97 104, 103 104, 107 105" stroke="#665242" stroke-width="1.5" stroke-linecap="round" fill="none" />
+                                    <path d="M 95 108 C 98 109, 102 109, 105 108" stroke="#876f5b" stroke-width="1.2" stroke-linecap="round" fill="none" />
+
+                                    <!-- Eyebrows -->
+                                    <path d="M 77 68 C 83 65, 89 66, 93 69" stroke="#161719" stroke-width="2.2" stroke-linecap="round" fill="none" />
+                                    <path d="M 107 69 C 111 66, 117 65, 123 68" stroke="#161719" stroke-width="2.2" stroke-linecap="round" fill="none" />
+                                    
+                                    <!-- Eyes -->
+                                    <ellipse cx="85" cy="75" rx="4.5" ry="2.8" fill="#ffffff" />
+                                    <circle cx="85" cy="75" r="2.2" fill="#141416" />
+                                    <ellipse cx="115" cy="75" rx="4.5" ry="2.8" fill="#ffffff" />
+                                    <circle cx="115" cy="75" r="2.2" fill="#141416" />
+
+                                    <!-- Rectangular Square-Frame Glasses -->
+                                    <rect x="74" y="67" width="22" height="16" rx="3" fill="none" stroke="#222429" stroke-width="1.8" />
+                                    <rect x="75" y="68" width="20" height="14" rx="2" fill="#ffffff" opacity="0.07" />
+                                    <rect x="104" y="67" width="22" height="16" rx="3" fill="none" stroke="#222429" stroke-width="1.8" />
+                                    <rect x="105" y="68" width="20" height="14" rx="2" fill="#ffffff" opacity="0.07" />
+                                    <path d="M 96 73 C 99 71, 101 71, 104 73" stroke="#222429" stroke-width="1.8" fill="none" />
+                                    <line x1="74" y1="72" x2="68" y2="71" stroke="#222429" stroke-width="1.6" />
+                                    <line x1="126" y1="72" x2="132" y2="71" stroke="#222429" stroke-width="1.6" />
+                                    <line x1="76" y1="70" x2="80" y2="70" stroke="#ffffff" stroke-width="1" opacity="0.6" stroke-linecap="round" />
+                                    <line x1="106" y1="70" x2="110" y2="70" stroke="#ffffff" stroke-width="1" opacity="0.6" stroke-linecap="round" />
+
+                                    <!-- Clean Haircut & Parting -->
+                                    <path d="M 66 72 C 64 51, 70 30, 100 28 C 130 30, 136 51, 134 72 C 130 61, 126 54, 118 51 C 104 47, 86 51, 66 72 Z" fill="#121316" />
+                                    <path d="M 76 43 C 88 37, 106 37, 120 45" stroke="#202227" stroke-width="2" fill="none" />
+                                    <path d="M 70 54 C 80 47, 95 45, 110 51" stroke="#1d1e22" stroke-width="1.5" fill="none" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <h3 class="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none">Debaprabho Paul</h3>
+                                <span class="inline-flex items-center text-rashtraOrange" title="Verified Founder">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 fill-orange-500 text-white"></i>
+                                </span>
+                                <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-extrabold uppercase tracking-wide">
+                                    Founder & CEO
+                                </span>
+                            </div>
+                            <p class="text-xs font-bold text-slate-400 mt-1">@debaprabho • Official Founding Dispatch</p>
+                        </div>
+                    </div>
+
+                    <!-- Pinned Tag -->
+                    <div class="hidden sm:flex items-center gap-1 text-[11px] font-bold text-slate-400 px-3 py-1 rounded-full bg-slate-50 border border-slate-100">
+                        <i data-lucide="pin" class="w-3 h-3 text-rashtraOrange"></i>
+                        <span>Pinned</span>
+                    </div>
+                </div>
+
+                <!-- Tweet / Message Body -->
+                <div class="text-sm sm:text-base text-slate-800 leading-relaxed space-y-4 font-normal">
+                    <p class="font-medium text-slate-900 text-base sm:text-lg">
+                        Why are we building RashtraLink?
+                    </p>
+                    <p>
+                        For years, India’s public square has been shaped by black-box algorithms designed thousands of miles away in Silicon Valley. Systems engineered to amplify outrage, maximize polarization, and trap minds in endless dopamine loops—all to sell ad impressions.
+                    </p>
+                    <p>
+                        India is home to 1.4 billion citizens with brilliant researchers, creators, thinkers, and builders. Our intellectual soul and national conversation cannot be rented out to foreign recommendation feeds.
+                    </p>
+                    <div class="p-4 sm:p-5 rounded-2xl bg-orange-50/60 border border-orange-100/80 space-y-2.5 my-3">
+                        <p class="text-xs font-black uppercase tracking-wider text-rashtraOrange">Our Three Guiding Foundations:</p>
+                        <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900 font-bold">1. Transparent Algorithmic Control:</strong> You govern what enters your feed with simple, visible priority levers. No shadowbanning, no hidden manipulation.</p>
+                        <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900 font-bold">2. The Charcha Arena:</strong> Moving past toxic comment wars into structured, evidence-backed civil debates where citations and truth matter.</p>
+                        <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900 font-bold">3. Indian Data Sovereignty:</strong> Built in strict alignment with the DPDP Act 2023. Your personal data stays on Indian soil, guarded by Indian law.</p>
+                    </div>
+                    <p>
+                        We are not building another frivolous feed. We are building the sovereign digital town square for India's future. If this mission speaks to you, I warmly invite you to join our early access cohort and shape this with us.
+                    </p>
+                </div>
+
+                <!-- Tweet Metadata / Timestamp -->
+                <div class="pt-4 mt-6 border-t border-slate-100 text-xs text-slate-400 font-medium flex items-center justify-between">
+                    <span>10:30 AM • August 18 • Public Dispatch</span>
+                    <span class="text-slate-500 font-bold">Web • Sovereign Cloud</span>
+                </div>
+
+                <!-- Tweet Action Bar -->
+                <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-5 sm:gap-8">
+                        <!-- Like Button with Counter -->
+                        <button id="founder-like-btn" class="flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-red-500 transition-colors group">
+                            <i data-lucide="heart" class="w-4 h-4 group-hover:scale-125 transition-transform"></i>
+                            <span id="founder-like-count">2,841</span>
+                        </button>
+                        <!-- Repost Button -->
+                        <button id="founder-repost-btn" class="flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-emerald-600 transition-colors group">
+                            <i data-lucide="repeat-2" class="w-4 h-4 group-hover:scale-125 transition-transform"></i>
+                            <span id="founder-repost-count">489</span>
+                        </button>
+                        <!-- Bookmark Button -->
+                        <button id="founder-bookmark-btn" class="flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-rashtraBlue transition-colors group">
+                            <i data-lucide="bookmark" class="w-4 h-4 group-hover:scale-125 transition-transform"></i>
+                            <span id="founder-bookmark-count">612</span>
+                        </button>
+                    </div>
+
+                    <!-- Join Early Access Button -->
+                    <button onclick="window.switchPage('early-access')" class="px-4 sm:px-5 py-2 rounded-xl bg-rashtraBlue hover:bg-slate-900 text-white text-xs font-black shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+                        <span>Apply for Access</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOUNDING CITIZEN PASS & WISHLIST RESERVATION -->
+    <section id="waitlist" class="relative py-28 px-6 overflow-hidden">
+        <div class="max-w-4xl mx-auto z-10 relative">
+            
+            <div class="text-center mb-12 scroll-reveal">
+                <span class="px-4 py-1.5 rounded-full bg-rashtraOrange/10 text-rashtraOrange border border-rashtraOrange/20 text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">
+                    Exclusive Early Access
+                </span>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-rashtraBlue mb-4">
+                    Claim Your Founding Citizen Pass.
+                </h2>
+                <p class="text-slate-600 font-medium max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+                    Reserve your unique @handle before public launch and receive an immutable Founding Citizen Pass with permanent verification privileges.
+                </p>
+            </div>
+
+            <!-- Reservation Form Card -->
+            <div class="glass-panel p-8 md:p-10 rounded-[2.5rem] shadow-xl border border-slate-200 scroll-reveal mb-12">
+                <form id="waitlist-form" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-black text-slate-700 block mb-1.5">Desired @Handle</label>
+                            <div class="relative">
+                                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">@</span>
+                                <input type="text" id="pass-handle-input" placeholder="yourname" class="w-full pl-8 pr-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none text-sm font-bold bg-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-black text-slate-700 block mb-1.5">Official Email</label>
+                            <input type="email" id="pass-email-input" placeholder="you@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none text-sm font-medium bg-white">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="text-xs font-black text-slate-700 block mb-1.5">Ecosystem Role</label>
+                        <select id="pass-role-select" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange outline-none text-xs font-bold bg-white text-slate-700">
+                            <option value="Citizen Thinker">Citizen Thinker (General Access)</option>
+                            <option value="Deep Tech Founder">Deep Tech Founder / Builder</option>
+                            <option value="Independent Creator">Independent Creator / Journalist</option>
+                            <option value="Policy Researcher">Policy Researcher / Academic</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="generate-pass-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-rashtraOrange via-indiaSaffron to-rashtraOrange text-white font-black text-sm shadow-lg hover:shadow-orange-500/25 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="award" class="w-4 h-4"></i>
+                        <span>Generate Immutable Founding Pass</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- RESULTING HOLOGRAPHIC PASS (Revealed on submission) -->
+            <div id="founding-pass-result" class="hidden scroll-reveal">
+                <div class="hologram-card text-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-white/20 max-w-md mx-auto relative overflow-hidden">
+                    
+                    <!-- Emblem & Header -->
+                    <div class="flex justify-between items-start mb-8 relative z-10">
+                        <div class="flex items-center gap-2.5">
+                            <img src="Rashtralinkproperlogo.png" alt="RashtraLink" class="h-8 w-auto object-contain">
+                            <div>
+                                <span class="font-black text-sm tracking-tight block">RASHTRALINK</span>
+                                <span class="text-[9px] uppercase tracking-widest text-amber-400 font-extrabold">Founding Citizen Pass</span>
+                            </div>
+                        </div>
+                        <div class="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-[9px] font-black text-emerald-300">
+                            VERIFIED CITIZEN
+                        </div>
+                    </div>
+
+                    <!-- Pass ID -->
+                    <div class="mb-6 relative z-10">
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Member Registry No.</p>
+                        <h3 id="result-pass-id" class="text-2xl md:text-3xl font-mono font-black text-amber-300 tracking-wider">#BHARAT-2026-0891</h3>
+                    </div>
+
+                    <!-- Handle & Role -->
+                    <div class="grid grid-cols-2 gap-4 mb-6 relative z-10">
+                        <div>
+                            <p class="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Reserved Handle</p>
+                            <p id="result-pass-handle" class="font-black text-base text-white">@debaprabho</p>
+                        </div>
+                        <div>
+                            <p class="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Ecosystem Role</p>
+                            <p id="result-pass-role" class="font-bold text-xs text-white/90">Deep Tech Founder</p>
+                        </div>
+                    </div>
+
+                    <!-- Footer of Pass -->
+                    <div class="flex justify-between items-end pt-4 border-t border-white/15 text-[9px] text-slate-300 font-bold relative z-10">
+                        <div>
+                            <p>Issued: <span id="result-pass-date">Sep 18, 2026</span></p>
+                            <p class="text-amber-400">Rashtra Group Sovereign Node</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs">🇮🇳</span>
+                            <p>Viksit Bharat 2047</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pass Actions -->
+                <div class="flex justify-center gap-3 mt-6">
+                    <button id="copy-pass-link-btn" class="px-5 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 font-black text-xs hover:border-rashtraOrange flex items-center gap-1.5 shadow-sm">
+                        <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                        <span>Copy Verification Link</span>
+                    </button>
+                    <button id="share-pass-x-btn" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white font-black text-xs hover:bg-black flex items-center gap-1.5 shadow-sm">
+                        <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                        <span>Share on X / Twitter</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. SOVEREIGN COMMUNITY & FOUNDING INTAKE -->
+    <section class="relative py-24 px-6 bg-slate-50/70 border-t border-slate-100">
+        <div class="max-w-4xl mx-auto z-10 relative">
+            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] border border-slate-200 shadow-xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black text-xl shadow-md">
+                        <i data-lucide="message-circle" class="w-7 h-7"></i>
+                    </div>
+                    <div>
+                        <span class="inline-block px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase tracking-wider mb-1.5">Official WhatsApp Community</span>
+                        <h3 class="text-xl font-black text-rashtraBlue leading-tight">RashtraLink Sovereign Circle</h3>
+                    </div>
+                </div>
+                
+                <p class="text-sm font-medium text-slate-700 leading-relaxed mb-6">
+                    To maintain high signal, prevent bot spam, and cultivate genuine civil discourse, entry to our official WhatsApp Community is application-based. Our founding team reviews every application personally before issuing a private invitation link.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-between pt-6 border-t border-slate-200/70 gap-4">
+                    <button onclick="window.switchPage('early-access')" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black shadow-lg hover:shadow-emerald-600/30 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+                        <i data-lucide="award" class="w-4 h-4"></i>
+                        <span>Apply for WhatsApp Community Invite</span>
+                    </button>
+                    
+                    <div class="flex items-center gap-3 text-xs font-bold text-slate-500">
+                        <span>Private Cohort</span>
+                        <span>•</span>
+                        <button onclick="window.openLegalModal('contact')" class="text-rashtraBlue hover:text-rashtraOrange transition-colors">Questions? Contact Us</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-white relative z-10 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="Rashtralinkproperlogo.png" alt="RashtraLink" class="h-8 w-auto object-contain">
+                <div>
+                    <span class="text-xs font-black text-rashtraBlue block">RashtraLink</span>
+                    <span class="text-[10px] text-slate-400 font-bold block">A Rashtra Group Initiative</span>
+                </div>
+            </div>
+
+            <p class="text-xs font-medium text-slate-500 text-center">
+                © 2026 RashtraLink. All rights reserved. Built for Bharat.
+            </p>
+
+            <div class="flex items-center gap-5 text-xs font-bold text-slate-600">
+                <button onclick="window.openLegalModal('dpdp')" class="hover:text-rashtraOrange transition-colors">Privacy (DPDP)</button>
+                <button onclick="window.openLegalModal('grievance')" class="hover:text-rashtraOrange transition-colors">Grievance Redressal</button>
+                <button onclick="window.openLegalModal('contact')" class="hover:text-rashtraOrange transition-colors">Contact Us</button>
+            </div>
+        </div>
+    </footer>
+
+    </div> <!-- END VIEW MAIN SITE -->
+
+    <!-- DEDICATED EARLY ACCESS & WISHLIST APPLICATION PAGE VIEW -->
+    <div id="view-early-access" class="hidden min-h-screen pt-24 pb-20 px-6 relative z-20">
+        <div class="max-w-3xl mx-auto">
+            
+            <!-- Navigation Back Bar -->
+            <div class="flex items-center justify-between mb-8">
+                <button onclick="window.switchPage('home')" class="px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:border-rashtraOrange hover:text-rashtraOrange text-xs font-black shadow-xs flex items-center gap-2 transition-all">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>Back to RashtraLink Home</span>
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-rashtraOrange text-[11px] font-black">
+                        Alpha Cohort • Founding Registry
+                    </span>
+                </div>
+            </div>
+
+            <!-- Application Card Container -->
+            <div id="early-access-card" class="glass-panel p-8 sm:p-12 rounded-[2.5rem] shadow-2xl border border-slate-200">
+                
+                <!-- Form State -->
+                <div id="ea-form-container">
+                    <div class="text-center mb-8">
+                        <span class="px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-black uppercase tracking-widest inline-block mb-3">
+                            Direct Community Application
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl font-black text-rashtraBlue tracking-tight mb-2">
+                            Join the RashtraLink Early Access Cohort
+                        </h2>
+                        <p class="text-slate-600 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
+                            Apply for an exclusive invitation to our private WhatsApp Community and reserve your founding citizen privileges. Reviewed personally by our founding team.
+                        </p>
+                    </div>
+
+                    <form id="early-access-application-form" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs font-black text-slate-700 block mb-1">Full Legal Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="ea-name-input" required placeholder="e.g. Debaprabho Paul" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none text-xs font-bold bg-white">
+                            </div>
+
+                            <div>
+                                <label class="text-xs font-black text-slate-700 block mb-1">WhatsApp Phone Number <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-xs">+91</span>
+                                    <input type="tel" id="ea-phone-input" required pattern="[0-9]{10}" placeholder="9876543210" class="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none text-xs font-bold bg-white">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs font-black text-slate-700 block mb-1">Official Email <span class="text-red-500">*</span></label>
+                                <input type="email" id="ea-email-input" required placeholder="you@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none text-xs font-medium bg-white">
+                            </div>
+
+                            <div>
+                                <label class="text-xs font-black text-slate-700 block mb-1">Current City & State <span class="text-red-500">*</span></label>
+                                <input type="text" id="ea-city-input" required placeholder="e.g. Kolkata, Bengaluru, Mumbai" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none text-xs font-bold bg-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-black text-slate-700 block mb-1">Your Primary Track / Ecosystem Role</label>
+                            <select id="ea-role-input" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange outline-none text-xs font-bold bg-white text-slate-700">
+                                <option value="Citizen Thinker (General Access)">Citizen Thinker (Public Discourse & Feed Curation)</option>
+                                <option value="Deep Tech Founder / Software Builder">Deep Tech Founder / Software Builder</option>
+                                <option value="Independent Content Creator / Journalist">Independent Content Creator / Journalist</option>
+                                <option value="Academic Researcher / Policy Thinker">Academic Researcher / Policy Thinker</option>
+                                <option value="Student / Youth Innovator">Student / Youth Innovator</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-black text-slate-700 block mb-1">Why do you want to join RashtraLink?</label>
+                            <textarea id="ea-note-input" rows="2" placeholder="Tell us what excites you about sovereign algorithmic control, Charcha Arena evidence debates, or creator economics..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none text-xs font-medium bg-white resize-none"></textarea>
+                        </div>
+
+                        <!-- Data Protection Assurance -->
+                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-2 text-[11px] text-slate-600">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                            <span>Protected under DPDP Act 2023. Your contact information is stored on Indian sovereign clouds and never shared.</span>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-800 text-white font-black text-sm shadow-xl hover:shadow-emerald-600/30 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Submit Application for WhatsApp Community Invite</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Success Confirmation State (Revealed after submission) -->
+                <div id="ea-success-container" class="hidden text-center py-4">
+                    <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="check" class="w-8 h-8"></i>
+                    </div>
+
+                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-black uppercase tracking-wider">
+                        Application Lodged Successfully
+                    </span>
+
+                    <h3 class="text-2xl sm:text-3xl font-black text-rashtraBlue tracking-tight mt-2 mb-2">
+                        Welcome to the Sovereign Registry
+                    </h3>
+
+                    <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto mb-6">
+                        Your early access application has been submitted to our founding team.
+                    </p>
+
+                    <!-- Holographic Application Summary Card -->
+                    <div class="max-w-md mx-auto p-6 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-2xl text-left mb-6 relative overflow-hidden">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-[9px] uppercase tracking-widest text-amber-400 font-black">RashtraLink Candidate Code</span>
+                                <h4 id="ea-res-id" class="text-xl font-mono font-black text-white">#RL-2026-0000</h4>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[9px] font-black border border-emerald-400/30">
+                                REVIEW PENDING
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs border-t border-slate-800 pt-3">
+                            <div>
+                                <p class="text-[9px] text-slate-400 uppercase">Applicant</p>
+                                <p id="ea-res-name" class="font-bold text-slate-100"></p>
+                            </div>
+                            <div>
+                                <p class="text-[9px] text-slate-400 uppercase">WhatsApp</p>
+                                <p id="ea-res-phone" class="font-bold text-slate-100"></p>
+                            </div>
+                            <div>
+                                <p class="text-[9px] text-slate-400 uppercase">Email</p>
+                                <p id="ea-res-email" class="font-bold text-slate-100 truncate"></p>
+                            </div>
+                            <div>
+                                <p class="text-[9px] text-slate-400 uppercase">City / State</p>
+                                <p id="ea-res-city" class="font-bold text-slate-100"></p>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 pt-3 border-t border-slate-800">
+                            <p class="text-[9px] text-slate-400 uppercase">Track</p>
+                            <p id="ea-res-role" class="text-xs font-bold text-amber-300"></p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 text-left mb-6 max-w-md mx-auto space-y-1">
+                        <p class="font-black flex items-center gap-1.5"><i data-lucide="info" class="w-4 h-4 text-amber-700"></i> Next Step: WhatsApp Private Link Invitation</p>
+                        <p class="text-[11px] leading-relaxed text-amber-800">Our founding team reviews applications in batches within 24-48 hours. Once verified, your one-time invite link to the private WhatsApp Community will be dispatched directly to your phone and email.</p>
+                        <p class="text-[11px] text-slate-600 pt-1">Questions? <button onclick="window.openLegalModal('contact')" class="text-rashtraOrange font-bold underline">Contact Us</button></p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <button id="ea-copy-id-btn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-black hover:bg-black transition-all flex items-center justify-center gap-1.5">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>Copy Candidate Code</span>
+                        </button>
+                        <button onclick="window.switchPage('home')" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-800 text-xs font-black hover:border-rashtraOrange transition-all flex items-center justify-center gap-1.5">
+                            <i data-lucide="home" class="w-3.5 h-3.5"></i>
+                            <span>Return to Home</span>
+                        </button>
+                        <button id="ea-new-app-btn" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-orange-50 text-rashtraOrange text-xs font-black hover:bg-orange-100 transition-all flex items-center justify-center gap-1.5">
+                            <span>Submit Another</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- UNIVERSAL SITE LEGAL & CONTACT MODAL -->
+    <div id="universal-site-modal" class="fixed inset-0 z-[9999] hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-xl rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+                <h3 id="universal-modal-title" class="text-base sm:text-lg font-black text-rashtraBlue"></h3>
+                <button id="close-universal-modal" class="text-slate-400 hover:text-slate-800 p-1.5 rounded-xl hover:bg-slate-100 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div id="universal-modal-content"></div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script src="mvp-interactive.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // --- PRELOADER ANIMATION ---
+        const initSite = () => {
+            const tl = gsap.timeline();
+            tl.to('#preloader-text', { y: 0, duration: 0.8, ease: 'power4.out' })
+              .to('#preloader-bar', { width: '100%', duration: 0.7, ease: 'power2.inOut' }, '-=0.4')
+              .to('#preloader', { opacity: 0, duration: 0.6, ease: 'power2.out', onComplete: () => {
+                  document.getElementById('preloader').style.display = 'none';
+                  document.body.style.overflowY = 'auto';
+                  gsap.from('.gsap-hero', {
+                      y: 40, opacity: 0, duration: 1, stagger: 0.15, ease: "power4.out"
+                  });
+              }});
+        };
+
+        window.addEventListener('load', initSite);
+        setTimeout(() => {
+            const p = document.getElementById('preloader');
+            if(p && p.style.display !== 'none') {
+                p.style.display = 'none';
+                document.body.style.overflowY = 'auto';
+                gsap.from('.gsap-hero', { y: 40, opacity: 0, duration: 1, stagger: 0.15 });
+            }
+        }, 3500);
+
+        // Global Click Ripple
+        document.addEventListener('click', (e) => {
+            if(e.target.tagName.toLowerCase() === 'input' || e.target.tagName.toLowerCase() === 'button' || e.target.tagName.toLowerCase() === 'textarea') return;
+            const ripple = document.createElement('div');
+            ripple.className = 'click-ripple';
+            ripple.style.left = `${e.clientX}px`;
+            ripple.style.top = `${e.clientY}px`;
+            document.body.appendChild(ripple);
+            setTimeout(() => { if (document.body.contains(ripple)) ripple.remove(); }, 600);
+        });
+
+        // --- INTERACTIVE AMBIENT CANVAS NETWORK ---
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        let hubNodes = [];
+        let shockwaves = [];
+        let cursorSparks = [];
+        const isMobile = window.innerWidth < 768;
+        const baseParticleCount = isMobile ? 55 : 120;
+        
+        let mouse = {
+            x: -1000,
+            y: -1000,
+            prevX: -1000,
+            prevY: -1000,
+            active: false,
+            radius: 200
+        };
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initHubs();
+        }
+        window.addEventListener('resize', resize);
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.prevX = mouse.x;
+            mouse.prevY = mouse.y;
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            mouse.active = true;
+
+            // Spawn interactive cursor trail sparks
+            if (Math.hypot(mouse.x - mouse.prevX, mouse.y - mouse.prevY) > 8) {
+                for (let k = 0; k < 2; k++) {
+                    cursorSparks.push({
+                        x: mouse.x + (Math.random() - 0.5) * 12,
+                        y: mouse.y + (Math.random() - 0.5) * 12,
+                        vx: (Math.random() - 0.5) * 1.5,
+                        vy: (Math.random() - 0.5) * 1.5 - 0.3,
+                        size: Math.random() * 2.5 + 1,
+                        opacity: 0.8,
+                        color: Math.random() > 0.6 ? '255, 153, 51' : (Math.random() > 0.3 ? '0, 51, 102' : '19, 136, 8')
+                    });
+                }
+            }
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.active = false;
+            mouse.x = -1000;
+            mouse.y = -1000;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                mouse.x = e.touches[0].clientX;
+                mouse.y = e.touches[0].clientY;
+                mouse.active = true;
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchend', () => {
+            mouse.active = false;
+        });
+
+        window.addEventListener('click', (e) => {
+            // Multi-ring shockwave
+            shockwaves.push({
+                x: e.clientX,
+                y: e.clientY,
+                radius: 5,
+                maxRadius: 220,
+                opacity: 0.55,
+                color: '255, 153, 51'
+            });
+            shockwaves.push({
+                x: e.clientX,
+                y: e.clientY,
+                radius: 2,
+                maxRadius: 160,
+                opacity: 0.4,
+                color: '0, 51, 102'
+            });
+
+            // Kinetic spark burst on click
+            for (let s = 0; s < 12; s++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 4 + 2;
+                cursorSparks.push({
+                    x: e.clientX,
+                    y: e.clientY,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    size: Math.random() * 3 + 1.5,
+                    opacity: 0.95,
+                    color: Math.random() > 0.5 ? '255, 153, 51' : '19, 136, 8'
+                });
+            }
+        });
+
+        // Sovereign Network Regional Hubs
+        function initHubs() {
+            const hubLabels = ['DELHI [HUB-01]', 'BENGALURU [AI-CORE]', 'MUMBAI [FIN-GRID]', 'KOLKATA [INDIC-NODE]', 'HYDERABAD [CLOUD-02]', 'CHENNAI [DATA-VAULT]'];
+            hubNodes = [];
+            for (let i = 0; i < (isMobile ? 3 : hubLabels.length); i++) {
+                hubNodes.push({
+                    x: (width * (0.15 + (i * 0.16))) % (width - 60) + 30,
+                    y: (height * (0.2 + (i % 3) * 0.28)) % (height - 60) + 30,
+                    label: hubLabels[i],
+                    baseRadius: 4.5,
+                    pulse: Math.random() * Math.PI * 2
+                });
+            }
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.originX = this.x;
+                this.originY = this.y;
+                this.vx = (Math.random() - 0.5) * 0.65;
+                this.vy = (Math.random() - 0.5) * 0.65;
+                this.radius = Math.random() * 2.4 + 1.1;
+                this.color = Math.random() > 0.55 ? 'rgba(255, 153, 51, 0.48)' : (Math.random() > 0.25 ? 'rgba(0, 51, 102, 0.42)' : 'rgba(19, 136, 8, 0.42)');
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Mouse interaction: gentle repulsion & interactive magnetism
+                if (mouse.active) {
+                    const dx = this.x - mouse.x;
+                    const dy = this.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius && dist > 0) {
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        this.x += (dx / dist) * force * 2.6;
+                        this.y += (dy / dist) * force * 2.6;
+                    }
+                }
+
+                // Shockwave reaction
+                for (let sw of shockwaves) {
+                    const dx = this.x - sw.x;
+                    const dy = this.y - sw.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (Math.abs(dist - sw.radius) < 30 && dist > 0) {
+                        this.x += (dx / dist) * 4;
+                        this.y += (dy / dist) * 4;
+                    }
+                }
+
+                if (this.x < 0) { this.x = width; }
+                if (this.x > width) { this.x = 0; }
+                if (this.y < 0) { this.y = height; }
+                if (this.y > height) { this.y = 0; }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < baseParticleCount; i++) particles.push(new Particle());
+        }
+        resize();
+        initParticles();
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Update & draw shockwaves
+            for (let i = shockwaves.length - 1; i >= 0; i--) {
+                const sw = shockwaves[i];
+                sw.radius += 5.5;
+                sw.opacity -= 0.014;
+                if (sw.opacity <= 0 || sw.radius >= sw.maxRadius) {
+                    shockwaves.splice(i, 1);
+                    continue;
+                }
+                ctx.beginPath();
+                ctx.arc(sw.x, sw.y, sw.radius, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(${sw.color}, ${sw.opacity})`;
+                ctx.lineWidth = 1.8;
+                ctx.stroke();
+            }
+
+            // Update & draw cursor sparks
+            for (let i = cursorSparks.length - 1; i >= 0; i--) {
+                const sp = cursorSparks[i];
+                sp.x += sp.vx;
+                sp.y += sp.vy;
+                sp.opacity -= 0.022;
+                sp.size = Math.max(0.2, sp.size - 0.03);
+                if (sp.opacity <= 0) {
+                    cursorSparks.splice(i, 1);
+                    continue;
+                }
+                ctx.beginPath();
+                ctx.arc(sp.x, sp.y, sp.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${sp.color}, ${sp.opacity})`;
+                ctx.fill();
+            }
+
+            // Interactive radiant aura around cursor
+            if (mouse.active) {
+                const aura = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, mouse.radius);
+                aura.addColorStop(0, 'rgba(255, 153, 51, 0.16)');
+                aura.addColorStop(0.45, 'rgba(0, 51, 102, 0.06)');
+                aura.addColorStop(1, 'rgba(0, 51, 102, 0)');
+                ctx.fillStyle = aura;
+                ctx.beginPath();
+                ctx.arc(mouse.x, mouse.y, mouse.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Draw Sovereign Regional Hub Nodes with pulsing radar rings
+            for (let hub of hubNodes) {
+                hub.pulse += 0.035;
+                const pulseRing = Math.sin(hub.pulse) * 8 + 14;
+                const ringOpacity = (Math.sin(hub.pulse) + 1) * 0.12 + 0.04;
+
+                ctx.beginPath();
+                ctx.arc(hub.x, hub.y, pulseRing, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(0, 51, 102, ${ringOpacity})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(hub.x, hub.y, hub.baseRadius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 86, 34, 0.75)';
+                ctx.fill();
+
+                // Subtle node label
+                ctx.font = '9px monospace';
+                ctx.fillStyle = 'rgba(0, 51, 102, 0.45)';
+                ctx.fillText(hub.label, hub.x + 10, hub.y + 3);
+            }
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                // Connect to mouse cursor if near
+                if (mouse.active) {
+                    const dx = particles[i].x - mouse.x;
+                    const dy = particles[i].y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(255, 153, 51, ${0.42 * (1 - dist / mouse.radius)})`;
+                        ctx.lineWidth = 1.3;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+
+                // Connect to neighbor particles
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 145) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 51, 102, ${0.16 - dist/1250})`;
+                        ctx.lineWidth = 0.75;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // --- SCROLL INTERACTION ON BACKGROUND PARTICLES ---
+        let lastScrollPos = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentScrollPos = window.scrollY;
+            const scrollDelta = currentScrollPos - lastScrollPos;
+            lastScrollPos = currentScrollPos;
+
+            // Shift particles with kinetic scroll inertia
+            const scrollShift = Math.max(-20, Math.min(20, scrollDelta * 0.4));
+            for (let p of particles) {
+                p.y -= scrollShift * (p.radius / 2);
+                if (p.y < 0) p.y = height;
+                if (p.y > height) p.y = 0;
+            }
+        }, { passive: true });
+
+        // --- GSAP SCROLL-TRIGGERED TEXT ANIMATIONS & SNAP-BACK ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Initial Smooth Upward Entrance on Scroll
+        gsap.utils.toArray('.scroll-reveal').forEach(element => {
+            gsap.from(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 92%',
+                    toggleActions: "play none none none"
+                },
+                y: 35,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+
+        // Kinetic upward lift during active scroll with guaranteed snap-back to y:0 on stop
+        const dynamicContentBlocks = gsap.utils.toArray('.scroll-reveal, .glass-panel');
+        let scrollSettleTimer = null;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollPos = window.scrollY;
+            const scrollDelta = currentScrollPos - lastScrollPos;
+
+            // Subtle upward lift during active scroll momentum (bounded so it never displaces layout)
+            const kineticLift = Math.max(-10, Math.min(10, scrollDelta * 0.06));
+            gsap.to(dynamicContentBlocks, {
+                y: -kineticLift,
+                duration: 0.2,
+                ease: "power1.out",
+                overwrite: "auto"
+            });
+
+            // When scrolling stops, smoothly restore every element to its exact proper place (y: 0)
+            clearTimeout(scrollSettleTimer);
+            scrollSettleTimer = setTimeout(() => {
+                gsap.to(dynamicContentBlocks, {
+                    y: 0,
+                    duration: 0.45,
+                    ease: "power2.out",
+                    overwrite: "auto"
+                });
+            }, 80);
+        }, { passive: true });
+
+        // Background Parallax Layer Glide (Independent atmospheric layer)
+        gsap.utils.toArray('.parallax-orb, .parallax-element').forEach(layer => {
+            const speed = parseFloat(layer.getAttribute('data-speed') || '0.2');
+            gsap.to(layer, {
+                y: -speed * 260,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: document.body,
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 1
+                }
+            });
+        });
+    </script>
+</body>
+</html>

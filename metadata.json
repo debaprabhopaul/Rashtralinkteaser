@@ -1,0 +1,6 @@
+{
+  "name": "RashtraLink",
+  "description": "RashtraLink is India's next-generation AI-based social networking platform featuring a Sovereign Algorithm, priority matrix feed simulation, and modular experience.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
