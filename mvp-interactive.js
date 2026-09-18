@@ -1438,13 +1438,21 @@ function initWishlistPassGenerator() {
                 note: note
             };
 
-            // Submit once to server backend (server records it and auto-syncs to Google Sheet)
+            // Submit to serverless API, with direct browser webhook fallback if offline or serverless error
             fetch('/api/apply', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(applicationRecord)
+            }).then(res => {
+                if (!res.ok) throw new Error('API status: ' + res.status);
             }).catch(err => {
-                console.error('Network sync error:', err);
+                console.warn('Falling back to direct Google Sheet sync:', err);
+                fetch('https://script.google.com/macros/s/AKfycbxOxh07es6Tk5iNRK4bWl6IYwaKSHBfA5h8Up_iFMtUjYfIPT-Omrtgi3UnqWQvbM6CuQ/exec', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(applicationRecord),
+                    mode: 'no-cors'
+                }).catch(e => console.error('Fallback sheet error:', e));
             });
 
             // Populate Success State
