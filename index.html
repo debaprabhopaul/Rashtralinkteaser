@@ -1828,8 +1828,99 @@
         </div>
     </div>
 
+    <!-- RASHTRALINK GEMINI AI CHATBOT WIDGET -->
+    <!-- Floating Trigger Button -->
+    <div id="rashtralink-ai-trigger-container" class="fixed bottom-5 right-5 z-[990]">
+        <button id="rashtralink-ai-trigger" class="flex items-center gap-2.5 px-4 py-3 rounded-full bg-gradient-to-r from-rashtraBlue via-indigo-900 to-rashtraBlue text-white shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 border border-indigo-400/30 transition-all group">
+            <div class="relative w-7 h-7 rounded-full bg-gradient-to-tr from-indiaSaffron to-rashtraOrange flex items-center justify-center text-white flex-shrink-0">
+                <i data-lucide="sparkles" class="w-4 h-4 text-white"></i>
+                <span id="ai-trigger-unread" class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 border-2 border-slate-900 rounded-full"></span>
+            </div>
+            <div class="flex flex-col text-left">
+                <span class="text-xs font-black tracking-tight leading-none text-white">RashtraLink AI</span>
+                <span class="text-[9px] font-medium text-amber-200/90 leading-none mt-0.5">Gemini 3.8 Flash</span>
+            </div>
+            <i data-lucide="chevron-up" class="w-3.5 h-3.5 text-slate-300 group-hover:-translate-y-0.5 transition-transform ml-1"></i>
+        </button>
+    </div>
+
+    <!-- Floating Chat Modal Window -->
+    <div id="rashtralink-ai-widget" class="fixed bottom-20 right-5 z-[991] hidden flex-col w-[calc(100vw-2.5rem)] sm:w-[380px] max-w-sm h-[520px] max-h-[82vh] bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden transition-all">
+        <!-- Header -->
+        <div class="flex items-center justify-between px-4 py-3.5 bg-gradient-to-r from-rashtraBlue via-indigo-950 to-rashtraBlue text-white border-b border-white/10 flex-shrink-0">
+            <div class="flex items-center gap-2.5">
+                <div class="relative w-8 h-8 rounded-full bg-gradient-to-tr from-indiaSaffron to-rashtraOrange flex items-center justify-center text-white text-xs font-black shadow-xs flex-shrink-0">
+                    <i data-lucide="bot" class="w-4 h-4 text-white"></i>
+                    <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-rashtraBlue"></span>
+                </div>
+                <div>
+                    <h3 class="text-xs font-black text-white leading-none flex items-center gap-1.5">
+                        RashtraLink AI
+                        <span class="px-1.5 py-0.5 rounded-full bg-orange-500/20 text-orange-200 text-[9px] font-bold border border-orange-400/30">Gemini</span>
+                    </h3>
+                    <p class="text-[10px] text-slate-300 font-medium leading-none mt-1">Sovereign Intelligent Assistant</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-1">
+                <button id="ai-chat-clear" class="p-1.5 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white transition-colors" title="Reset Chat">
+                    <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                </button>
+                <button id="ai-chat-close" class="p-1.5 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white transition-colors" title="Close Chat">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div id="ai-chat-messages" class="flex-grow p-4 space-y-3 overflow-y-auto bg-slate-50/60 text-xs">
+            <!-- Initial Greeting -->
+            <div class="flex items-start gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-indiaSaffron to-rashtraOrange flex items-center justify-center text-white text-xs font-black shadow-xs flex-shrink-0">
+                    RL
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-sm p-3.5 shadow-xs text-xs text-slate-800 space-y-2 max-w-[85%]">
+                    <p class="font-semibold text-rashtraBlue">Namaste! 🙏 Welcome to RashtraLink.</p>
+                    <p>I am your Gemini-powered assistant. Ask me anything about our Sovereign Feed Algorithm, Charcha Arena, data residency under DPDP Act 2023, or how to claim your Founding Citizen early access!</p>
+                    
+                    <div class="pt-2 border-t border-slate-100">
+                        <p class="text-[11px] font-bold text-slate-500 mb-1.5">Quick questions:</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <button class="ai-prompt-chip px-2.5 py-1 rounded-lg bg-orange-50 hover:bg-orange-100 text-rashtraOrange text-[11px] font-semibold transition-colors text-left" data-prompt="What is RashtraLink?">
+                                🇮🇳 What is RashtraLink?
+                            </button>
+                            <button class="ai-prompt-chip px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-semibold transition-colors text-left" data-prompt="How does the Sovereign Feed Algorithm work?">
+                                ⚙️ Sovereign Feed
+                            </button>
+                            <button class="ai-prompt-chip px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-semibold transition-colors text-left" data-prompt="How do I get Early Access as a Founding Citizen?">
+                                🌟 Early Access
+                            </button>
+                            <button class="ai-prompt-chip px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-semibold transition-colors text-left" data-prompt="Who is the founder of RashtraLink?">
+                                👤 Founder Info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Bar -->
+        <div class="p-3 bg-white border-t border-slate-200 flex-shrink-0">
+            <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-2xl px-3 py-1.5 focus-within:border-rashtraOrange focus-within:bg-white transition-all">
+                <input id="ai-chat-input" type="text" placeholder="Ask anything about RashtraLink..." class="w-full bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none py-1">
+                <button id="ai-chat-send" class="w-8 h-8 rounded-xl bg-rashtraOrange hover:bg-orange-600 disabled:opacity-40 disabled:hover:bg-rashtraOrange text-white flex items-center justify-center transition-all flex-shrink-0 active:scale-95 shadow-xs" title="Send Question">
+                    <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                </button>
+            </div>
+            <div class="flex items-center justify-between mt-2 px-1 text-[10px] text-slate-400">
+                <span>Google Gemini 3.8 Flash</span>
+                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Live</span>
+            </div>
+        </div>
+    </div>
+
     <!-- INTERACTIVE SCRIPTS -->
     <script src="mvp-interactive.js"></script>
+    <script src="gemini-chat.js"></script>
     <script>
         lucide.createIcons();
 
