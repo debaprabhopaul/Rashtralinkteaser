@@ -160,19 +160,35 @@
         scrollToBottom();
 
         try {
-            const response = await fetch('/api/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    message: text,
-                    history: chatHistory.slice(-6)
-                })
-            });
+            let replyText = null;
 
-            const data = await response.json();
+            // Attempt to call server or Vercel serverless /api/chat
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: text,
+                        history: chatHistory.slice(-6)
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data && data.reply) {
+                        replyText = data.reply;
+                    }
+                }
+            } catch (netErr) {
+                console.warn('Backend /api/chat endpoint not reachable (common on static GitHub Pages), switching to local knowledge engine.', netErr);
+            }
+
+            // If backend is not present (e.g. on GitHub Pages static host), use smart knowledge responder
+            if (!replyText) {
+                replyText = generateSmartClientReply(text, chatHistory);
+            }
+
             typingEl.remove();
-
-            const replyText = data.reply || data.fallback || "I'm here to assist you with RashtraLink. Please ask another question!";
             appendBotMessage(replyText);
             chatHistory.push({ role: 'assistant', text: replyText });
 
@@ -180,13 +196,53 @@
         } catch (err) {
             console.error('Chat error:', err);
             typingEl.remove();
-            appendBotMessage("Namaste! We had a temporary connection issue. Please feel free to try again.");
+            const fallbackReply = generateSmartClientReply(text, chatHistory);
+            appendBotMessage(fallbackReply);
+            chatHistory.push({ role: 'assistant', text: fallbackReply });
         } finally {
             isWaitingForResponse = false;
             if (sendBtn) sendBtn.disabled = false;
             if (chatInput) chatInput.focus();
             scrollToBottom();
         }
+    }
+
+    function generateSmartClientReply(query, history) {
+        const q = (query || '').toLowerCase().trim();
+
+        if (q.includes('what is') || q.includes('rashtralink') || q.includes('kya hai') || q.includes('about') || q.includes('kya h')) {
+            return "**RashtraLink** is India’s sovereign AI-powered social network, founded by **Debaprabho Paul** under the **Rashtra Group**.\n\n* **Mission**: Reclaiming digital sovereignty for 1.4 Billion Indians by replacing addictive black-box surveillance algorithms with a transparent, deterministic feed.\n* **Data Sovereignty**: 100% Indian data residency hosted strictly within Tier-4 regional hubs (Bengaluru, Delhi, Mumbai, Kolkata, Hyderabad, Chennai) under DPDP Act 2023.\n* **Charcha Arena**: Civil debates where claims require verified citations across all 22 official Indian languages.\n* **Early Access**: You can claim your Founding Citizen Golden Badge right here on this page!";
+        }
+
+        if (q.includes('founder') || q.includes('who made') || q.includes('who built') || q.includes('ceo') || q.includes('owner') || q.includes('debaprabho') || q.includes('paul')) {
+            return "RashtraLink was founded and architected by **Debaprabho Paul** under **Rashtra Group**.\n\nHis vision is to give India complete technological self-reliance (*Atmanirbhar Bharat*) and ensure our national discourse and citizen data are governed transparently within India for **Viksit Bharat 2047**.";
+        }
+
+        if (q.includes('algorithm') || q.includes('feed') || q.includes('sovereign') || q.includes('how it works') || q.includes('formula')) {
+            return "The **RashtraLink Sovereign Feed Algorithm** is completely transparent and inspectable! It uses a 4-stage deterministic calculation:\n\n1. **Category Weighting (Wc)**: Cultural, Educational, Scientific, and Verified Civic categories get positive multipliers over sensationalism.\n2. **Recency Decay (λ)**: High-quality fresh posts rank higher without relying on rage-bait engagement.\n3. **Network Affinity (Aff)**: Prioritizes genuine connections and community trust over bot farms.\n4. **Factuality & Citation Multiplier (Vf)**: Verified facts and credible sources significantly boost visibility.\n\nYou can test and tweak the interactive weights in the **Sovereign Algorithm Simulator** section on this page!";
+        }
+
+        if (q.includes('early access') || q.includes('wishlist') || q.includes('join') || q.includes('apply') || q.includes('register') || q.includes('badge') || q.includes('founding citizen')) {
+            return "Joining the **RashtraLink Early Access Wishlist** gives you exclusive Founding Citizen privileges:\n\n* 🥇 **Golden Founding Citizen Badge** permanently displayed on your profile\n*  **1-Year Verified Checkmark** upon public release\n* 🚀 **Priority Beta Access** to early test releases and platform governance voting\n\nClick the **'Claim Early Access'** button or scroll to the wishlist form on this page to enter your name and phone number!";
+        }
+
+        if (q.includes('charcha') || q.includes('debate') || q.includes('discussion') || q.includes('forum')) {
+            return "**Charcha Arena** is RashtraLink's dedicated civic discourse arena:\n\n* **Evidence-Based Arguments**: Controversial assertions require verifiable sources and citation badges.\n* **22 Official Languages**: Real-time multi-lingual discourse across Hindi, Bengali, Tamil, Telugu, Marathi, and more.\n* **Constructive Civility**: AI moderation filters abusive ad-hominem attacks while preserving free, rigorous intellectual debate.";
+        }
+
+        if (q.includes('creator') || q.includes('monetization') || q.includes('money') || q.includes('earn') || q.includes('10k') || q.includes('zero')) {
+            return "RashtraLink introduces the **10K-Zero Creator Economy**:\n\n* **70% Direct Revenue Share**: Creators keep 70% of ad and tipping revenues with zero platform penalties.\n* **10,000 Verified Engagements**: Monetization unlocks early at 10K verified real-human engagements, not millions.\n* **Direct Micro-Tipping**: UPI-integrated instantaneous tipping directly from audience to creator without intermediary cuts.";
+        }
+
+        if (q.includes('data') || q.includes('privacy') || q.includes('dpdp') || q.includes('security') || q.includes('server')) {
+            return "Under the **Digital Personal Data Protection (DPDP) Act 2023**, RashtraLink guarantees:\n\n* **Zero Foreign Data Harvesting**: No foreign telemetry or ad-tracker sharing.\n* **Tier-4 Indian Regional Hubs**: Encrypted storage hosted across sovereign facilities in Bengaluru, Delhi, Mumbai, Kolkata, Chennai, and Hyderabad.\n* **Granular Consent Controls**: You own and can export or delete your digital footprint anytime.";
+        }
+
+        if (q.includes('hi') || q.includes('hello') || q.includes('namaste') || q.includes('hey') || q.includes('pranam')) {
+            return "Namaste! 🙏 I am **RashtraLink AI**.\n\nWelcome to India's Sovereign AI Social Network. Ask me anything about our Sovereign Feed Algorithm, Charcha Arena, data sovereignty under DPDP Act 2023, or how to claim your Founding Citizen early access!";
+        }
+
+        return "Namaste! 🙏 I am **RashtraLink AI**.\n\nI can help you explore:\n* 🇮🇳 **RashtraLink's Sovereign Mission & Vision**\n* ⚙️ **The Transparent Sovereign Feed Algorithm**\n* 🏛️ **Charcha Arena & Multi-lingual civic discourse**\n* 🌟 **Claiming your Founding Citizen Golden Badge**\n* 👤 **Founder Debaprabho Paul & Rashtra Group**\n\nWhat would you like to explore today?";
     }
 
     function appendUserMessage(text) {
