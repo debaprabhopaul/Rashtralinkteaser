@@ -76,6 +76,42 @@ app.post('/api/apply', (req, res) => {
   }
 });
 
+// 2. Submit Grievance Redressal Ticket Endpoint (IT Rules 2021)
+app.post('/api/grievance', async (req, res) => {
+  try {
+    const { ticketId, name, email, category, details, timestamp } = req.body || {};
+    if (!name || !email || !details) {
+      return res.status(400).json({ error: 'Name, email, and details are required.' });
+    }
+
+    const record = {
+      type: 'grievance',
+      ticketId: ticketId || `GRV-2026-${Math.floor(100000 + Math.random() * 900000)}`,
+      timestamp: timestamp || new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+      name,
+      email,
+      category: category || 'General Grievance',
+      details,
+      status: 'Statutory Acknowledgment Issued',
+      submittedAt: new Date().toISOString()
+    };
+
+    if (SHEET_WEBHOOK_URL && SHEET_WEBHOOK_URL.startsWith('http')) {
+      await fetch(SHEET_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(record),
+        redirect: 'follow'
+      }).catch(err => console.error('Sheet Webhook grievance sync error:', err));
+    }
+
+    return res.json({ success: true, ticketId: record.ticketId });
+  } catch (err) {
+    console.error('Grievance error:', err);
+    return res.status(500).json({ error: 'Server error filing grievance.' });
+  }
+});
+
 // Secure Founder-Only Export (Guarded by Secret Passkey)
 app.get('/api/admin/export', (req, res) => {
   const secretKey = req.query.key || req.headers['x-admin-key'];

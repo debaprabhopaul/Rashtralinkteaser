@@ -1213,6 +1213,12 @@ function initWishlistPassGenerator() {
     }
 
     // --- UNIVERSAL LEGAL & CONTACT MODALS ---
+    window.closeLegalModal = function() {
+        if (window.sfx && sfx.playClick) sfx.playClick();
+        const modal = document.getElementById('universal-site-modal');
+        if (modal) modal.classList.add('hidden');
+    };
+
     window.openLegalModal = function(type) {
         if (window.sfx) sfx.playClick();
         const modal = document.getElementById('universal-site-modal');
@@ -1303,11 +1309,85 @@ function initWishlistPassGenerator() {
                 if (gForm) {
                     gForm.addEventListener('submit', (e) => {
                         e.preventDefault();
+                        const submitBtn = gForm.querySelector('button[type="submit"]');
+                        if (submitBtn) {
+                            submitBtn.disabled = true;
+                            submitBtn.innerHTML = `<span class="animate-spin mr-2">⏳</span> Submitting Statutory Ticket...`;
+                        }
+
+                        const name = document.getElementById('grievance-name')?.value || '';
+                        const email = document.getElementById('grievance-email')?.value || '';
+                        const categorySelect = document.getElementById('grievance-category');
+                        const categoryText = categorySelect ? categorySelect.options[categorySelect.selectedIndex]?.text : 'General';
+                        const details = document.getElementById('grievance-desc')?.value || '';
+                        const ticketId = `GRV-2026-${Math.floor(100000 + Math.random() * 900000)}`;
+                        const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+                        const ticketPayload = {
+                            type: 'grievance',
+                            ticketId: ticketId,
+                            timestamp: timestamp,
+                            name: name,
+                            email: email,
+                            category: categoryText,
+                            details: details
+                        };
+
+                        // 1. Submit to /api/grievance endpoint
+                        fetch('/api/grievance', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(ticketPayload)
+                        }).catch(err => {
+                            console.warn('Grievance API fallback dispatch:', err);
+                            // Fallback directly to Google Sheet webhook
+                            fetch('https://script.google.com/macros/s/AKfycbxOxh07es6Tk5iNRK4bWl6IYwaKSHBfA5h8Up_iFMtUjYfIPT-Omrtgi3UnqWQvbM6CuQ/exec', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(ticketPayload),
+                                mode: 'no-cors'
+                            }).catch(e => console.error('Fallback grievance error:', e));
+                        });
+
                         if (window.sfx) sfx.playSuccess();
-                        const ticketId = `GRV-${Math.floor(100000 + Math.random() * 900000)}`;
-                        alert(`Grievance Ticket #${ticketId} lodged successfully!\n\nStatutory acknowledgment recorded. You will receive formal resolution within the statutory SLA.`);
-                        modal.classList.add('hidden');
-                        showToast(`Grievance Ticket #${ticketId} lodged`, 'check');
+
+                        // Render rich statutory acknowledgment view in modal
+                        content.innerHTML = `
+                            <div class="text-center py-6 space-y-4">
+                                <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
+                                    <i data-lucide="shield-check" class="w-7 h-7"></i>
+                                </div>
+                                <h4 class="text-base font-black text-slate-900">Statutory Grievance Lodged Successfully</h4>
+                                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-left space-y-2 text-xs font-medium">
+                                    <div class="flex justify-between border-b border-slate-200/60 pb-1.5">
+                                        <span class="text-slate-500">Statutory Ticket ID:</span>
+                                        <span class="font-mono font-black text-rashtraOrange">${ticketId}</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-slate-200/60 pb-1.5">
+                                        <span class="text-slate-500">Timestamp (IST):</span>
+                                        <span class="font-bold text-slate-800">${timestamp}</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-slate-200/60 pb-1.5">
+                                        <span class="text-slate-500">Complainant:</span>
+                                        <span class="font-bold text-slate-800">${name} (${email})</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">Compliance SLA:</span>
+                                        <span class="font-bold text-emerald-700">24-Hr Acknowledgment • 15-Day Disciplinary Action</span>
+                                    </div>
+                                </div>
+                                <p class="text-[11px] text-slate-500 leading-relaxed max-w-md mx-auto">
+                                    Your grievance has been transmitted directly to the Chief Grievance Officer pursuant to Rule 3(2) of the Information Technology (Intermediary Guidelines) Rules, 2021.
+                                </p>
+                                <button onclick="window.closeLegalModal()" class="px-6 py-2 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-black transition-all">
+                                    Close Window
+                                </button>
+                            </div>
+                        `;
+                        if (window.lucide && lucide.createIcons) lucide.createIcons();
+                        if (typeof showToast === 'function') {
+                            showToast(`Grievance Ticket #${ticketId} submitted`, 'shield-check');
+                        }
                     });
                 }
             }, 50);
