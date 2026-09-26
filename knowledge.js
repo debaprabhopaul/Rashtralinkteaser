@@ -5,8 +5,20 @@
 export function getRashtraLinkKnowledgeReply(query) {
   const q = (query || '').toLowerCase().trim();
 
+  if (q.includes('founder') || q.includes('who built') || q.includes('who made') || q.includes('ceo') || q.includes('cbo') || q.includes('owner') || q.includes('debaprabho') || q.includes('mainak') || q.includes('pathak') || q.includes('paul') || q.includes('team') || q.includes('leadership')) {
+    return `### 🇮🇳 RashtraLink Founding & Executive Leadership:
+
+1. **Debaprabho Paul — Founder & CEO**
+   * Visionary technologist and founder behind RashtraLink and the Rashtra Group.
+   * Spearheading India's technological self-reliance (*Atmanirbhar Bharat*) and deterministic algorithms for **Viksit Bharat 2047**.
+
+2. **Mainak Pathak — Co-Founder & CBO (Chief Business Officer)**
+   * Executive leader guiding RashtraLink's business development, strategic partnerships, and creator ecosystem growth.
+   * Dedicated to establishing true economic sovereignty and sustainable monetization for Indian creators and businesses.`;
+  }
+
   if (q.includes('what is') || q.includes('rashtralink') || q.includes('about') || q.includes('kya hai') || q.includes('kya h')) {
-    return `**RashtraLink** is India’s Sovereign AI Social Network, founded by visionary technologist **Debaprabho Paul** under the **Rashtra Group**.
+    return `**RashtraLink** is India’s Sovereign AI Social Network, founded by **Debaprabho Paul** (Founder & CEO) alongside **Mainak Pathak** (Co-Founder & CBO) under the **Rashtra Group**.
 
 Built for 1.4 billion Indians, RashtraLink reclaims digital sovereignty by replacing foreign surveillance capitalism and addictive rage-bait loops with transparency, data privacy, and civil discourse:
 
@@ -16,12 +28,6 @@ Built for 1.4 billion Indians, RashtraLink reclaims digital sovereignty by repla
 * **10K-Zero Creator Economy**: Creators receive 70% direct revenue share at just 10,000 verified engagements with 0% platform penalty.
 
 You can claim your **Founding Citizen Golden Badge** and early access directly on this page!`;
-  }
-
-  if (q.includes('founder') || q.includes('who built') || q.includes('who made') || q.includes('ceo') || q.includes('owner') || q.includes('debaprabho') || q.includes('paul')) {
-    return `**Debaprabho Paul** is the visionary technologist and founder behind **RashtraLink** and the **Rashtra Group**.
-
-His mission is to give India complete technological independence (*Atmanirbhar Bharat*), ensuring India's national discourse, intellectual property, and citizen data are governed sovereignly within our borders for **Viksit Bharat 2047**.`;
   }
 
   if (q.includes('algorithm') || q.includes('feed') || q.includes('formula') || q.includes('weights') || q.includes('how it works')) {
