@@ -1306,23 +1306,23 @@
                     <span class="text-slate-500 font-bold">Web • Sovereign Cloud</span>
                 </div>
 
-                <!-- Tweet Action Bar -->
+                <!-- Action Bar -->
                 <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-                    <div class="flex items-center gap-5 sm:gap-8">
-                        <!-- Like Button with Counter -->
-                        <button id="founder-like-btn" class="flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-red-500 transition-colors group">
-                            <i data-lucide="heart" class="w-4 h-4 group-hover:scale-125 transition-transform"></i>
-                            <span id="founder-like-count">2,841</span>
+                    <div class="flex items-center gap-3 sm:gap-4">
+                        <!-- Like Button -->
+                        <button id="founder-like-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-red-50 text-xs font-bold text-slate-600 hover:text-red-500 border border-slate-200 transition-all group" title="Like dispatch">
+                            <i data-lucide="heart" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                            <span id="founder-like-label">Like</span>
                         </button>
                         <!-- Repost Button -->
-                        <button id="founder-repost-btn" class="flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-emerald-600 transition-colors group">
-                            <i data-lucide="repeat-2" class="w-4 h-4 group-hover:scale-125 transition-transform"></i>
-                            <span id="founder-repost-count">489</span>
+                        <button id="founder-repost-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-xs font-bold text-slate-600 hover:text-emerald-600 border border-slate-200 transition-all group" title="Share dispatch">
+                            <i data-lucide="repeat-2" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                            <span id="founder-repost-label">Share</span>
                         </button>
                         <!-- Bookmark Button -->
-                        <button id="founder-bookmark-btn" class="flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-rashtraBlue transition-colors group">
-                            <i data-lucide="bookmark" class="w-4 h-4 group-hover:scale-125 transition-transform"></i>
-                            <span id="founder-bookmark-count">612</span>
+                        <button id="founder-bookmark-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-slate-600 hover:text-rashtraBlue border border-slate-200 transition-all group" title="Save dispatch">
+                            <i data-lucide="bookmark" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                            <span id="founder-bookmark-label">Save</span>
                         </button>
                     </div>
 
@@ -1592,25 +1592,21 @@
                         </div>
                     </div>
 
-                    <!-- Interactive Live Pledge Counter / Citizen Bell -->
-                    <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <!-- Interactive Citizen Pledge: Bharat Bell -->
+                    <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-5">
                         <div class="text-left">
                             <div class="flex items-center gap-2 mb-1">
-                                <span class="text-xs font-black text-orange-400 uppercase tracking-widest">Founding Citizens Backing</span>
-                                <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[9px] font-bold">Live Counter</span>
+                                <span class="text-xs font-black text-orange-400 uppercase tracking-widest">Founding Citizen Pledge</span>
+                                <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[9px] font-bold">Bharat Bell</span>
                             </div>
-                            <p class="text-xs text-slate-300">
-                                Ring the sovereign bell to pledge your support for indigenous software independence.
+                            <p class="text-xs text-slate-300 max-w-lg">
+                                Ring the sovereign bell to pledge your support for India's technological independence and claim your Founding Citizen reservation.
                             </p>
                         </div>
 
-                        <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
-                            <div class="text-right">
-                                <span id="pledge-count-display" class="text-2xl font-black text-white font-mono block">14,289</span>
-                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Pledges Recorded</span>
-                            </div>
-                            <button id="ring-pledge-btn" onclick="window.ringPledgeBell()" class="px-5 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white text-xs font-black shadow-lg hover:shadow-orange-500/30 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
-                                <i data-lucide="bell" class="w-4 h-4"></i>
+                        <div class="flex items-center gap-3 w-full sm:w-auto justify-end flex-shrink-0">
+                            <button id="ring-pledge-btn" onclick="window.ringPledgeBell()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white text-xs font-black shadow-lg hover:shadow-orange-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2.5">
+                                <i data-lucide="bell" class="w-4 h-4 animate-bounce"></i>
                                 <span id="pledge-btn-text">Ring Bharat Bell</span>
                             </button>
                         </div>
@@ -1667,6 +1663,9 @@
                     <span class="px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-rashtraOrange text-[11px] font-black">
                         Alpha Cohort • Founding Registry
                     </span>
+                    <button onclick="window.switchPage('home')" class="p-2 rounded-xl bg-white border border-slate-200 text-slate-400 hover:text-slate-800 hover:border-slate-300 transition-all" title="Close and return to Home">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
                 </div>
             </div>
 
@@ -1835,6 +1834,63 @@
                 </button>
             </div>
             <div id="universal-modal-content"></div>
+        </div>
+    </div>
+
+    <!-- BHARAT PLEDGE ACKNOWLEDGMENT & WISHLIST POPUP MODAL -->
+    <div id="bharat-pledge-modal" class="fixed inset-0 z-[10000] hidden bg-slate-950/75 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-lg rounded-[2.5rem] p-6 sm:p-8 shadow-2xl border border-orange-200/80 relative text-center overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+            <!-- Decorative Tricolor Top Bar -->
+            <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-indiaSaffron via-white to-indiaGreen"></div>
+
+            <!-- Close Button -->
+            <button onclick="window.closeBharatPledgeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-2 rounded-full hover:bg-slate-100 transition-all">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Bell Icon with Golden Rings -->
+            <div class="relative w-20 h-20 mx-auto mt-2 mb-4 flex items-center justify-center">
+                <div class="absolute inset-0 rounded-full bg-orange-100 animate-ping opacity-70"></div>
+                <div class="relative w-16 h-16 rounded-full bg-gradient-to-tr from-rashtraOrange to-amber-500 text-white flex items-center justify-center shadow-lg shadow-orange-500/30">
+                    <i data-lucide="bell-ring" class="w-8 h-8 animate-bounce"></i>
+                </div>
+            </div>
+
+            <!-- Heading -->
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 text-rashtraOrange border border-orange-200 text-[10px] font-black uppercase tracking-wider mb-2">
+                🇮🇳 Sovereign Pledge Acknowledged
+            </span>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
+                Thank You, Proud Citizen of Bharat!
+            </h3>
+
+            <!-- Message Body -->
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2.5 max-w-md mx-auto">
+                Your pledge to support India's sovereign attention infrastructure has been recorded. To secure your reserved position and receive the golden <strong class="text-slate-900">Founding Citizen Badge</strong>, apply for the early access wishlist immediately before the private alpha cohort closes!
+            </p>
+
+            <!-- Benefit Badges -->
+            <div class="grid grid-cols-2 gap-2 my-5 text-left">
+                <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-2.5">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                    <span class="text-[11px] font-bold text-slate-700">1-Year Verified Golden Checkmark</span>
+                </div>
+                <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-2.5">
+                    <i data-lucide="users" class="w-4 h-4 text-rashtraBlue flex-shrink-0"></i>
+                    <span class="text-[11px] font-bold text-slate-700">Private Founders WhatsApp Cohort</span>
+                </div>
+            </div>
+
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center gap-3">
+                <button onclick="window.applyFromPledgeModal()" class="w-full sm:flex-1 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-rashtraOrange via-orange-600 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white text-xs font-black shadow-xl hover:shadow-orange-500/25 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+                    <span>Apply for Wishlist Immediately</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+                <button onclick="window.closeBharatPledgeModal()" class="w-full sm:w-auto py-3.5 px-5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all">
+                    Maybe Later
+                </button>
+            </div>
         </div>
     </div>
 

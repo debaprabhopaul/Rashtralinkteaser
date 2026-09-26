@@ -1217,6 +1217,8 @@ function initWishlistPassGenerator() {
         if (window.sfx && sfx.playClick) sfx.playClick();
         const modal = document.getElementById('universal-site-modal');
         if (modal) modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        document.body.style.overflowY = 'auto';
     };
 
     window.openLegalModal = function(type) {
@@ -1440,10 +1442,14 @@ function initWishlistPassGenerator() {
         closeUnivModal.addEventListener('click', () => {
             if (window.sfx) sfx.playClick();
             univModal.classList.add('hidden');
+            document.body.style.overflow = '';
+            document.body.style.overflowY = 'auto';
         });
         univModal.addEventListener('click', (e) => {
             if (e.target === univModal) {
                 univModal.classList.add('hidden');
+                document.body.style.overflow = '';
+                document.body.style.overflowY = 'auto';
             }
         });
     }
@@ -1451,6 +1457,9 @@ function initWishlistPassGenerator() {
     // --- PAGE NAVIGATION: MAIN SITE <-> EARLY ACCESS / WISHLIST PAGE ---
     window.switchPage = function(pageName) {
         if (window.sfx) sfx.playClick();
+        document.body.style.overflow = '';
+        document.body.style.overflowY = 'auto';
+
         const mainSite = document.getElementById('view-main-site');
         const earlyAccessSite = document.getElementById('view-early-access');
         if (!mainSite || !earlyAccessSite) return;
@@ -1636,30 +1645,25 @@ function initFounderTweetButtons() {
     let reposted = false;
     let bookmarked = false;
 
-    let likes = 2841;
-    let reposts = 489;
-    let bookmarks = 612;
-
     if (likeBtn) {
         likeBtn.addEventListener('click', () => {
             liked = !liked;
-            likes += liked ? 1 : -1;
-            const countEl = document.getElementById('founder-like-count');
-            if (countEl) countEl.innerText = likes.toLocaleString();
-
+            const label = document.getElementById('founder-like-label');
             const icon = likeBtn.querySelector('i');
             if (liked) {
-                likeBtn.classList.remove('text-slate-500');
-                likeBtn.classList.add('text-red-500');
+                likeBtn.classList.remove('bg-slate-50', 'text-slate-600', 'hover:bg-red-50');
+                likeBtn.classList.add('bg-red-50', 'text-red-600', 'border-red-200');
+                if (label) label.innerText = 'Liked';
                 if (icon) {
-                    icon.classList.add('fill-red-500', 'scale-125');
-                    setTimeout(() => icon.classList.remove('scale-125'), 200);
+                    icon.classList.add('fill-red-500', 'scale-110');
+                    setTimeout(() => icon.classList.remove('scale-110'), 200);
                 }
                 if (window.sfx) sfx.playLike();
-                showToast('Liked Founder & CEO\'s Dispatch', 'heart');
+                showToast('Endorsed Founder\'s Public Dispatch', 'heart');
             } else {
-                likeBtn.classList.add('text-slate-500');
-                likeBtn.classList.remove('text-red-500');
+                likeBtn.classList.add('bg-slate-50', 'text-slate-600', 'hover:bg-red-50');
+                likeBtn.classList.remove('bg-red-50', 'text-red-600', 'border-red-200');
+                if (label) label.innerText = 'Like';
                 if (icon) icon.classList.remove('fill-red-500');
                 if (window.sfx) sfx.playClick();
             }
@@ -1669,23 +1673,23 @@ function initFounderTweetButtons() {
     if (repostBtn) {
         repostBtn.addEventListener('click', () => {
             reposted = !reposted;
-            reposts += reposted ? 1 : -1;
-            const countEl = document.getElementById('founder-repost-count');
-            if (countEl) countEl.innerText = reposts.toLocaleString();
-
+            const label = document.getElementById('founder-repost-label');
             const icon = repostBtn.querySelector('i');
             if (reposted) {
-                repostBtn.classList.remove('text-slate-500');
-                repostBtn.classList.add('text-emerald-600');
+                repostBtn.classList.remove('bg-slate-50', 'text-slate-600', 'hover:bg-emerald-50');
+                repostBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+                if (label) label.innerText = 'Shared';
                 if (icon) {
                     icon.classList.add('rotate-180');
                     setTimeout(() => icon.classList.remove('rotate-180'), 300);
                 }
                 if (window.sfx) sfx.playSuccess();
-                showToast('Reposted to Sovereign Feed', 'repeat-2');
+                showToast('Founder\'s Dispatch link copied to clipboard!', 'share-2');
+                navigator.clipboard?.writeText(window.location.origin + '#founder');
             } else {
-                repostBtn.classList.add('text-slate-500');
-                repostBtn.classList.remove('text-emerald-600');
+                repostBtn.classList.add('bg-slate-50', 'text-slate-600', 'hover:bg-emerald-50');
+                repostBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+                if (label) label.innerText = 'Share';
                 if (window.sfx) sfx.playClick();
             }
         });
@@ -1694,20 +1698,19 @@ function initFounderTweetButtons() {
     if (bookmarkBtn) {
         bookmarkBtn.addEventListener('click', () => {
             bookmarked = !bookmarked;
-            bookmarks += bookmarked ? 1 : -1;
-            const countEl = document.getElementById('founder-bookmark-count');
-            if (countEl) countEl.innerText = bookmarks.toLocaleString();
-
+            const label = document.getElementById('founder-bookmark-label');
             const icon = bookmarkBtn.querySelector('i');
             if (bookmarked) {
-                bookmarkBtn.classList.remove('text-slate-500');
-                bookmarkBtn.classList.add('text-rashtraBlue');
+                bookmarkBtn.classList.remove('bg-slate-50', 'text-slate-600', 'hover:bg-blue-50');
+                bookmarkBtn.classList.add('bg-blue-50', 'text-rashtraBlue', 'border-blue-200');
+                if (label) label.innerText = 'Saved';
                 if (icon) icon.classList.add('fill-rashtraBlue');
                 if (window.sfx) sfx.playSuccess();
                 showToast('Saved to Sovereign Bookmarks', 'bookmark');
             } else {
-                bookmarkBtn.classList.add('text-slate-500');
-                bookmarkBtn.classList.remove('text-rashtraBlue');
+                bookmarkBtn.classList.add('bg-slate-50', 'text-slate-600', 'hover:bg-blue-50');
+                bookmarkBtn.classList.remove('bg-blue-50', 'text-rashtraBlue', 'border-blue-200');
+                if (label) label.innerText = 'Save';
                 if (icon) icon.classList.remove('fill-rashtraBlue');
                 if (window.sfx) sfx.playClick();
             }
@@ -1715,34 +1718,51 @@ function initFounderTweetButtons() {
     }
 }
 
-// --- BHARAT PLEDGE BELL INTERACTION ---
-let pledgeCount = 14289;
+// --- BHARAT PLEDGE BELL & POPUP MODAL ---
 let hasPledged = false;
 
+window.openBharatPledgeModal = function() {
+    const modal = document.getElementById('bharat-pledge-modal');
+    if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (window.lucide) lucide.createIcons();
+    }
+};
+
+window.closeBharatPledgeModal = function() {
+    const modal = document.getElementById('bharat-pledge-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        document.body.style.overflowY = 'auto';
+    }
+};
+
+window.applyFromPledgeModal = function() {
+    window.closeBharatPledgeModal();
+    if (window.switchPage) {
+        window.switchPage('early-access');
+    } else {
+        const waitlistEl = document.getElementById('waitlist') || document.getElementById('early-access-page');
+        if (waitlistEl) waitlistEl.scrollIntoView({ behavior: 'smooth' });
+    }
+};
+
 window.ringPledgeBell = function() {
-    const display = document.getElementById('pledge-count-display');
     const btnText = document.getElementById('pledge-btn-text');
     const btn = document.getElementById('ring-pledge-btn');
 
-    if (!hasPledged) {
-        hasPledged = true;
-        pledgeCount += 1;
-        if (display) display.innerText = pledgeCount.toLocaleString('en-IN');
-        if (btnText) btnText.innerText = 'Pledged! 🇮🇳';
-        if (btn) {
-            btn.classList.remove('from-orange-500', 'to-amber-600');
-            btn.classList.add('from-emerald-600', 'to-teal-700');
-        }
-        if (window.sfx && sfx.playSuccess) sfx.playSuccess();
-        if (typeof showToast === 'function') {
-            showToast('Thank you, Founding Citizen! Your pledge is recorded.', 'award');
-        }
-    } else {
-        if (typeof showToast === 'function') {
-            showToast('You have already pledged your support for Bharat!', 'check');
-        }
-        if (window.sfx && sfx.playClick) sfx.playClick();
+    hasPledged = true;
+    if (btnText) btnText.innerText = 'Pledged! 🇮🇳';
+    if (btn) {
+        btn.classList.remove('from-orange-500', 'to-amber-600');
+        btn.classList.add('from-emerald-600', 'to-teal-700');
     }
+    if (window.sfx && sfx.playSuccess) sfx.playSuccess();
+    
+    // Open the acknowledgment & wishlist modal immediately
+    window.openBharatPledgeModal();
 };
 
 
