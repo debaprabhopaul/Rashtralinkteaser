@@ -1,11 +1,11 @@
 // RashtraLink Sovereign MVP Interactive Engine
 // Developed for RashtraLink Teaser & MVP Demonstration
 
-// --- Web Audio API Synth Effects (Disabled by default for professional calm UI) ---
+// --- Web Audio API Synth Effects (No external assets required) ---
 class SoundFx {
     constructor() {
         this.ctx = null;
-        this.enabled = false;
+        this.enabled = true;
     }
     init() {
         if (!this.ctx) {
@@ -1212,8 +1212,9 @@ function initWishlistPassGenerator() {
         });
     }
 
-    // --- UNIVERSAL LEGAL & CONTACT MODALS (Upgraded to Dedicated Clean Views) ---
+    // --- UNIVERSAL LEGAL & CONTACT MODALS ---
     window.closeLegalModal = function() {
+        if (window.sfx && sfx.playClick) sfx.playClick();
         const modal = document.getElementById('universal-site-modal');
         if (modal) modal.classList.add('hidden');
         document.body.style.overflow = '';
@@ -1221,15 +1222,217 @@ function initWishlistPassGenerator() {
     };
 
     window.openLegalModal = function(type) {
-        if (type === 'dpdp' || type === 'privacy') {
-            window.switchPage('privacy');
+        if (window.sfx) sfx.playClick();
+        const modal = document.getElementById('universal-site-modal');
+        const title = document.getElementById('universal-modal-title');
+        const content = document.getElementById('universal-modal-content');
+        if (!modal || !title || !content) return;
+
+        if (type === 'dpdp') {
+            title.innerHTML = `<div class="flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5 text-emerald-600"></i><span>DPDP Act 2023 Compliance Charter</span></div>`;
+            content.innerHTML = `
+                <div class="space-y-4 text-slate-700">
+                    <div class="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-100 flex items-start gap-3">
+                        <i data-lucide="award" class="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <h4 class="text-xs font-black text-emerald-950">Statutory Compliance Under Indian Law</h4>
+                            <p class="text-[11px] text-emerald-800 font-medium">Digital Personal Data Protection Act, 2023 (Act No. 22 of 2023) enacted by the Parliament of India.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-xs leading-relaxed">
+                        <div class="p-3 rounded-xl border border-slate-200">
+                            <h5 class="font-bold text-rashtraBlue mb-1 flex items-center gap-1.5"><i data-lucide="database" class="w-3.5 h-3.5 text-rashtraOrange"></i> 1. 100% On-Soil Sovereign Data Residency (Section 16)</h5>
+                            <p class="text-slate-600">Every byte of user personal data, social connection graphs, algorithm lever preferences, and Charcha arguments is hosted on sovereign cloud servers physically situated within Indian territory. Zero foreign cross-border telemetry or clandestine metadata exports.</p>
+                        </div>
+
+                        <div class="p-3 rounded-xl border border-slate-200">
+                            <h5 class="font-bold text-rashtraBlue mb-1 flex items-center gap-1.5"><i data-lucide="user-check" class="w-3.5 h-3.5 text-emerald-600"></i> 2. Complete Data Principal Rights (Sections 11, 12, 13)</h5>
+                            <p class="text-slate-600">You retain the absolute statutory right to access a summary of your data, correct inaccurate personal information, revoke consent at any instant, and execute complete, immutable account erasure.</p>
+                        </div>
+
+                        <div class="p-3 rounded-xl border border-slate-200">
+                            <h5 class="font-bold text-rashtraBlue mb-1 flex items-center gap-1.5"><i data-lucide="eye-off" class="w-3.5 h-3.5 text-blue-600"></i> 3. Non-Deceptive Consent Architecture (Section 6)</h5>
+                            <p class="text-slate-600">RashtraLink rejects deceptive 'dark patterns'. No pre-ticked checkboxes, no hidden trackers, and no monetization through algorithmic surveillance advertising.</p>
+                        </div>
+
+                        <div class="p-3 rounded-xl border border-slate-200">
+                            <h5 class="font-bold text-rashtraBlue mb-1 flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-rashtraOrange"></i> 4. Data Protection Officer (DPO)</h5>
+                            <p class="text-slate-600">Office of the Data Protection Officer, RashtraLink Group. Dedicated statutory assistance is accessible via our official Contact Desk.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
         } else if (type === 'grievance') {
-            window.switchPage('grievance');
+            title.innerHTML = `<div class="flex items-center gap-2"><i data-lucide="scale" class="w-5 h-5 text-rashtraOrange"></i><span>IT Rules 2021 Grievance Redressal Desk</span></div>`;
+            content.innerHTML = `
+                <div class="space-y-4 text-slate-700">
+                    <div class="p-3.5 rounded-2xl bg-orange-50/70 border border-orange-100">
+                        <p class="text-xs font-bold text-slate-800 mb-1">Rule 3(2) Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021</p>
+                        <p class="text-[11px] text-slate-600">Our dedicated grievance redressal mechanism operates to protect citizen rights and ensure accountability across all discussions.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                        <div class="p-3 rounded-xl border border-slate-200 bg-slate-50/50">
+                            <p class="font-black text-slate-800 text-[11px] uppercase tracking-wider text-rashtraOrange">Chief Grievance Officer</p>
+                            <p class="font-bold text-slate-800 mt-1">Grievance Redressal Officer, RashtraLink</p>
+                            <p class="text-slate-500 text-[11px] mt-0.5">Sovereign Jurisdiction: Republic of India</p>
+                        </div>
+                        <div class="p-3 rounded-xl border border-slate-200 bg-slate-50/50">
+                            <p class="font-black text-slate-800 text-[11px] uppercase tracking-wider text-emerald-700">Resolution SLA</p>
+                            <p class="font-bold text-slate-800 mt-1">24-Hour Acknowledgment</p>
+                            <p class="text-slate-500 text-[11px] mt-0.5">Final Disciplinary Redressal within 15 Days</p>
+                        </div>
+                    </div>
+
+                    <!-- Direct Grievance Ticket Submission -->
+                    <form id="grievance-quick-form" class="space-y-3 pt-2 border-t border-slate-200">
+                        <h5 class="text-xs font-black text-slate-800">File a Formal Redressal Ticket:</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            <input type="text" id="grievance-name" required placeholder="Your Legal Name" class="p-2.5 rounded-xl border border-slate-200 text-xs font-medium outline-none focus:border-rashtraOrange">
+                            <input type="email" id="grievance-email" required placeholder="Official Email (for ticket receipt)" class="p-2.5 rounded-xl border border-slate-200 text-xs font-medium outline-none focus:border-rashtraOrange">
+                        </div>
+                        <select id="grievance-category" class="w-full p-2.5 rounded-xl border border-slate-200 text-xs font-medium outline-none focus:border-rashtraOrange text-slate-700 bg-white">
+                            <option value="content">Content Grievance / Misinformation in Charcha</option>
+                            <option value="data">Data Correction / DPDP Erasure Request</option>
+                            <option value="impersonation">Identity Infringement / Handle Dispute</option>
+                            <option value="security">Security Vulnerability / Bug Disclosure</option>
+                        </select>
+                        <textarea id="grievance-desc" rows="2" required placeholder="Explain your grievance with specific URLs or details..." class="w-full p-2.5 rounded-xl border border-slate-200 text-xs font-medium outline-none focus:border-rashtraOrange resize-none"></textarea>
+                        <button type="submit" class="w-full py-2.5 rounded-xl bg-slate-900 text-white font-black text-xs hover:bg-black transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                            <span>Submit Statutory Grievance Ticket</span>
+                        </button>
+                    </form>
+                </div>
+            `;
+            setTimeout(() => {
+                const gForm = document.getElementById('grievance-quick-form');
+                if (gForm) {
+                    gForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const submitBtn = gForm.querySelector('button[type="submit"]');
+                        if (submitBtn) {
+                            submitBtn.disabled = true;
+                            submitBtn.innerHTML = `<span class="animate-spin mr-2">⏳</span> Submitting Statutory Ticket...`;
+                        }
+
+                        const name = document.getElementById('grievance-name')?.value || '';
+                        const email = document.getElementById('grievance-email')?.value || '';
+                        const categorySelect = document.getElementById('grievance-category');
+                        const categoryText = categorySelect ? categorySelect.options[categorySelect.selectedIndex]?.text : 'General';
+                        const details = document.getElementById('grievance-desc')?.value || '';
+                        const ticketId = `GRV-2026-${Math.floor(100000 + Math.random() * 900000)}`;
+                        const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+                        const ticketPayload = {
+                            type: 'grievance',
+                            ticketId: ticketId,
+                            timestamp: timestamp,
+                            name: name,
+                            email: email,
+                            category: categoryText,
+                            details: details
+                        };
+
+                        // 1. Submit to /api/grievance endpoint
+                        fetch('/api/grievance', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(ticketPayload)
+                        }).catch(err => {
+                            console.warn('Grievance API fallback dispatch:', err);
+                            // Fallback directly to Google Sheet webhook
+                            fetch('https://script.google.com/macros/s/AKfycbxOxh07es6Tk5iNRK4bWl6IYwaKSHBfA5h8Up_iFMtUjYfIPT-Omrtgi3UnqWQvbM6CuQ/exec', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(ticketPayload),
+                                mode: 'no-cors'
+                            }).catch(e => console.error('Fallback grievance error:', e));
+                        });
+
+                        if (window.sfx) sfx.playSuccess();
+
+                        // Render rich statutory acknowledgment view in modal
+                        content.innerHTML = `
+                            <div class="text-center py-6 space-y-4">
+                                <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
+                                    <i data-lucide="shield-check" class="w-7 h-7"></i>
+                                </div>
+                                <h4 class="text-base font-black text-slate-900">Statutory Grievance Lodged Successfully</h4>
+                                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-left space-y-2 text-xs font-medium">
+                                    <div class="flex justify-between border-b border-slate-200/60 pb-1.5">
+                                        <span class="text-slate-500">Statutory Ticket ID:</span>
+                                        <span class="font-mono font-black text-rashtraOrange">${ticketId}</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-slate-200/60 pb-1.5">
+                                        <span class="text-slate-500">Timestamp (IST):</span>
+                                        <span class="font-bold text-slate-800">${timestamp}</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-slate-200/60 pb-1.5">
+                                        <span class="text-slate-500">Complainant:</span>
+                                        <span class="font-bold text-slate-800">${name} (${email})</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">Compliance SLA:</span>
+                                        <span class="font-bold text-emerald-700">24-Hr Acknowledgment • 15-Day Disciplinary Action</span>
+                                    </div>
+                                </div>
+                                <p class="text-[11px] text-slate-500 leading-relaxed max-w-md mx-auto">
+                                    Your grievance has been transmitted directly to the Chief Grievance Officer pursuant to Rule 3(2) of the Information Technology (Intermediary Guidelines) Rules, 2021.
+                                </p>
+                                <button onclick="window.closeLegalModal()" class="px-6 py-2 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-black transition-all">
+                                    Close Window
+                                </button>
+                            </div>
+                        `;
+                        if (window.lucide && lucide.createIcons) lucide.createIcons();
+                        if (typeof showToast === 'function') {
+                            showToast(`Grievance Ticket #${ticketId} submitted`, 'shield-check');
+                        }
+                    });
+                }
+            }, 50);
         } else if (type === 'contact') {
-            window.switchPage('contact');
-        } else {
-            window.switchPage('privacy');
+            title.innerHTML = `<div class="flex items-center gap-2"><i data-lucide="mail" class="w-5 h-5 text-rashtraBlue"></i><span>Contact RashtraLink</span></div>`;
+            content.innerHTML = `
+                <div class="space-y-4 text-slate-700 text-xs">
+                    <div class="p-4 rounded-2xl bg-blue-50/60 border border-blue-100">
+                        <h4 class="font-black text-rashtraBlue text-sm mb-1">Get in Touch with the Founding Team</h4>
+                        <p class="text-slate-600 leading-relaxed">Whether you are an academic researcher, creator, founder, or citizen of Bharat — we welcome your thoughts, research, and partnerships.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="p-3 rounded-xl border border-slate-200 flex items-center justify-between">
+                            <div>
+                                <p class="font-bold text-slate-800 text-[11px]">Official Email</p>
+                                <p class="text-rashtraOrange font-mono font-black text-xs">rashtralink.in@gmail.com</p>
+                            </div>
+                            <a href="mailto:rashtralink.in@gmail.com" class="px-3 py-1.5 rounded-lg bg-rashtraBlue text-white text-[10px] font-black hover:scale-105 active:scale-95 transition-all">Send Email</a>
+                        </div>
+
+                        <div class="p-3 rounded-xl border border-slate-200 flex items-center justify-between">
+                            <div>
+                                <p class="font-bold text-slate-800 text-[11px]">Headquarters & Engineering Hub</p>
+                                <p class="text-slate-600 font-bold text-xs">Kolkata, West Bengal, India</p>
+                            </div>
+                            <span class="px-2 py-1 rounded bg-slate-100 text-[10px] font-bold text-slate-600">Bharat</span>
+                        </div>
+
+                        <div class="p-3 rounded-xl border border-slate-200 flex items-center justify-between">
+                            <div>
+                                <p class="font-bold text-slate-800 text-[11px]">Founding Community</p>
+                                <p class="text-slate-600 font-bold text-xs">Private Sovereign WhatsApp Community</p>
+                            </div>
+                            <button onclick="document.getElementById('close-universal-modal').click(); window.switchPage('early-access');" class="px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-[10px] font-black hover:scale-105 active:scale-95 transition-all">Apply to Join</button>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
+
+        modal.classList.remove('hidden');
+        lucide.createIcons();
     };
 
     // Universal Modal Close
@@ -1237,6 +1440,7 @@ function initWishlistPassGenerator() {
     const univModal = document.getElementById('universal-site-modal');
     if (closeUnivModal && univModal) {
         closeUnivModal.addEventListener('click', () => {
+            if (window.sfx) sfx.playClick();
             univModal.classList.add('hidden');
             document.body.style.overflow = '';
             document.body.style.overflowY = 'auto';
@@ -1250,122 +1454,45 @@ function initWishlistPassGenerator() {
         });
     }
 
-    // --- CLIENT-SIDE ROUTER: MULTI-PAGE VIEW CONTROLLER ---
-    const APP_VIEWS = {
-        'home': document.getElementById('view-main-site'),
-        'early-access': document.getElementById('view-early-access'),
-        'manifesto': document.getElementById('view-manifesto'),
-        'privacy': document.getElementById('view-privacy'),
-        'grievance': document.getElementById('view-grievance'),
-        'contact': document.getElementById('view-contact')
-    };
-
-    window.switchPage = function(pageName, pushToHistory = true) {
-        if (window.sfx && sfx.enabled) sfx.playClick();
+    // --- PAGE NAVIGATION: MAIN SITE <-> EARLY ACCESS / WISHLIST PAGE ---
+    window.switchPage = function(pageName) {
+        if (window.sfx) sfx.playClick();
         document.body.style.overflow = '';
         document.body.style.overflowY = 'auto';
 
-        const targetKey = APP_VIEWS[pageName] ? pageName : 'home';
+        const mainSite = document.getElementById('view-main-site');
+        const earlyAccessSite = document.getElementById('view-early-access');
+        if (!mainSite || !earlyAccessSite) return;
 
-        // Hide all views, show targeted view
-        Object.keys(APP_VIEWS).forEach(key => {
-            const el = APP_VIEWS[key];
-            if (el) {
-                if (key === targetKey) {
-                    el.classList.remove('hidden');
-                } else {
-                    el.classList.add('hidden');
-                }
+        if (pageName === 'early-access') {
+            mainSite.classList.add('hidden');
+            earlyAccessSite.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            history.pushState({ page: 'early-access' }, '', '#early-access');
+            if (window.gsap) {
+                gsap.from('#early-access-card', { y: 30, opacity: 0, duration: 0.7, ease: 'power3.out' });
             }
-        });
-
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-
-        if (pushToHistory) {
-            const newPath = targetKey === 'home' ? '/' : `/${targetKey}`;
-            history.pushState({ page: targetKey }, '', newPath);
+        } else {
+            earlyAccessSite.classList.add('hidden');
+            mainSite.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            history.pushState({ page: 'home' }, '', '#');
         }
-
-        if (window.lucide && lucide.createIcons) lucide.createIcons();
+        lucide.createIcons();
     };
 
-    // Parse initial URL path or hash on page boot
-    function handleInitialRoute() {
-        const path = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
-        const hash = window.location.hash.replace(/^#+/, '').toLowerCase();
-
-        if (['early-access', 'wishlist', 'apply', 'community'].includes(path) || ['early-access', 'wishlist', 'apply', 'community'].includes(hash)) {
-            window.switchPage('early-access', false);
-        } else if (['manifesto', 'founder', 'letter'].includes(path) || ['manifesto', 'founder', 'letter'].includes(hash)) {
-            window.switchPage('manifesto', false);
-        } else if (['privacy', 'dpdp', 'data-protection'].includes(path) || ['privacy', 'dpdp'].includes(hash)) {
-            window.switchPage('privacy', false);
-        } else if (['grievance', 'grievance-desk', 'it-rules'].includes(path) || ['grievance', 'grievance-desk'].includes(hash)) {
-            window.switchPage('grievance', false);
-        } else if (['contact', 'headquarters', 'about'].includes(path) || ['contact'].includes(hash)) {
-            window.switchPage('contact', false);
-        } else {
-            window.switchPage('home', false);
-        }
+    // Check URL Hash on Load
+    if (window.location.hash === '#early-access' || window.location.hash === '#wishlist' || window.location.hash === '#community') {
+        window.switchPage('early-access');
     }
-    handleInitialRoute();
 
     window.addEventListener('popstate', (e) => {
-        const page = (e.state && e.state.page) ? e.state.page : 'home';
-        window.switchPage(page, false);
+        if (e.state && e.state.page === 'early-access') {
+            window.switchPage('early-access');
+        } else {
+            window.switchPage('home');
+        }
     });
-
-    // Dedicated Page Grievance Form Handler
-    const pageGrvForm = document.getElementById('page-grievance-form');
-    if (pageGrvForm) {
-        pageGrvForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = pageGrvForm.querySelector('button[type="submit"]');
-            if (btn) {
-                btn.disabled = true;
-                btn.innerHTML = `<span>Transmitting Ticket...</span>`;
-            }
-
-            const name = document.getElementById('p-grv-name')?.value.trim() || '';
-            const email = document.getElementById('p-grv-email')?.value.trim() || '';
-            const categorySelect = document.getElementById('p-grv-category');
-            const categoryText = categorySelect ? categorySelect.options[categorySelect.selectedIndex]?.text : 'General';
-            const details = document.getElementById('p-grv-details')?.value.trim() || '';
-            const ticketId = `GRV-2026-${Math.floor(100000 + Math.random() * 900000)}`;
-            const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-
-            const payload = {
-                type: 'grievance',
-                ticketId,
-                timestamp,
-                name,
-                email,
-                category: categoryText,
-                details
-            };
-
-            fetch('/api/grievance', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            }).catch(() => {
-                fetch('https://script.google.com/macros/s/AKfycbxOxh07es6Tk5iNRK4bWl6IYwaKSHBfA5h8Up_iFMtUjYfIPT-Omrtgi3UnqWQvbM6CuQ/exec', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload),
-                    mode: 'no-cors'
-                }).catch(() => {});
-            });
-
-            pageGrvForm.classList.add('hidden');
-            const succ = document.getElementById('p-grv-success');
-            const ticketSpan = document.getElementById('p-grv-ticket-id');
-            if (ticketSpan) ticketSpan.innerText = `#${ticketId}`;
-            if (succ) succ.classList.remove('hidden');
-            if (window.lucide) lucide.createIcons();
-            showToast(`Statutory Ticket #${ticketId} Lodged`, 'shield-check');
-        });
-    }
 
     // --- EARLY ACCESS / WISHLIST COMMUNITY FORM SUBMISSION ---
     const eaForm = document.getElementById('early-access-application-form');
