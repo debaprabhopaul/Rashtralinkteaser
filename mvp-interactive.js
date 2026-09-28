@@ -1628,6 +1628,22 @@ window.applyFromPledgeModal = function() {
     }
 };
 
+window.ringPledgeBell = function() {
+    const btnText = document.getElementById('pledge-btn-text');
+    const btn = document.getElementById('ring-pledge-btn');
+
+    hasPledged = true;
+    if (btnText) btnText.innerText = 'Pledged! 🇮🇳';
+    if (btn) {
+        btn.classList.remove('from-orange-500', 'to-amber-600');
+        btn.classList.add('from-emerald-600', 'to-teal-700');
+    }
+    if (window.sfx && sfx.playSuccess) sfx.playSuccess();
+    
+    // Open the acknowledgment & wishlist modal immediately
+    window.openBharatPledgeModal();
+};
+
 window.toggleMobileNav = function() {
     const drawer = document.getElementById('mobile-nav-drawer');
     const icon = document.getElementById('mobile-menu-icon');
