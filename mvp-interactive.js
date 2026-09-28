@@ -1221,14 +1221,16 @@ function initWishlistPassGenerator() {
     };
 
     window.openLegalModal = function(type) {
-        if (type === 'dpdp' || type === 'privacy') {
+        if (type === 'terms' || type === 'tos') {
+            window.switchPage('terms');
+        } else if (type === 'dpdp' || type === 'privacy') {
             window.switchPage('privacy');
         } else if (type === 'grievance') {
             window.switchPage('grievance');
         } else if (type === 'contact') {
             window.switchPage('contact');
         } else {
-            window.switchPage('privacy');
+            window.switchPage('terms');
         }
     };
 
@@ -1255,12 +1257,14 @@ function initWishlistPassGenerator() {
         'home': document.getElementById('view-main-site'),
         'early-access': document.getElementById('view-early-access'),
         'manifesto': document.getElementById('view-manifesto'),
+        'terms': document.getElementById('view-terms'),
         'privacy': document.getElementById('view-privacy'),
         'grievance': document.getElementById('view-grievance'),
         'contact': document.getElementById('view-contact')
     };
 
     window.switchPage = function(pageName, pushToHistory = true) {
+        if (window.closeMobileNav) window.closeMobileNav();
         if (window.sfx && sfx.enabled) sfx.playClick();
         document.body.style.overflow = '';
         document.body.style.overflowY = 'auto';
@@ -1298,6 +1302,8 @@ function initWishlistPassGenerator() {
             window.switchPage('early-access', false);
         } else if (['manifesto', 'founder', 'letter'].includes(path) || ['manifesto', 'founder', 'letter'].includes(hash)) {
             window.switchPage('manifesto', false);
+        } else if (['terms', 'tos', 'user-agreement', 'legal'].includes(path) || ['terms', 'tos'].includes(hash)) {
+            window.switchPage('terms', false);
         } else if (['privacy', 'dpdp', 'data-protection'].includes(path) || ['privacy', 'dpdp'].includes(hash)) {
             window.switchPage('privacy', false);
         } else if (['grievance', 'grievance-desk', 'it-rules'].includes(path) || ['grievance', 'grievance-desk'].includes(hash)) {
@@ -1622,20 +1628,38 @@ window.applyFromPledgeModal = function() {
     }
 };
 
-window.ringPledgeBell = function() {
-    const btnText = document.getElementById('pledge-btn-text');
-    const btn = document.getElementById('ring-pledge-btn');
-
-    hasPledged = true;
-    if (btnText) btnText.innerText = 'Pledged! 🇮🇳';
-    if (btn) {
-        btn.classList.remove('from-orange-500', 'to-amber-600');
-        btn.classList.add('from-emerald-600', 'to-teal-700');
+window.toggleMobileNav = function() {
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const icon = document.getElementById('mobile-menu-icon');
+    if (!drawer) return;
+    const isClosed = drawer.classList.contains('hidden');
+    if (isClosed) {
+        drawer.classList.remove('hidden');
+        if (icon) icon.setAttribute('data-lucide', 'x');
+    } else {
+        drawer.classList.add('hidden');
+        if (icon) icon.setAttribute('data-lucide', 'menu');
     }
-    if (window.sfx && sfx.playSuccess) sfx.playSuccess();
-    
-    // Open the acknowledgment & wishlist modal immediately
-    window.openBharatPledgeModal();
+    if (window.lucide && lucide.createIcons) lucide.createIcons();
 };
+
+window.closeMobileNav = function() {
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const icon = document.getElementById('mobile-menu-icon');
+    if (drawer) drawer.classList.add('hidden');
+    if (icon) icon.setAttribute('data-lucide', 'menu');
+    if (window.lucide && lucide.createIcons) lucide.createIcons();
+};
+
+// Bind Mobile Menu Button
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.toggleMobileNav();
+        });
+    }
+});
 
 
