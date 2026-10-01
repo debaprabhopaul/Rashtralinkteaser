@@ -1257,6 +1257,7 @@ function initWishlistPassGenerator() {
         'home': document.getElementById('view-main-site'),
         'preview': document.getElementById('view-preview'),
         'bharat': document.getElementById('view-bharat'),
+        'creator': document.getElementById('view-creator'),
         'early-access': document.getElementById('view-early-access'),
         'manifesto': document.getElementById('view-manifesto'),
         'terms': document.getElementById('view-terms'),
@@ -1287,10 +1288,16 @@ function initWishlistPassGenerator() {
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        if (targetKey === 'bharat' && window.initBharatMap) {
-            window.initBharatMap();
-            setTimeout(() => { if (window.initBharatMap) window.initBharatMap(); }, 150);
-            setTimeout(() => { if (window.initBharatMap) window.initBharatMap(); }, 450);
+        if (targetKey === 'bharat') {
+            if (window.initBharatMap) {
+                window.initBharatMap();
+                setTimeout(() => { if (window.initBharatMap) window.initBharatMap(); }, 150);
+                setTimeout(() => { if (window.initBharatMap) window.initBharatMap(); }, 450);
+            }
+        } else if (targetKey === 'creator') {
+            if (window.creatorSimulator) {
+                window.creatorSimulator.updateUI();
+            }
         }
 
         if (pushToHistory) {
@@ -1301,12 +1308,18 @@ function initWishlistPassGenerator() {
         if (window.lucide && lucide.createIcons) lucide.createIcons();
     };
 
+    window.goToCreatorRealityCheck = function() {
+        window.switchPage('creator');
+    };
+
     // Parse initial URL path or hash on page boot
     function handleInitialRoute() {
         const path = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
         const hash = window.location.hash.replace(/^#+/, '').toLowerCase();
 
-        if (['bharat', 'voices', 'map', 'people', 'citizens'].includes(path) || ['bharat', 'voices', 'map', 'people', 'citizens'].includes(hash)) {
+        if (['creator', 'creators', 'reality-check', 'slider', 'guild'].includes(path) || ['creator', 'creators', 'reality-check', 'slider', 'guild'].includes(hash)) {
+            window.switchPage('creator', false);
+        } else if (['bharat', 'voices', 'map', 'people', 'citizens'].includes(path) || ['bharat', 'voices', 'map', 'people', 'citizens'].includes(hash)) {
             window.switchPage('bharat', false);
         } else if (['preview', 'simulator', 'demo', 'app', 'mvp', 'ralync'].includes(path) || ['preview', 'simulator', 'demo', 'app', 'mvp', 'ralync'].includes(hash)) {
             window.switchPage('preview', false);
