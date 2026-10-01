@@ -449,35 +449,27 @@
                 <img src="Rashtralinkproperlogo.png" alt="RashtraLink Logo" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform">
             </a>
 
-            <nav class="hidden md:flex items-center gap-6 text-xs font-bold text-slate-600">
+            <nav class="hidden md:flex items-center gap-7 text-xs font-bold text-slate-600">
                 <button onclick="window.switchPage('bharat')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5 text-slate-800">
                     <i data-lucide="compass" class="w-3.5 h-3.5 text-indiaGreen"></i>
                     <span>Voices of Bharat</span>
                 </button>
-                <button onclick="window.goToCreatorRealityCheck()" class="hover:text-rashtraOrange transition-all flex items-center gap-1.5 text-slate-900 bg-orange-50 hover:bg-orange-100 border border-orange-200/80 px-2.5 py-1 rounded-full font-black shadow-2xs">
+                <button onclick="window.switchPage('creator')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5 text-slate-800">
                     <i data-lucide="sliders" class="w-3.5 h-3.5 text-rashtraOrange"></i>
-                    <span>Creator Reality Check</span>
+                    <span>For Creators</span>
                 </button>
                 <button onclick="window.switchPage('preview')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5 text-slate-800">
-                    <i data-lucide="smartphone" class="w-3.5 h-3.5 text-rashtraOrange"></i>
-                    <span>Ralync Prototype</span>
+                    <i data-lucide="smartphone" class="w-3.5 h-3.5 text-blue-600"></i>
+                    <span>Prototype</span>
                 </button>
-                <a href="#charcha-section" onclick="if(window.switchPage && !document.getElementById('view-main-site').classList.contains('hidden')){/*stay*/}else{window.switchPage('home');}" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
+                <a href="#charcha-section" onclick="if(window.switchPage && !document.getElementById('view-main-site').classList.contains('hidden')){/*stay*/}else{window.switchPage('home');}" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5 text-slate-800">
                     <i data-lucide="scale" class="w-3.5 h-3.5 text-indiaGreen"></i>
-                    <span>Charcha Arena</span>
+                    <span>Charcha</span>
                 </a>
-                <button onclick="window.switchPage('manifesto')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
-                    <i data-lucide="feather" class="w-3.5 h-3.5 text-amber-600"></i>
-                    <span>Founder's Note</span>
-                </button>
-                <button onclick="window.switchPage('privacy')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
-                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
-                    <span>Data Privacy</span>
-                </button>
-                <button onclick="window.switchPage('early-access')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5 text-rashtraOrange">
-                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indiaSaffron"></i>
-                    <span>Early Access</span>
-                </button>
+                <a href="#faq-section" onclick="if(window.switchPage && !document.getElementById('view-main-site').classList.contains('hidden')){/*stay*/}else{window.switchPage('home'); setTimeout(()=>document.getElementById('faq-section')?.scrollIntoView({behavior:'smooth'}), 150);}" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5 text-slate-800">
+                    <i data-lucide="help-circle" class="w-3.5 h-3.5 text-purple-600"></i>
+                    <span>FAQ</span>
+                </a>
             </nav>
 
             <div class="flex items-center gap-2">
@@ -533,6 +525,15 @@
                     <p class="text-[10px] text-slate-500 font-normal">Evidence based consensus debates</p>
                 </div>
             </a>
+            <button onclick="window.closeMobileNav(); if(!document.getElementById('view-main-site').classList.contains('hidden')){document.getElementById('faq-section')?.scrollIntoView({behavior:'smooth'});}else{window.switchPage('home'); setTimeout(()=>document.getElementById('faq-section')?.scrollIntoView({behavior:'smooth'}), 150);}" class="w-full flex items-center gap-3 p-3 rounded-2xl bg-slate-50 hover:bg-purple-50 text-slate-800 text-xs font-bold transition-all text-left">
+                <div class="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center">
+                    <i data-lucide="help-circle" class="w-4 h-4"></i>
+                </div>
+                <div>
+                    <p class="font-black text-slate-900">Frequently Asked Questions (FAQ)</p>
+                    <p class="text-[10px] text-slate-500 font-normal">Answers on feed control, data residency & creators</p>
+                </div>
+            </button>
             <button onclick="window.closeMobileNav(); window.switchPage('manifesto');" class="w-full flex items-center gap-3 p-3 rounded-2xl bg-slate-50 hover:bg-amber-50 text-slate-800 text-xs font-bold transition-all text-left">
                 <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
                     <i data-lucide="feather" class="w-4 h-4"></i>
@@ -1571,6 +1572,154 @@
         </div>
     </section>
 
+    <!-- ======================================================== -->
+    <!-- INTERACTIVE FAQ SECTION: FREQUENTLY ASKED QUESTIONS -->
+    <!-- ======================================================== -->
+    <section id="faq-section" class="py-24 px-4 sm:px-6 relative z-10 bg-slate-50/80 border-t border-slate-200/80">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-14">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-[11px] font-black uppercase tracking-wider mb-4 shadow-2xs">
+                    <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
+                    <span>Frequently Asked Questions (प्रश्न और उत्तर)</span>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                    Everything You Need to Know <br class="hidden sm:block">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-rashtraOrange via-orange-600 to-amber-600">About RashtraLink</span>
+                </h2>
+                <p class="text-slate-600 font-medium text-xs sm:text-sm mt-3.5 max-w-xl mx-auto leading-relaxed">
+                    Clear, transparent answers about our sovereign data hosting, user-controlled algorithms, creator livelihoods, and national roadmap.
+                </p>
+            </div>
+
+            <!-- FAQ Accordion List -->
+            <div class="space-y-3.5">
+                
+                <!-- Q1 -->
+                <div class="faq-item rounded-2xl bg-white border border-slate-200/90 shadow-xs overflow-hidden transition-all duration-200 hover:border-slate-300">
+                    <button onclick="window.toggleFaqItem(1)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-black text-slate-900 text-sm sm:text-base cursor-pointer">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-orange-50 text-rashtraOrange text-xs font-black flex items-center justify-center shrink-0">01</span>
+                            <span>What is RashtraLink (Ralync) and why is it being built?</span>
+                        </span>
+                        <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-1" class="hidden px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-4">
+                        RashtraLink (also known as Ralync) is India's sovereign attention and social networking platform, founded in Kolkata for 1.4 billion citizens. It is built to end foreign Big Tech data surveillance and toxic outrage-loop algorithms. RashtraLink replaces sensationalist clickbait with transparent feed priority sliders, citation-backed consensus debates in Charcha Arena, and 100% data residency hosted exclusively on Indian soil.
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-item rounded-2xl bg-white border border-slate-200/90 shadow-xs overflow-hidden transition-all duration-200 hover:border-slate-300">
+                    <button onclick="window.toggleFaqItem(2)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-black text-slate-900 text-sm sm:text-base cursor-pointer">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 text-xs font-black flex items-center justify-center shrink-0">02</span>
+                            <span>How does the User-Controlled Algorithm work?</span>
+                        </span>
+                        <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-2" class="hidden px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-4">
+                        Unlike foreign apps where a secret commercial algorithm decides what you see to maximize addiction and advertising impressions, RashtraLink gives you 5 explicit priority levers (Science & Technology, Startups & Economy, National Defence, Regional Culture, and Governance). You choose their weighting directly with sliders, or inject your own custom priority tags. You govern your feed—the platform never exploits your subconscious.
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-item rounded-2xl bg-white border border-slate-200/90 shadow-xs overflow-hidden transition-all duration-200 hover:border-slate-300">
+                    <button onclick="window.toggleFaqItem(3)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-black text-slate-900 text-sm sm:text-base cursor-pointer">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-blue-50 text-rashtraBlue text-xs font-black flex items-center justify-center shrink-0">03</span>
+                            <span>How is RashtraLink different for content creators and educators?</span>
+                        </span>
+                        <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-3" class="hidden px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-4">
+                        Foreign platforms trap creators in an exploitative hamster wheel: only ~3% of their followers see their posts unless they pay ad fees, platforms take 45%–55% cuts, and automated bots issue arbitrary bans. RashtraLink's Sovereign Creator Guild guarantees 100% chronological delivery to all your followers (₹0 to reach your audience), direct instant same-day UPI micropayments (you keep 96%+ of earnings), and permanent ownership of your community graph.
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-item rounded-2xl bg-white border border-slate-200/90 shadow-xs overflow-hidden transition-all duration-200 hover:border-slate-300">
+                    <button onclick="window.toggleFaqItem(4)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-black text-slate-900 text-sm sm:text-base cursor-pointer">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 text-xs font-black flex items-center justify-center shrink-0">04</span>
+                            <span>Where is user data stored and is it compliant with Indian laws?</span>
+                        </span>
+                        <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-4" class="hidden px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-4">
+                        100% of user data, database clusters, and verification hashes are physically located inside Tier-4 data centres within the borders of India (Mumbai, Bengaluru, and Noida). We fully comply with the Digital Personal Data Protection (DPDP) Act 2023 and the IT (Intermediary Guidelines and Digital Media Ethics Code) Rules 2021. Personal data is never transferred abroad or sold to foreign advertising brokers.
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="faq-item rounded-2xl bg-white border border-slate-200/90 shadow-xs overflow-hidden transition-all duration-200 hover:border-slate-300">
+                    <button onclick="window.toggleFaqItem(5)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-black text-slate-900 text-sm sm:text-base cursor-pointer">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-purple-50 text-purple-700 text-xs font-black flex items-center justify-center shrink-0">05</span>
+                            <span>What is Charcha Arena and how does it stop toxicity?</span>
+                        </span>
+                        <i id="faq-icon-5" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-5" class="hidden px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-4">
+                        Charcha Arena replaces unmoderated flame wars with structured debate and consensus discovery. In Charcha discussions, statements require primary citations (government gazettes, research papers, peer-reviewed journals, verified press). Instead of rewarding insults that trigger engagement, our consensus engine rewards nuance, factual accuracy, and constructive discourse with a merit-based Bharat Score.
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="faq-item rounded-2xl bg-white border border-slate-200/90 shadow-xs overflow-hidden transition-all duration-200 hover:border-slate-300">
+                    <button onclick="window.toggleFaqItem(6)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-black text-slate-900 text-sm sm:text-base cursor-pointer">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-rose-50 text-rose-700 text-xs font-black flex items-center justify-center shrink-0">06</span>
+                            <span>What is Voices of Bharat?</span>
+                        </span>
+                        <i id="faq-icon-6" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-6" class="hidden px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-4">
+                        Voices of Bharat is our interactive national map celebrating 55 real citizens across every Indian state and Union Territory. You can explore regional mascots, hear authentic mother-tongue greetings in 22 scheduled languages, and generate high-resolution story cards to represent your hometown with pride.
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="faq-item rounded-2xl bg-white border border-slate-200/90 shadow-xs overflow-hidden transition-all duration-200 hover:border-slate-300">
+                    <button onclick="window.toggleFaqItem(7)" class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-black text-slate-900 text-sm sm:text-base cursor-pointer">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-teal-50 text-teal-700 text-xs font-black flex items-center justify-center shrink-0">07</span>
+                            <span>When does RashtraLink launch and how can I get Early Access?</span>
+                        </span>
+                        <i id="faq-icon-7" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-7" class="hidden px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-4">
+                        The public national rollout is scheduled for 2026. You can apply right now by clicking "Apply for Access" to join our private alpha cohort. Accepted applicants receive a permanent Founding Citizen reservation, early access to the native iOS/Android apps, and their preferred username handle.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Still Have Questions Card -->
+            <div class="mt-10 p-6 rounded-2xl bg-gradient-to-r from-orange-50 via-white to-blue-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-orange-100 text-rashtraOrange flex items-center justify-center shrink-0">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-black text-slate-900">Have a specific question not listed here?</h4>
+                        <p class="text-[11px] text-slate-500 font-medium mt-0.5">Ask our Gemini AI concierge in the bottom-right chat, or contact our headquarters in Kolkata.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <button onclick="window.openLegalModal('contact')" class="px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-800 text-xs font-bold hover:border-rashtraOrange hover:text-rashtraOrange transition-all shadow-xs">
+                        Contact HQ
+                    </button>
+                    <button onclick="window.switchPage('early-access')" class="px-4 py-2 rounded-xl bg-rashtraOrange text-white text-xs font-black hover:bg-orange-600 transition-all shadow-xs">
+                        Join Waitlist
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="pt-12 pb-24 sm:pb-16 bg-white relative z-10 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 md:pr-48">
@@ -1587,6 +1736,7 @@
                     <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-500"></i>
                     <span>Instagram</span>
                 </a>
+                <a href="#faq-section" onclick="if(!document.getElementById('view-main-site').classList.contains('hidden')){document.getElementById('faq-section')?.scrollIntoView({behavior:'smooth'});}else{window.switchPage('home'); setTimeout(()=>document.getElementById('faq-section')?.scrollIntoView({behavior:'smooth'}), 150);}" class="hover:text-rashtraOrange transition-colors py-1">FAQ</a>
                 <button onclick="window.switchPage('manifesto')" class="hover:text-rashtraOrange transition-colors py-1">Founder's Manifesto</button>
                 <button onclick="window.switchPage('terms')" class="hover:text-rashtraOrange transition-colors py-1">Terms of Service</button>
                 <button onclick="window.switchPage('privacy')" class="hover:text-rashtraOrange transition-colors py-1">DPDP Privacy Charter</button>

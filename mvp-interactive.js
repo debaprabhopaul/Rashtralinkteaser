@@ -1312,6 +1312,21 @@ function initWishlistPassGenerator() {
         window.switchPage('creator');
     };
 
+    window.toggleFaqItem = function(index) {
+        const answer = document.getElementById(`faq-ans-${index}`);
+        const icon = document.getElementById(`faq-icon-${index}`);
+        if (!answer) return;
+        const isHidden = answer.classList.contains('hidden');
+        if (isHidden) {
+            answer.classList.remove('hidden');
+            if (icon) icon.style.transform = 'rotate(180deg)';
+        } else {
+            answer.classList.add('hidden');
+            if (icon) icon.style.transform = 'rotate(0deg)';
+        }
+        if (window.sfx && sfx.enabled) sfx.playClick();
+    };
+
     // Parse initial URL path or hash on page boot
     function handleInitialRoute() {
         const path = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
@@ -1319,6 +1334,12 @@ function initWishlistPassGenerator() {
 
         if (['creator', 'creators', 'reality-check', 'slider', 'guild'].includes(path) || ['creator', 'creators', 'reality-check', 'slider', 'guild'].includes(hash)) {
             window.switchPage('creator', false);
+        } else if (['faq', 'faqs', 'questions'].includes(path) || ['faq', 'faqs', 'questions'].includes(hash)) {
+            window.switchPage('home', false);
+            setTimeout(() => {
+                const el = document.getElementById('faq-section');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 200);
         } else if (['bharat', 'voices', 'map', 'people', 'citizens'].includes(path) || ['bharat', 'voices', 'map', 'people', 'citizens'].includes(hash)) {
             window.switchPage('bharat', false);
         } else if (['preview', 'simulator', 'demo', 'app', 'mvp', 'ralync'].includes(path) || ['preview', 'simulator', 'demo', 'app', 'mvp', 'ralync'].includes(hash)) {
