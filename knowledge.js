@@ -17,17 +17,17 @@ export function getRashtraLinkKnowledgeReply(query) {
    * Dedicated to establishing true economic sovereignty and sustainable monetization for Indian creators and businesses.`;
   }
 
-  if (q.includes('what is') || q.includes('rashtralink') || q.includes('about') || q.includes('kya hai') || q.includes('kya h')) {
-    return `**RashtraLink** is India’s Sovereign AI Social Network, founded by **Debaprabho Paul** (Founder & CEO) alongside **Mainak Pathak** (Co-Founder & CBO) under the **Rashtra Group**.
+  if (q.includes('what is') || q.includes('rashtralink') || q.includes('ralync') || q.includes('about') || q.includes('kya hai') || q.includes('kya h')) {
+    return `**RashtraLink**, also widely known as **Ralync**, is India’s Sovereign Social Network, founded by **Debaprabho Paul** (Founder & CEO) alongside **Mainak Pathak** (Co-Founder & CBO) under the **Rashtra Group**.
 
-Built for 1.4 billion Indians, RashtraLink reclaims digital sovereignty by replacing foreign surveillance capitalism and addictive rage-bait loops with transparency, data privacy, and civil discourse:
+Built for 1.4 billion Indians, RashtraLink (Ralync) replaces foreign algorithms and addictive rage loops with user control, genuine data privacy, and civilized public discourse:
 
-* **100% Data Sovereignty**: Full compliance with the Digital Personal Data Protection (DPDP) Act 2023. All Indian citizen data is stored strictly across Tier-4 regional hubs (Bengaluru, Delhi, Mumbai, Kolkata, Chennai, Hyderabad).
-* **Transparent Sovereign Feed**: Powered by an open, deterministic 4-stage algorithm prioritizing verifiable accuracy, positive civic value, and healthy community connections over outrage.
-* **Charcha Arena**: Evidence-backed civic debate across all 22 official Indian languages, where controversial assertions require verified citations.
-* **10K-Zero Creator Economy**: Creators receive 70% direct revenue share at just 10,000 verified engagements with 0% platform penalty.
+* **User Controlled Feed**: Powered by transparent sliders where you choose what enters your feed instead of an opaque black box.
+* **100% Indian Cloud**: Full compliance with the Digital Personal Data Protection (DPDP) Act. All data is kept strictly inside India and never sold to foreign ad brokers.
+* **Charcha Arena**: Evidence-backed discussions where facts and citations matter more than noisy arguments.
+* **A Better Creator Economy**: Direct community support and tipping through UPI, ensuring significantly higher payouts and lower, honest platform fees.
 
-You can claim your **Founding Citizen Golden Badge** and early access directly on this page!`;
+You can claim your **Founding Citizen Badge** and join the early access community right here on this site!`;
   }
 
   if (q.includes('algorithm') || q.includes('feed') || q.includes('formula') || q.includes('weights') || q.includes('how it works')) {

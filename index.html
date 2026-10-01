@@ -3,29 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RashtraLink | India's Sovereign AI Social Network</title>
+<title>RashtraLink (Ralync) | India's Sovereign Social Network</title>
 
 <!-- SEO: Core -->
-<meta name="description" content="RashtraLink is India's sovereign attention and social networking platform. Built by Indians, for Indians — featuring an Open Deterministic Sovereign Algorithm, Charcha Arena evidence discourse, 100% DPDP Act data residency, and 10K-Zero Creator Economy. Founded by Debaprabho Paul under Rashtra Group.">
-<meta name="keywords" content="RashtraLink, RashtraLink in, rashtralink.in, attention networking platform, attention network, Indian social media, sovereign AI social network, sovereign algorithm, Charcha Arena, Viksit Bharat 2047, DPDP Act 2023, Atmanirbhar Bharat social app, India social network">
-<meta name="author" content="Debaprabho Paul, Rashtra Group">
+<meta name="description" content="RashtraLink, also known as Ralync, is India's sovereign social network. Built for 1.4 billion citizens, featuring user controlled feeds, evidence based discussions, 100% Indian data privacy, and a better creator economy. Founded by Debaprabho Paul under Rashtra Group.">
+<meta name="keywords" content="RashtraLink, Ralync, Ralync app, rashtralink.in, sovereign social network, Indian social media, attention network, Charcha Arena, Viksit Bharat 2047, DPDP Act 2023, Debaprabho Paul, Mainak Pathak, Rashtra Group">
+<meta name="author" content="Debaprabho Paul, Mainak Pathak, Rashtra Group">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://rashtralink.in/">
 
 <!-- SEO: Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rashtralink.in/">
-<meta property="og:title" content="RashtraLink | India's Sovereign Attention & Social Network">
-<meta property="og:description" content="India's next-generation sovereign attention and social networking platform with Open Deterministic Algorithm, Charcha Arena evidence debates, and 10K-Zero Creator Economy. Founded by Debaprabho Paul under Rashtra Group.">
+<meta property="og:title" content="RashtraLink (Ralync) | India's Sovereign Social Network">
+<meta property="og:description" content="RashtraLink, also known as Ralync, is India's sovereign social network. Take back control of your feed, join evidence-backed discussions, and own your data.">
 <meta property="og:image" content="https://rashtralink.in/rashtralinksublogo.png">
-<meta property="og:site_name" content="RashtraLink">
+<meta property="og:site_name" content="RashtraLink (Ralync)">
 <meta property="og:locale" content="en_IN">
 
 <!-- SEO: Twitter/X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://rashtralink.in/">
-<meta name="twitter:title" content="RashtraLink | India's Sovereign Attention & Social Network">
-<meta name="twitter:description" content="India's next-generation sovereign attention and social networking platform. Deterministic Algorithm. Charcha Arena. Founded by Debaprabho Paul (Rashtra Group).">
+<meta name="twitter:title" content="RashtraLink (Ralync) | India's Sovereign Social Network">
+<meta name="twitter:description" content="RashtraLink, also known as Ralync, is India's sovereign social network. Built for Bharat with user-controlled feeds and civil discussions.">
 <meta name="twitter:image" content="https://rashtralink.in/rashtralinksublogo.png">
 
 <!-- SEO: Structured Data (Schema.org) -->
@@ -38,7 +38,8 @@
       "@id": "https://rashtralink.in/#website",
       "url": "https://rashtralink.in/",
       "name": "RashtraLink",
-      "description": "India's Sovereign Attention & Social Networking Platform by Rashtra Group",
+      "alternateName": "Ralync",
+      "description": "India's Sovereign Social Network by Rashtra Group",
       "publisher": {
         "@id": "https://rashtralink.in/#organization"
       },
@@ -48,10 +49,11 @@
       "@type": "Organization",
       "@id": "https://rashtralink.in/#organization",
       "name": "RashtraLink",
+      "alternateName": "Ralync",
       "url": "https://rashtralink.in/",
       "logo": "https://rashtralink.in/Rashtralinkproperlogo.png",
       "image": "https://rashtralink.in/Rashtralinkproperlogo.png",
-      "description": "India's Sovereign Attention and Social Networking platform by Rashtra Group, designed for 1.4 billion citizens with 100% DPDP Act compliance.",
+      "description": "India's Sovereign Social Network by Rashtra Group, designed for 1.4 billion citizens with 100% Indian data residency.",
       "foundingDate": "2025",
       "sameAs": [
         "https://www.instagram.com/rashtralink/"
@@ -116,6 +118,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <script>
@@ -232,6 +236,107 @@
         .safe-area-bottom {
             padding-bottom: max(0.6rem, env(safe-area-inset-bottom));
         }
+    
+        /* Apple-Grade Mannequin Float & Leaflet Discovery Beacons */
+        @keyframes mannequinFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-7px); }
+        }
+        .animate-mannequin-float {
+            animation: mannequinFloat 4s ease-in-out infinite;
+        }
+        .custom-beacon-icon {
+            background: transparent !important;
+            border: none !important;
+        }
+        .beacon-pin-wrapper {
+            position: relative;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .beacon-ring {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(255, 86, 34, 0.35);
+            animation: ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        .beacon-core {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #FF5622;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 0 8px rgba(255, 86, 34, 0.9);
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .beacon-pin-wrapper:hover .beacon-core,
+        .active-beacon .beacon-core {
+            transform: scale(1.6);
+            background: #003366;
+            box-shadow: 0 0 14px rgba(0, 51, 102, 0.9);
+        }
+        .beacon-label {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-2px);
+            padding: 2px 7px;
+            border-radius: 9999px;
+            background: #001F3F;
+            color: #FFFFFF;
+            font-size: 10px;
+            font-weight: 800;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        }
+        .beacon-pin-wrapper:hover .beacon-label,
+        .active-beacon .beacon-label {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-6px);
+        }
+
+        @keyframes mannequinBob {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-3px) rotate(1.2deg); }
+        }
+        .animate-mannequin-bob {
+            animation: mannequinBob 3s ease-in-out infinite;
+        }
+
+        @keyframes mannequinBreathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02, 1.01); }
+        }
+        .animate-mannequin-breathe {
+            animation: mannequinBreathe 3.5s ease-in-out infinite;
+        }
+
+        @keyframes stalkSway {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(-4deg); }
+        }
+        .animate-stalk-sway {
+            animation: stalkSway 3s ease-in-out infinite;
+        }
+
+        @keyframes handWave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(10deg); }
+        }
+        .animate-hand-wave {
+            animation: handWave 2.2s ease-in-out infinite;
+        }
+
     </style>
 </head>
 <body class="antialiased selection:bg-rashtraOrange selection:text-white">
@@ -298,25 +403,29 @@
             </a>
 
             <nav class="hidden md:flex items-center gap-7 text-xs font-bold text-slate-600">
-                <a href="#mvp-simulator" onclick="if(window.switchPage && !document.getElementById('view-main-site').classList.contains('hidden')){/*stay*/}else{window.switchPage('home');}" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
+                <button onclick="window.switchPage('bharat')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5 text-slate-800">
+                    <i data-lucide="compass" class="w-3.5 h-3.5 text-indiaGreen"></i>
+                    <span>Voices of Bharat</span>
+                </button>
+                <button onclick="window.switchPage('preview')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5 text-slate-800">
                     <i data-lucide="smartphone" class="w-3.5 h-3.5 text-rashtraOrange"></i>
-                    <span>Interactive MVP</span>
-                </a>
+                    <span>Ralync Prototype</span>
+                </button>
                 <a href="#charcha-section" onclick="if(window.switchPage && !document.getElementById('view-main-site').classList.contains('hidden')){/*stay*/}else{window.switchPage('home');}" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
                     <i data-lucide="scale" class="w-3.5 h-3.5 text-indiaGreen"></i>
                     <span>Charcha Arena</span>
                 </a>
                 <button onclick="window.switchPage('manifesto')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
                     <i data-lucide="feather" class="w-3.5 h-3.5 text-amber-600"></i>
-                    <span>Founder's Manifesto</span>
+                    <span>Founder's Note</span>
                 </button>
                 <button onclick="window.switchPage('privacy')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
                     <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
-                    <span>DPDP Act Charter</span>
+                    <span>Data Privacy</span>
                 </button>
-                <button onclick="window.switchPage('early-access')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5">
+                <button onclick="window.switchPage('early-access')" class="hover:text-rashtraOrange transition-colors flex items-center gap-1.5 text-rashtraOrange">
                     <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indiaSaffron"></i>
-                    <span>Early Access Wishlist</span>
+                    <span>Early Access</span>
                 </button>
             </nav>
 
@@ -337,22 +446,31 @@
 
         <!-- Mobile Drawer Navigation -->
         <div id="mobile-nav-drawer" class="hidden md:hidden border-t border-slate-100 bg-white/98 backdrop-blur-xl px-6 py-5 space-y-3 shadow-2xl transition-all">
-            <a href="#mvp-simulator" onclick="window.closeMobileNav(); if(window.switchPage && !document.getElementById('view-main-site').classList.contains('hidden')){/*stay*/}else{window.switchPage('home');}" class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 hover:bg-orange-50 text-slate-800 text-xs font-bold transition-all">
+            <button onclick="window.closeMobileNav(); window.switchPage('bharat');" class="w-full flex items-center gap-3 p-3 rounded-2xl bg-slate-50 hover:bg-emerald-50 text-slate-800 text-xs font-bold transition-all text-left">
+                <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                    <i data-lucide="compass" class="w-4 h-4"></i>
+                </div>
+                <div>
+                    <p class="font-black text-slate-900">Voices of Bharat</p>
+                    <p class="text-[10px] text-slate-500 font-normal">Interactive map with 55 authentic Indian citizens</p>
+                </div>
+            </button>
+            <button onclick="window.closeMobileNav(); window.switchPage('preview');" class="w-full flex items-center gap-3 p-3 rounded-2xl bg-slate-50 hover:bg-orange-50 text-slate-800 text-xs font-bold transition-all text-left">
                 <div class="w-8 h-8 rounded-xl bg-orange-100 text-rashtraOrange flex items-center justify-center">
                     <i data-lucide="smartphone" class="w-4 h-4"></i>
                 </div>
                 <div>
-                    <p class="font-black text-slate-900">Interactive MVP</p>
-                    <p class="text-[10px] text-slate-500 font-normal">Test the live smartphone prototype</p>
+                    <p class="font-black text-slate-900">Ralync Prototype</p>
+                    <p class="text-[10px] text-slate-500 font-normal">Test the live smartphone app in browser</p>
                 </div>
-            </a>
+            </button>
             <a href="#charcha-section" onclick="window.closeMobileNav(); if(window.switchPage && !document.getElementById('view-main-site').classList.contains('hidden')){/*stay*/}else{window.switchPage('home');}" class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 hover:bg-emerald-50 text-slate-800 text-xs font-bold transition-all">
                 <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
                     <i data-lucide="scale" class="w-4 h-4"></i>
                 </div>
                 <div>
                     <p class="font-black text-slate-900">Charcha Arena</p>
-                    <p class="text-[10px] text-slate-500 font-normal">Evidence-based consensus debates</p>
+                    <p class="text-[10px] text-slate-500 font-normal">Evidence based consensus debates</p>
                 </div>
             </a>
             <button onclick="window.closeMobileNav(); window.switchPage('manifesto');" class="w-full flex items-center gap-3 p-3 rounded-2xl bg-slate-50 hover:bg-amber-50 text-slate-800 text-xs font-bold transition-all text-left">
@@ -360,7 +478,7 @@
                     <i data-lucide="feather" class="w-4 h-4"></i>
                 </div>
                 <div>
-                    <p class="font-black text-slate-900">Founder's Manifesto</p>
+                    <p class="font-black text-slate-900">Founder's Note</p>
                     <p class="text-[10px] text-slate-500 font-normal">Letter from Founder Debaprabho Paul</p>
                 </div>
             </button>
@@ -426,7 +544,7 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indiaSaffron opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-indiaGreen"></span>
                 </span>
-                <span>A Sovereign Indian Attention & Social Network • Built for Bharat</span>
+                <span>RashtraLink, also known as Ralync • Built for Bharat</span>
             </div>
 
             <h1 class="gsap-hero text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] text-rashtraBlue mb-6">
@@ -435,15 +553,27 @@
             </h1>
             
             <p class="gsap-hero text-base sm:text-xl md:text-2xl font-bold text-slate-600 tracking-tight max-w-3xl mx-auto mb-10 leading-relaxed">
-                India's sovereign attention and social networking platform where you govern your feed, participate in evidence-backed discussions, and own your personal data.
+                A Social Media Platform built for Bharat where You decide what appears on your feed, discussions are backed by verified proof, and your personal data never leaves Indian soil.
             </p>
 
-            <!-- CTA Cluster -->
+            
+            <!-- Voices of Bharat Callout Banner -->
+            <div class="gsap-hero mb-6">
+                <button onclick="window.switchPage('bharat')" class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-orange-50 via-white to-emerald-50 border border-orange-200 text-xs font-black text-slate-800 hover:scale-105 active:scale-95 transition-all shadow-sm group">
+                    <span class="w-5 h-5 rounded-full bg-orange-100 text-rashtraOrange flex items-center justify-center group-hover:rotate-45 transition-transform">
+                        <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+                    </span>
+                    <span>Meet 55 Real Citizens on the Interactive Bharat Map 🇮🇳</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-rashtraOrange"></i>
+                </button>
+            </div>
+
+<!-- CTA Cluster -->
             <div class="gsap-hero flex flex-col sm:flex-row items-center gap-4 mb-16 w-full max-w-lg justify-center">
-                <a href="#mvp-simulator" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-rashtraBlue text-white font-extrabold text-sm shadow-xl hover:shadow-rashtraBlue/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2.5">
+                <button onclick="window.switchPage('preview')" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-rashtraOrange to-indiaSaffron text-white font-black text-sm shadow-xl hover:shadow-orange-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2.5">
                     <i data-lucide="play" class="w-4 h-4 fill-white"></i>
-                    <span>Try Interactive MVP Live</span>
-                </a>
+                    <span>Try Ralync Live Prototype ↗</span>
+                </button>
                 <button onclick="window.switchPage('early-access')" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white border border-slate-200 text-slate-800 font-extrabold text-sm hover:border-rashtraOrange hover:text-rashtraOrange shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2">
                     <i data-lucide="sparkles" class="w-4 h-4 text-rashtraOrange"></i>
                     <span>Apply for Early Access</span>
@@ -453,31 +583,985 @@
             <!-- Metrics Bar -->
             <div class="gsap-hero grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl text-left">
                 <div class="glass-panel p-4 rounded-2xl">
-                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Data Residency</p>
-                    <p class="text-lg font-black text-rashtraBlue">100% On-Soil</p>
-                    <p class="text-[10px] text-emerald-700 font-bold">DPDP Act 2023</p>
+                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Your Data</p>
+                    <p class="text-lg font-black text-rashtraBlue">100% in India</p>
+                    <p class="text-[10px] text-emerald-700 font-bold">Safe on Indian soil</p>
                 </div>
                 <div class="glass-panel p-4 rounded-2xl">
-                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Algorithmic Feed</p>
-                    <p class="text-lg font-black text-rashtraOrange">User-Governed</p>
-                    <p class="text-[10px] text-slate-500 font-bold">Transparent Levers</p>
+                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Your Feed</p>
+                    <p class="text-lg font-black text-rashtraOrange">You Decide</p>
+                    <p class="text-[10px] text-slate-500 font-bold">Simple topic sliders</p>
                 </div>
                 <div class="glass-panel p-4 rounded-2xl">
-                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Vernacular Reach</p>
-                    <p class="text-lg font-black text-indiaGreen">Multilingual</p>
-                    <p class="text-[10px] text-slate-500 font-bold">Indic Tokenizers</p>
+                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Discussions</p>
+                    <p class="text-lg font-black text-indiaGreen">Fact Based</p>
+                    <p class="text-[10px] text-slate-500 font-bold">Real proof over noise</p>
                 </div>
                 <div class="glass-panel p-4 rounded-2xl">
-                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Creator Economics</p>
-                    <p class="text-lg font-black text-rashtraBlue">10K-Zero Model</p>
-                    <p class="text-[10px] text-orange-600 font-bold">0% Platform Cut</p>
+                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Creator Economy</p>
+                    <p class="text-lg font-black text-rashtraBlue">Fair & Direct</p>
+                    <p class="text-[10px] text-orange-600 font-bold">Higher earnings, low cuts</p>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- 2. INTERACTIVE MVP SIMULATOR SECTION (From Your Screenshots) -->
+    
+    <!-- 2. RALYNC INTERACTIVE PROTOTYPE TEASER SHOWCASE -->
+    <section class="relative py-20 px-4 sm:px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto z-10 relative">
+            <div class="glass-panel p-8 sm:p-12 rounded-[2.5rem] bg-gradient-to-br from-white via-orange-50/40 to-amber-50/20 border border-orange-100 shadow-xl relative overflow-hidden">
+                <!-- Ambient glow decorations -->
+                <div class="absolute -top-24 -right-24 w-80 h-80 bg-orange-400/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex flex-col lg:flex-row items-center gap-10 relative z-10">
+                    <!-- Left Text Column -->
+                    <div class="w-full lg:w-7/12 text-left space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/90 text-rashtraOrange text-xs font-black">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                            <span>Live Hands-On Prototype</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-black text-rashtraBlue tracking-tight leading-tight">
+                            Experience Ralync <br>
+                            <span class="title-gradient">Before Anyone Else.</span>
+                        </h2>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                            We believe in showing, not just talking. Test our functional prototype in its own full-screen preview. Move live feed sliders, vote in real-time national polls, explore evidence-backed debates, and see how zero-cut creator support works.
+                        </p>
+
+                        <!-- Feature checklist -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs font-bold text-slate-700">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                                <span>User controlled priority sliders</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                                <span>Live ISRO mission poll</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                                <span>Charcha Arena consensus debate</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                                <span>7 Indian regional languages</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Cluster -->
+                        <div class="pt-4 flex flex-col sm:flex-row items-center gap-4">
+                            <button onclick="window.switchPage('preview')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-rashtraOrange to-indiaSaffron text-white font-black text-sm shadow-xl hover:shadow-orange-500/25 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2.5">
+                                <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+                                <span>Launch Live Interactive Prototype ↗</span>
+                            </button>
+                            <button onclick="window.switchPage('early-access')" class="w-full sm:w-auto px-6 py-4 rounded-2xl bg-white border border-slate-200 text-slate-800 font-bold text-sm hover:border-rashtraOrange hover:text-rashtraOrange transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="award" class="w-4 h-4 text-rashtraOrange"></i>
+                                <span>Claim Founding Badge</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Visual Column: Stylized App Mockup Teaser -->
+                    <div class="w-full lg:w-5/12 flex justify-center">
+                        <div onclick="window.switchPage('preview')" class="cursor-pointer group relative w-full max-w-[320px] transition-transform duration-300 hover:scale-[1.02]">
+                            <!-- Phone Frame Illustration -->
+                            <div class="relative rounded-[2.5rem] bg-slate-900 p-3 shadow-2xl border-4 border-slate-800">
+                                <div class="relative rounded-[2rem] bg-white overflow-hidden p-4 space-y-3.5 border border-slate-200">
+                                    <!-- Mock Header -->
+                                    <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-7 h-7 rounded-full bg-rashtraOrange text-white font-black text-xs flex items-center justify-center">R</div>
+                                            <div>
+                                                <p class="text-xs font-black text-slate-900 leading-none">Ralync</p>
+                                                <p class="text-[9px] text-slate-400">Bharat Feed</p>
+                                            </div>
+                                        </div>
+                                        <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[9px] font-black">Live Demo</span>
+                                    </div>
+
+                                    <!-- Mock Post Card -->
+                                    <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-[10px] flex items-center justify-center">IS</div>
+                                            <div>
+                                                <p class="text-[11px] font-black text-slate-900 leading-none">ISRO Research</p>
+                                                <p class="text-[9px] text-slate-400">Verified Organization</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-[11px] text-slate-700 leading-relaxed font-medium">Gaganyaan flight qualification engine test cleared successfully.</p>
+                                        <div class="flex items-center gap-1 text-[9px] font-bold text-emerald-700">
+                                            <i data-lucide="check-circle-2" class="w-3 h-3 text-emerald-600"></i>
+                                            <span>Evidence verified by national bulletin</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Mock Slider Card -->
+                                    <div class="p-3 rounded-2xl bg-orange-50/70 border border-orange-100 space-y-1.5">
+                                        <div class="flex items-center justify-between text-[10px] font-bold text-slate-800">
+                                            <span>Science & Innovation</span>
+                                            <span class="text-rashtraOrange font-black">+85%</span>
+                                        </div>
+                                        <div class="w-full h-1.5 bg-orange-200/60 rounded-full overflow-hidden">
+                                            <div class="w-[85%] h-full bg-rashtraOrange rounded-full"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Click to launch overlay button -->
+                                    <div class="pt-2 text-center">
+                                        <span class="inline-flex items-center gap-1.5 text-xs font-black text-rashtraOrange group-hover:underline">
+                                            <span>Click to open full prototype</span>
+                                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2.5 VISUAL COMPARISON: OLD SOCIAL NETWORKS VS RALYNC -->
+    <section class="relative py-24 px-4 sm:px-6 bg-slate-50/60">
+        <div class="max-w-6xl mx-auto z-10 relative">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="px-4 py-1.5 rounded-full bg-rashtraBlue/10 text-rashtraBlue border border-rashtraBlue/20 text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">
+                    Why We Are Building This
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-rashtraBlue mb-4">
+                    A Better Public Square for India.
+                </h2>
+                <p class="text-slate-600 font-medium max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+                    Social media does not have to be an addictive, angry casino. Here is how RashtraLink (Ralync) fixes what broken foreign platforms got wrong.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- The Old Model -->
+                <div class="glass-panel p-8 rounded-3xl border border-red-100/80 bg-gradient-to-b from-white to-red-50/20 text-left space-y-5">
+                    <div class="flex items-center justify-between pb-4 border-b border-red-100">
+                        <div>
+                            <h3 class="text-lg font-black text-slate-800">Foreign Big Tech Feeds</h3>
+                            <p class="text-xs text-slate-500 font-medium">The broken attention model</p>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-black">Outdated</span>
+                    </div>
+
+                    <div class="space-y-4 text-xs font-medium text-slate-600">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-lg bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-0.5">✕</div>
+                            <div>
+                                <p class="font-bold text-slate-900 text-sm">Addiction and Outrage Feeds</p>
+                                <p class="mt-0.5 leading-relaxed">Hidden algorithms designed to keep you angry and scrolling endlessly just to sell more advertisements.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-lg bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-0.5">✕</div>
+                            <div>
+                                <p class="font-bold text-slate-900 text-sm">Abusive Comment Wars</p>
+                                <p class="mt-0.5 leading-relaxed">Unregulated troll farms and bot armies screaming over each other, drowning out thoughtful voices.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-lg bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-0.5">✕</div>
+                            <div>
+                                <p class="font-bold text-slate-900 text-sm">Personal Data Exported Abroad</p>
+                                <p class="mt-0.5 leading-relaxed">Your personal messages, location, and reading habits are exported to overseas advertising brokerages.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-lg bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-0.5">✕</div>
+                            <div>
+                                <p class="font-bold text-slate-900 text-sm">Heavy Cuts from Creators</p>
+                                <p class="mt-0.5 leading-relaxed">Big platforms keep up to 45% or 50% of creator earnings, leaving Indian builders with crumbs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Ralync Model -->
+                <div class="glass-panel p-8 rounded-3xl border border-emerald-200 bg-gradient-to-b from-white to-emerald-50/30 text-left space-y-5 shadow-lg">
+                    <div class="flex items-center justify-between pb-4 border-b border-emerald-100">
+                        <div>
+                            <h3 class="text-lg font-black text-rashtraBlue">RashtraLink (Ralync)</h3>
+                            <p class="text-xs text-emerald-700 font-bold">The Sovereign Indian Model</p>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-black">Built for Bharat</span>
+                    </div>
+
+                    <div class="space-y-4 text-xs font-medium text-slate-700">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">✓</div>
+                            <div>
+                                <p class="font-bold text-slate-900 text-sm">You Govern Your Feed</p>
+                                <p class="mt-0.5 leading-relaxed">Simple, transparent sliders. Increase topics you love like science or startups, and dial down negativity.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">✓</div>
+                            <div>
+                                <p class="font-bold text-slate-900 text-sm">Charcha Arena: Evidence Over Noise</p>
+                                <p class="mt-0.5 leading-relaxed">Structured debates where real citations and official source links give claims credibility.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">✓</div>
+                            <div>
+                                <p class="font-bold text-slate-900 text-sm">100% Indian Cloud Residency</p>
+                                <p class="mt-0.5 leading-relaxed">Guarded by the Digital Personal Data Protection Act. Hosted strictly inside India, never shared abroad.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">✓</div>
+                            <div>
+                                <p class="font-bold text-slate-900 text-sm">A Better Creator Economy</p>
+                                <p class="mt-0.5 leading-relaxed">Significantly higher earnings, direct UPI support from your community, and honest, transparent platform fees.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISUAL REALITY CHECK: 2 UIs SIDE-BY-SIDE -->
+            <div class="mt-20 scroll-reveal">
+                <div class="text-center mb-10">
+                    <span class="px-4 py-1.5 rounded-full bg-orange-100 text-rashtraOrange text-[11px] font-black uppercase tracking-wider mb-3 inline-block">
+                        Visual Reality Check
+                    </span>
+                    <h3 class="text-3xl sm:text-5xl font-black text-rashtraBlue tracking-tight">
+                        See The Difference With Your Own Eyes.
+                    </h3>
+                    <p class="text-slate-600 font-medium max-w-xl mx-auto text-xs sm:text-sm mt-2 leading-relaxed">
+                        Big tech locks your feed behind black-box addiction math. Ralync gives you the levers to command what enters your mind.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                    
+                    <!-- LEFT UI: DUMMY FOREIGN SOCIAL MEDIA (LOCKED ALGORITHM) -->
+                    <div class="glass-panel rounded-3xl p-6 sm:p-7 border-2 border-red-200/90 bg-gradient-to-b from-white via-red-50/20 to-red-50/40 shadow-lg flex flex-col justify-between relative overflow-hidden">
+                        <!-- Top Red Alert Bar -->
+                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-red-100">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <span class="text-xs font-black text-slate-800">Foreign Social Media App</span>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-red-600 text-white text-[10px] font-black tracking-wide flex items-center gap-1">
+                                <i data-lucide="lock" class="w-3 h-3"></i>
+                                <span>ZERO USER CONTROL</span>
+                            </span>
+                        </div>
+
+                        <!-- Mockup Screen Body -->
+                        <div class="rounded-2xl bg-slate-900 p-4 sm:p-5 text-white shadow-inner relative space-y-4">
+                            <!-- Mock Post -->
+                            <div class="flex items-center justify-between pb-2 border-b border-slate-800 text-xs text-slate-400">
+                                <span>Feed • Recommended for You</span>
+                                <span class="text-red-400 font-bold">Ad Sponsored</span>
+                            </div>
+
+                            <div class="space-y-1.5 opacity-40">
+                                <p class="text-xs font-bold text-slate-300">@viral_rage_bot</p>
+                                <p class="text-[11px] text-slate-400">SHOCKING: 10 reasons why everyone should be outraged today! Comment your arguments below...</p>
+                                <div class="flex gap-4 text-[10px] text-slate-500 pt-1">
+                                    <span>❤️ 24K</span>
+                                    <span>💬 8.9K angry comments</span>
+                                </div>
+                            </div>
+
+                            <!-- Big Prominent Lock Overlay -->
+                            <div class="rounded-2xl bg-red-950/95 border-2 border-red-500/80 p-5 text-center shadow-2xl space-y-3">
+                                <div class="w-12 h-12 rounded-full bg-red-500/20 border border-red-500/40 text-red-400 mx-auto flex items-center justify-center">
+                                    <i data-lucide="lock" class="w-6 h-6 text-red-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-black text-red-300 uppercase tracking-wider">Feed Algorithm: LOCKED</h4>
+                                    <p class="text-xs text-red-100 font-medium mt-1 leading-relaxed">
+                                        "You cannot customize or filter this feed. Content is chosen by our black-box engagement algorithms to maximize watch time and advertising impressions."
+                                    </p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-black/40 border border-red-900/60 text-[10px] text-red-300 font-bold flex items-center justify-center gap-2">
+                                    <i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-red-400"></i>
+                                    <span>No Sliders • No Preferences • No Choice</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Explanatory Badge Below -->
+                        <div class="mt-5 p-3.5 rounded-2xl bg-red-100 border border-red-200 text-left">
+                            <p class="text-xs font-black text-red-950">How Foreign Big Tech Treats You:</p>
+                            <p class="text-xs text-red-900 font-medium mt-0.5 leading-relaxed">
+                                You are the product. They decide your anger, your dopamine, and what you see. You cannot tune it.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT UI: RALYNC PRIORITY MATRIX (YOU ARE IN CONTROL) -->
+                    <div class="glass-panel rounded-3xl p-6 sm:p-7 border-2 border-emerald-300/90 bg-gradient-to-b from-white via-emerald-50/20 to-orange-50/20 shadow-xl flex flex-col justify-between relative overflow-hidden">
+                        <!-- Top Green Guarantee Bar -->
+                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-emerald-100">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+                                <span class="text-xs font-black text-rashtraBlue">Ralync Priority Matrix</span>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-600 text-white text-[10px] font-black tracking-wide flex items-center gap-1">
+                                <i data-lucide="sliders" class="w-3 h-3"></i>
+                                <span>100% CITIZEN CONTROL</span>
+                            </span>
+                        </div>
+
+                        <!-- Mockup Screen Body: Active Sliders -->
+                        <div class="rounded-2xl bg-white border border-slate-200 p-4 sm:p-5 text-slate-800 shadow-sm space-y-3.5">
+                            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                                <div>
+                                    <p class="text-xs font-black text-rashtraBlue">Your Personal Algorithmic Levers</p>
+                                    <p class="text-[10px] text-slate-400 font-medium">Drag to re-rank your feed instantly</p>
+                                </div>
+                                <span class="px-2 py-0.5 rounded-full bg-orange-100 text-rashtraOrange font-black text-[9px]">Live Control</span>
+                            </div>
+
+                            <!-- Slider 1 -->
+                            <div class="space-y-1">
+                                <div class="flex justify-between items-center text-xs font-black text-slate-800">
+                                    <span class="flex items-center gap-1">🚀 Science & Technology</span>
+                                    <span class="text-rashtraOrange">+85% (Elevated)</span>
+                                </div>
+                                <div class="h-2 rounded-full bg-orange-100 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-rashtraOrange to-indiaSaffron w-[85%] rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <!-- Slider 2 -->
+                            <div class="space-y-1">
+                                <div class="flex justify-between items-center text-xs font-black text-slate-800">
+                                    <span class="flex items-center gap-1">🇮🇳 National Missions & ISRO</span>
+                                    <span class="text-indiaGreen">+95% (Top Priority)</span>
+                                </div>
+                                <div class="h-2 rounded-full bg-emerald-100 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-emerald-500 to-indiaGreen w-[95%] rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <!-- Slider 3 -->
+                            <div class="space-y-1">
+                                <div class="flex justify-between items-center text-xs font-black text-slate-800">
+                                    <span class="flex items-center gap-1">💡 Startups & Economy</span>
+                                    <span class="text-rashtraBlue">+75% (Elevated)</span>
+                                </div>
+                                <div class="h-2 rounded-full bg-blue-100 overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-blue-500 to-rashtraBlue w-[75%] rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <!-- Slider 4: Toxic Outrage at 0% -->
+                            <div class="space-y-1">
+                                <div class="flex justify-between items-center text-xs font-black text-slate-500">
+                                    <span class="flex items-center gap-1">🚫 Toxic Outrage & Sensationalism</span>
+                                    <span class="text-emerald-700 font-black">0% (Muted to Zero)</span>
+                                </div>
+                                <div class="h-2 rounded-full bg-slate-200 overflow-hidden">
+                                    <div class="h-full bg-slate-400 w-[2%] rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Button Mockup -->
+                            <button onclick="window.switchPage('preview')" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rashtraOrange to-indiaSaffron text-white text-xs font-black shadow-md hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-1.5">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                                <span>Apply Levers & Re-rank Feed ✓</span>
+                            </button>
+                        </div>
+
+                        <!-- Explanatory Badge Below -->
+                        <div class="mt-5 p-3.5 rounded-2xl bg-emerald-100 border border-emerald-200 text-left">
+                            <p class="text-xs font-black text-emerald-950">How Ralync Puts You In Charge:</p>
+                            <p class="text-xs text-emerald-900 font-medium mt-0.5 leading-relaxed">
+                                You are the algorithm. Slide up topics that teach and inspire you, and dial down toxic clickbait to zero with a single tap.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- 3. CHARCHA ARENA DEEP-DIVE (The Core Differentiator) -->
+    <section id="charcha-section" class="relative py-28 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto z-10 relative">
+            
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">
+                    Curing Toxic Comment Loops
+                </span>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-rashtraBlue mb-4">
+                    The Charcha Arena (चर्चा अखाड़ा).
+                </h2>
+                <p class="text-slate-600 font-medium max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                    Global social networks optimize for outrage and trolling. RashtraLink replaces flat replies with peer-reviewed consensus and real-world citations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
+                    <div class="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-rashtraOrange mb-6">
+                        <i data-lucide="scale" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Live Structured Consensus</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
+                        Every debate tracks supporting and counter-arguments in an auditable ledger. Mathematical ratios calculate real public consensus rather than whoever screams loudest.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-700 mb-6">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Incognito Citizen Protocol</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
+                        Engage in serious intellectual debate without fear of doxxing or targeted harassment. Posts are verified for genuine human origin while safeguarding your privacy.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-rashtraBlue mb-6">
+                        <i data-lucide="link-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Evidence & Citation Index</h3>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
+                        Arguments linked with primary research papers, PIB bulletins, or economic data receive prioritized visibility scores over baseless speculation.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. SOVEREIGN PILLARS SECTION -->
+    <section id="pillars-section" class="relative py-24 px-6 bg-slate-50/50">
+        <div class="max-w-6xl mx-auto z-10 relative">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="px-4 py-1.5 rounded-full bg-rashtraBlue/10 text-rashtraBlue border border-rashtraBlue/20 text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">
+                    Sovereignty by Design
+                </span>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-rashtraBlue mb-4">
+                    Built for Bharat, by Bharat.
+                </h2>
+                <p class="text-slate-600 font-medium max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                    Why India must stop relying on Silicon Valley infrastructure for its national consciousness.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="glass-panel p-8 rounded-3xl scroll-reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="sliders" class="w-6 h-6 text-rashtraOrange"></i>
+                        <h3 class="text-xl font-black text-rashtraBlue">User-Governed Algorithmic Feed</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 font-medium leading-relaxed mb-4">
+                        No opaque recommendation black boxes pushing rage-bait or behavioral addictions. You directly set your topic priorities with simple, transparent feed controls.
+                    </p>
+                    <div class="p-3 rounded-xl bg-orange-50/70 border border-orange-200/80 text-xs font-bold text-slate-700 flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-rashtraOrange flex-shrink-0"></i>
+                        <span>100% User-Governed • Zero Shadowbanning • Chronological Option</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="glass-panel p-8 rounded-3xl scroll-reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-rashtraBlue"></i>
+                        <h3 class="text-xl font-black text-rashtraBlue">Indian Cloud Data Residency</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 font-medium leading-relaxed mb-3">
+                        In full compliance with the Digital Personal Data Protection (DPDP) Act 2023, all citizen data is hosted securely on certified Indian cloud infrastructure. Zero telemetry exports to foreign brokerages.
+                    </p>
+                    <div class="p-2.5 rounded-xl bg-emerald-50/60 border border-emerald-200/70 text-[11px] font-bold text-emerald-800 flex items-center gap-2">
+                        <i data-lucide="lock" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                        <span>Statutory DPDP Act 2023 Compliance</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="glass-panel p-8 rounded-3xl scroll-reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="languages" class="w-6 h-6 text-indiaSaffron"></i>
+                        <h3 class="text-xl font-black text-rashtraBlue">Multilingual Indic Intelligence</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 font-medium leading-relaxed">
+                        Trained on authentic Indic datasets across Hindi, Bengali, Tamil, Telugu, Marathi, and Gujarati — enabling fluid natural discourse in Bharat's native languages.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.5 A NOTE FROM THE FOUNDER (TWEET / MESSAGE FORMAT) -->
+    <section id="founder-note-section" class="relative py-24 px-6 overflow-hidden">
+        <div class="max-w-3xl mx-auto relative z-10">
+            
+            <div class="text-center mb-10 scroll-reveal">
+                <span class="px-4 py-1.5 rounded-full bg-orange-50 text-rashtraOrange border border-orange-200/70 text-[10px] font-black uppercase tracking-[0.2em] mb-3 inline-block">
+                    Official Dispatch
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-rashtraBlue">
+                    A Note from the Founder
+                </h2>
+            </div>
+
+            <!-- Authentic Social Post / Tweet Card -->
+            <div class="glass-panel p-6 sm:p-10 rounded-[2rem] shadow-xl border border-slate-200/90 relative overflow-hidden scroll-reveal bg-white/95">
+                
+                <!-- Tweet Header: Profile, Name, Verified Badge, Timestamp -->
+                <div class="flex items-start justify-between gap-4 mb-6">
+                    <div class="flex items-center gap-3.5">
+                        <div class="relative flex-shrink-0 group cursor-pointer" id="founder-avatar-wrapper" title="Debaprabho Paul - Founder & CEO">
+                            <img id="founder-photo" 
+                                 src="founder.jpg" 
+                                 alt="Debaprabho Paul - Founder & CEO" 
+                                 class="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover object-top border-2 border-white shadow-md">
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <h3 class="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none">Debaprabho Paul</h3>
+                                <span class="inline-flex items-center text-rashtraOrange" title="Verified Founder">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 fill-orange-500 text-white"></i>
+                                </span>
+                                <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-extrabold uppercase tracking-wide">
+                                    Founder & CEO
+                                </span>
+                            </div>
+                            <p class="text-xs font-bold text-slate-400 mt-1">@debaprabho • Official Founding Dispatch</p>
+                        </div>
+                    </div>
+
+                    <!-- Pinned Tag -->
+                    <div class="hidden sm:flex items-center gap-1 text-[11px] font-bold text-slate-400 px-3 py-1 rounded-full bg-slate-50 border border-slate-100">
+                        <i data-lucide="pin" class="w-3 h-3 text-rashtraOrange"></i>
+                        <span>Pinned</span>
+                    </div>
+                </div>
+
+                <!-- Tweet / Message Body -->
+                <div class="text-sm sm:text-base text-slate-800 leading-relaxed space-y-4 font-normal">
+                    <p class="font-medium text-slate-900 text-base sm:text-lg">
+                        Why are we building RashtraLink, also known as Ralync?
+                    </p>
+                    <p>
+                        For years, India's public square has been run by foreign algorithms designed thousands of miles away. Systems built to amplify anger, divide communities, and trap minds in endless scrolling just to sell more advertisements.
+                    </p>
+                    <p>
+                        India is home to 1.4 billion citizens with brilliant builders, researchers, thinkers, and creators. Our conversations should not be rented out to foreign algorithms.
+                    </p>
+                    <div class="p-4 sm:p-5 rounded-2xl bg-orange-50/60 border border-orange-100/80 space-y-2.5 my-3">
+                        <p class="text-xs font-black uppercase tracking-wider text-rashtraOrange">Our Three Guiding Principles:</p>
+                        <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900 font-bold">1. You Own Your Feed:</strong> You decide what matters to you with simple, visible sliders. No hidden shadowbans, no opaque manipulation.</p>
+                        <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900 font-bold">2. The Charcha Arena:</strong> Moving beyond toxic comment battles into civil discussions where real proof and citations matter.</p>
+                        <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900 font-bold">3. 100% Indian Data:</strong> Built in strict alignment with Indian data protection laws. Your personal information stays safely in India.</p>
+                    </div>
+                    <p>
+                        We are building a true digital town square for our civilizational future. If this mission speaks to you, I warmly invite you to join our early access community and shape this journey with us.
+                    </p>
+                </div>
+
+                <!-- Tweet Metadata / Timestamp -->
+                <div class="pt-4 mt-6 border-t border-slate-100 text-xs text-slate-400 font-medium flex items-center justify-between">
+                    <span>10:30 AM • August 18 • Public Dispatch</span>
+                    <span class="text-slate-500 font-bold">Web • Sovereign Cloud</span>
+                </div>
+
+                <!-- Action Bar -->
+                <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-3 sm:gap-4">
+                        <!-- Like Button -->
+                        <button id="founder-like-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-red-50 text-xs font-bold text-slate-600 hover:text-red-500 border border-slate-200 transition-all group" title="Like dispatch">
+                            <i data-lucide="heart" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                            <span id="founder-like-label">Like</span>
+                        </button>
+                        <!-- Repost Button -->
+                        <button id="founder-repost-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-xs font-bold text-slate-600 hover:text-emerald-600 border border-slate-200 transition-all group" title="Share dispatch">
+                            <i data-lucide="repeat-2" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                            <span id="founder-repost-label">Share</span>
+                        </button>
+                        <!-- Bookmark Button -->
+                        <button id="founder-bookmark-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-slate-600 hover:text-rashtraBlue border border-slate-200 transition-all group" title="Save dispatch">
+                            <i data-lucide="bookmark" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                            <span id="founder-bookmark-label">Save</span>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button onclick="window.switchPage('manifesto')" class="px-3.5 sm:px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-all flex items-center gap-1.5">
+                            <i data-lucide="book-open" class="w-3.5 h-3.5 text-slate-600"></i>
+                            <span>Read Manifesto</span>
+                        </button>
+                        <!-- Join Early Access Button -->
+                        <button onclick="window.switchPage('early-access')" class="px-4 sm:px-5 py-2 rounded-xl bg-rashtraBlue hover:bg-slate-900 text-white text-xs font-black shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+                            <span>Apply for Access</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Co-Founder & CBO Quote Card: Mainak Pathak -->
+            <div class="glass-panel p-6 sm:p-8 rounded-[2rem] shadow-xl border border-slate-200/90 relative overflow-hidden scroll-reveal bg-white/95 mt-6">
+                <!-- Header -->
+                <div class="flex items-start justify-between gap-4 mb-4">
+                    <div class="flex items-center gap-3.5">
+                        <div class="relative flex-shrink-0 group cursor-pointer" title="Mainak Pathak - Co-Founder & CBO">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-rashtraBlue via-indigo-900 to-rashtraOrange flex items-center justify-center text-white font-black text-base sm:text-lg border-2 border-white shadow-md">
+                                MP
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <h3 class="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none">Mainak Pathak</h3>
+                                <span class="inline-flex items-center text-rashtraOrange" title="Verified Co-Founder">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 fill-orange-500 text-white"></i>
+                                </span>
+                                <span class="px-2 py-0.5 rounded-full bg-orange-50 text-rashtraOrange border border-orange-200 text-[10px] font-extrabold uppercase tracking-wide">
+                                    Co-Founder & CBO
+                                </span>
+                            </div>
+                            <p class="text-xs font-bold text-slate-400 mt-1">@mainakpathak • Business & Ecosystem Leadership</p>
+                        </div>
+                    </div>
+
+                    <div class="hidden sm:flex items-center gap-1 text-[11px] font-bold text-slate-400 px-3 py-1 rounded-full bg-slate-50 border border-slate-100">
+                        <i data-lucide="sparkles" class="w-3 h-3 text-rashtraOrange"></i>
+                        <span>Co-Founder Quote</span>
+                    </div>
+                </div>
+
+                <!-- Quote Body -->
+                <div class="text-sm sm:text-base text-slate-800 leading-relaxed font-normal">
+                    <p class="italic text-slate-700 border-l-4 border-rashtraOrange pl-4 py-1 bg-orange-50/40 rounded-r-xl">
+                        "Sustainable digital independence is built when culture meets real economic autonomy. RashtraLink is engineered to ensure Indian creators, businesses, and thinkers own their distribution, protect their audience relationships, and monetize fairly without foreign intermediaries dictating their worth."
+                    </p>
+                </div>
+
+                <!-- Footer Timestamp -->
+                <div class="pt-3 mt-4 border-t border-slate-100 text-xs text-slate-400 font-medium flex items-center justify-between">
+                    <span>Executive Leadership • Rashtra Group</span>
+                    <span class="text-slate-500 font-bold">Strategy & Growth</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOUNDING CITIZEN PASS & WISHLIST RESERVATION -->
+    <section id="waitlist" class="relative py-28 px-6 overflow-hidden">
+        <div class="max-w-4xl mx-auto z-10 relative">
+            
+            <div class="text-center mb-12 scroll-reveal">
+                <span class="px-4 py-1.5 rounded-full bg-rashtraOrange/10 text-rashtraOrange border border-rashtraOrange/20 text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">
+                    Exclusive Early Access
+                </span>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-rashtraBlue mb-4">
+                    Claim Your Founding Citizen Pass.
+                </h2>
+                <p class="text-slate-600 font-medium max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+                    Reserve your unique @handle before public launch and receive an immutable Founding Citizen Pass with permanent verification privileges.
+                </p>
+            </div>
+
+            <!-- Reservation Form Card -->
+            <div class="glass-panel p-8 md:p-10 rounded-[2.5rem] shadow-xl border border-slate-200 scroll-reveal mb-12">
+                <form id="waitlist-form" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-black text-slate-700 block mb-1.5">Desired @Handle</label>
+                            <div class="relative">
+                                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">@</span>
+                                <input type="text" id="pass-handle-input" placeholder="yourname" class="w-full pl-8 pr-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none text-sm font-bold bg-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-black text-slate-700 block mb-1.5">Official Email</label>
+                            <input type="email" id="pass-email-input" placeholder="you@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none text-sm font-medium bg-white">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="text-xs font-black text-slate-700 block mb-1.5">Ecosystem Role</label>
+                        <select id="pass-role-select" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange outline-none text-xs font-bold bg-white text-slate-700">
+                            <option value="Citizen Thinker">Citizen Thinker (General Access)</option>
+                            <option value="Deep Tech Founder">Deep Tech Founder / Builder</option>
+                            <option value="Independent Creator">Independent Creator / Journalist</option>
+                            <option value="Policy Researcher">Policy Researcher / Academic</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="generate-pass-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-rashtraOrange via-indiaSaffron to-rashtraOrange text-white font-black text-sm shadow-lg hover:shadow-orange-500/25 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="award" class="w-4 h-4"></i>
+                        <span>Generate Immutable Founding Pass</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- RESULTING HOLOGRAPHIC PASS (Revealed on submission) -->
+            <div id="founding-pass-result" class="hidden scroll-reveal">
+                <div class="hologram-card text-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-white/20 max-w-md mx-auto relative overflow-hidden">
+                    
+                    <!-- Emblem & Header -->
+                    <div class="flex justify-between items-start mb-8 relative z-10">
+                        <div class="flex items-center gap-2.5">
+                            <img src="Rashtralinkproperlogo.png" alt="RashtraLink" class="h-8 w-auto object-contain">
+                            <div>
+                                <span class="font-black text-sm tracking-tight block">RASHTRALINK</span>
+                                <span class="text-[9px] uppercase tracking-widest text-amber-400 font-extrabold">Founding Citizen Pass</span>
+                            </div>
+                        </div>
+                        <div class="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-[9px] font-black text-emerald-300">
+                            VERIFIED CITIZEN
+                        </div>
+                    </div>
+
+                    <!-- Pass ID -->
+                    <div class="mb-6 relative z-10">
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Member Registry No.</p>
+                        <h3 id="result-pass-id" class="text-2xl md:text-3xl font-mono font-black text-amber-300 tracking-wider">#BHARAT-2026-0891</h3>
+                    </div>
+
+                    <!-- Handle & Role -->
+                    <div class="grid grid-cols-2 gap-4 mb-6 relative z-10">
+                        <div>
+                            <p class="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Reserved Handle</p>
+                            <p id="result-pass-handle" class="font-black text-base text-white">@debaprabho</p>
+                        </div>
+                        <div>
+                            <p class="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Ecosystem Role</p>
+                            <p id="result-pass-role" class="font-bold text-xs text-white/90">Deep Tech Founder</p>
+                        </div>
+                    </div>
+
+                    <!-- Footer of Pass -->
+                    <div class="flex justify-between items-end pt-4 border-t border-white/15 text-[9px] text-slate-300 font-bold relative z-10">
+                        <div>
+                            <p>Issued: <span id="result-pass-date">Sep 18, 2026</span></p>
+                            <p class="text-amber-400">Rashtra Group Sovereign Node</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs">🇮🇳</span>
+                            <p>Viksit Bharat 2047</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pass Actions -->
+                <div class="flex justify-center gap-3 mt-6">
+                    <button id="copy-pass-link-btn" class="px-5 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 font-black text-xs hover:border-rashtraOrange flex items-center gap-1.5 shadow-sm">
+                        <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                        <span>Copy Verification Link</span>
+                    </button>
+                    <button id="share-pass-x-btn" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white font-black text-xs hover:bg-black flex items-center gap-1.5 shadow-sm">
+                        <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                        <span>Share on X / Twitter</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. SOVEREIGN COMMUNITY & FOUNDING INTAKE -->
+    <section class="relative py-24 px-6 bg-slate-50/70 border-t border-slate-100">
+        <div class="max-w-4xl mx-auto z-10 relative">
+            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] border border-slate-200 shadow-xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black text-xl shadow-md">
+                        <i data-lucide="message-circle" class="w-7 h-7"></i>
+                    </div>
+                    <div>
+                        <span class="inline-block px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase tracking-wider mb-1.5">Official WhatsApp Community</span>
+                        <h3 class="text-xl font-black text-rashtraBlue leading-tight">RashtraLink Sovereign Circle</h3>
+                    </div>
+                </div>
+                
+                <p class="text-sm font-medium text-slate-700 leading-relaxed mb-6">
+                    To maintain high signal, prevent bot spam, and cultivate genuine civil discourse, entry to our official WhatsApp Community is application-based. Our founding team reviews every application personally before issuing a private invitation link.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-between pt-6 border-t border-slate-200/70 gap-4">
+                    <button onclick="window.switchPage('early-access')" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black shadow-lg hover:shadow-emerald-600/30 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+                        <i data-lucide="award" class="w-4 h-4"></i>
+                        <span>Apply for WhatsApp Community Invite</span>
+                    </button>
+                    
+                    <div class="flex items-center gap-3 text-xs font-bold text-slate-500">
+                        <span>Private Cohort</span>
+                        <span>•</span>
+                        <button onclick="window.openLegalModal('contact')" class="text-rashtraBlue hover:text-rashtraOrange transition-colors">Questions? Contact Us</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE COMING SOON: BUILT BY INDIANS FOR INDIANS SECTION -->
+    <section id="coming-soon-section" class="py-20 relative z-10 overflow-hidden bg-gradient-to-b from-transparent via-orange-50/40 to-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="glass-panel bg-slate-950/85 backdrop-blur-xl border border-slate-800 rounded-[2.5rem] p-8 sm:p-14 shadow-2xl relative overflow-hidden">
+                <!-- Ambient Glow Accents -->
+                <div class="absolute -top-24 -left-24 w-80 h-80 bg-orange-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -right-24 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center max-w-3xl mx-auto relative z-10">
+                    <!-- Sovereign Badge with Tricolor Dot -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 mb-6 shadow-inner">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-rashtraOrange"></span>
+                        </span>
+                        <span class="text-[11px] font-black tracking-widest uppercase text-slate-300">Official National Rollout 2026</span>
+                    </div>
+
+                    <!-- Main Coming Soon Headline -->
+                    <h2 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-4 leading-tight">
+                        COMING <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">SOON</span>
+                    </h2>
+
+                    <!-- Tricolor Divider Bar -->
+                    <div class="w-32 h-1.5 mx-auto rounded-full bg-gradient-to-r from-orange-500 via-white to-emerald-500 mb-6 shadow-md"></div>
+
+                    <!-- Core Theme Subheading -->
+                    <p class="text-xl sm:text-2xl font-black text-slate-100 tracking-wide mb-3">
+                        Built by Indians, For Indians.
+                    </p>
+                    <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed mb-8">
+                        The sovereign attention and social networking platform for 1.4 billion voices. Zero foreign surveillance, zero engagement-bait algorithms, and 100% data sovereignty hosted on Indian soil.
+                    </p>
+
+                    <!-- Interactive Pledge & Launch Readiness Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 text-left">
+                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-orange-500/40 transition-all group">
+                            <div class="w-8 h-8 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center font-black mb-2 text-xs group-hover:scale-110 transition-transform">
+                                🇮🇳
+                            </div>
+                            <h4 class="text-xs font-black text-white mb-1">100% Sovereign Stack</h4>
+                            <p class="text-[11px] text-slate-400 leading-normal">Tier-4 data centres located strictly across Mumbai, Bengaluru & Noida under DPDP Act 2023.</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-all group">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-black mb-2 text-xs group-hover:scale-110 transition-transform">
+                                ⚖️
+                            </div>
+                            <h4 class="text-xs font-black text-white mb-1">Charcha Arena</h4>
+                            <p class="text-[11px] text-slate-400 leading-normal">Replacing hate comment loops with citation-backed structured consensus & Bharat score.</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/40 transition-all group">
+                            <div class="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-black mb-2 text-xs group-hover:scale-110 transition-transform">
+                                🗣️
+                            </div>
+                            <h4 class="text-xs font-black text-white mb-1">22 Scheduled Languages</h4>
+                            <p class="text-[11px] text-slate-400 leading-normal">Native AI translation preserving cultural idioms across Hindi, Bengali, Tamil, Telugu & more.</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Citizen Pledge: Bharat Bell -->
+                    <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-5">
+                        <div class="text-left">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-xs font-black text-orange-400 uppercase tracking-widest">Founding Citizen Pledge</span>
+                                <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[9px] font-bold">Bharat Bell</span>
+                            </div>
+                            <p class="text-xs text-slate-300 max-w-lg">
+                                Ring the sovereign bell to pledge your support for India's technological independence and claim your Founding Citizen reservation.
+                            </p>
+                        </div>
+
+                        <div class="flex items-center gap-3 w-full sm:w-auto justify-end flex-shrink-0">
+                            <button id="ring-pledge-btn" onclick="window.ringPledgeBell()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white text-xs font-black shadow-lg hover:shadow-orange-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2.5">
+                                <i data-lucide="bell" class="w-4 h-4 animate-bounce"></i>
+                                <span id="pledge-btn-text">Ring Bharat Bell</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Action to Early Access -->
+                    <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+                        <button onclick="window.switchPage('early-access')" class="px-8 py-3.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 text-xs font-black tracking-wider uppercase shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+                            <span>Apply for Early Access Invitation</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-rashtraOrange"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-12 pb-24 sm:pb-16 bg-white relative z-10 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 md:pr-48">
+            <a href="/" onclick="event.preventDefault(); window.switchPage('home');" class="flex items-center gap-3">
+                <img src="Rashtralinkproperlogo.png" alt="RashtraLink" class="h-8 w-auto object-contain hover:scale-105 transition-transform">
+            </a>
+
+            <p class="text-xs font-medium text-slate-500 text-center">
+                © 2026 RashtraLink. All rights reserved. Built for Bharat.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-5 text-xs font-bold text-slate-600">
+                <a href="https://www.instagram.com/rashtralink/?hl=en" target="_blank" rel="noopener noreferrer" class="hover:text-pink-600 transition-colors py-1 flex items-center gap-1.5" title="Follow RashtraLink on Instagram">
+                    <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-500"></i>
+                    <span>Instagram</span>
+                </a>
+                <button onclick="window.switchPage('manifesto')" class="hover:text-rashtraOrange transition-colors py-1">Founder's Manifesto</button>
+                <button onclick="window.switchPage('terms')" class="hover:text-rashtraOrange transition-colors py-1">Terms of Service</button>
+                <button onclick="window.switchPage('privacy')" class="hover:text-rashtraOrange transition-colors py-1">DPDP Privacy Charter</button>
+                <button onclick="window.switchPage('grievance')" class="hover:text-rashtraOrange transition-colors py-1">IT Rules Grievance Desk</button>
+                <button onclick="window.switchPage('contact')" class="hover:text-rashtraOrange transition-colors py-1">Contact Headquarters</button>
+            </div>
+        </div>
+    </footer>
+
+    </div> <!-- END VIEW MAIN SITE -->
+
+    <!-- DEDICATED RALYNC INTERACTIVE PROTOTYPE PAGE VIEW (/preview) -->
+    <div id="view-preview" class="hidden min-h-screen pt-24 pb-24 px-4 sm:px-6 relative z-20 bg-slate-50/80">
+        <div class="max-w-7xl mx-auto">
+            <!-- Top Navigation and Breadcrumb -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200">
+                <button onclick="window.switchPage('home')" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:border-rashtraOrange hover:text-rashtraOrange text-xs font-black shadow-xs flex items-center justify-center gap-2 transition-all">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>Back to RashtraLink Home</span>
+                </button>
+                <div class="text-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100/80 text-rashtraOrange text-[11px] font-black">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rashtraOrange opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-rashtraOrange"></span>
+                        </span>
+                        <span>Ralync OS Live Prototype</span>
+                    </div>
+                    <p class="text-xs text-slate-500 font-medium mt-1">Full-screen distraction-free sandbox</p>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto">
+                    <button onclick="window.switchPage('early-access')" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-rashtraOrange to-indiaSaffron text-white text-xs font-black shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                        <span>Apply for Access</span>
+                    </button>
+                    <button onclick="window.switchPage('home')" class="p-2.5 rounded-xl bg-white border border-slate-200 text-slate-400 hover:text-slate-800 transition-all hidden sm:flex" title="Return Home">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- The Simulator Content (Dedicated Stage) -->
+            <!-- 2. INTERACTIVE MVP SIMULATOR SECTION (From Your Screenshots) -->
     <section id="mvp-simulator" class="relative py-28 px-4 sm:px-6 overflow-hidden bg-gradient-to-b from-transparent via-slate-100/60 to-transparent">
         <div class="max-w-7xl mx-auto z-10 relative">
             
@@ -1210,542 +2294,132 @@
         </div>
     </div>
 
-    <!-- 3. CHARCHA ARENA DEEP-DIVE (The Core Differentiator) -->
-    <section id="charcha-section" class="relative py-28 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto z-10 relative">
+    
+
+        </div>
+    </div>
+
+
+
+    
+    <!-- DEDICATED VOICES OF BHARAT INTERACTIVE MAP PAGE VIEW (/bharat) -->
+    <div id="view-bharat" class="hidden min-h-screen pt-24 pb-20 px-4 sm:px-6 relative z-20 bg-slate-50/70">
+        <div class="max-w-7xl mx-auto">
             
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">
-                    Curing Toxic Comment Loops
-                </span>
-                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-rashtraBlue mb-4">
-                    The Charcha Arena (चर्चा अखाड़ा).
-                </h2>
-                <p class="text-slate-600 font-medium max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-                    Global social networks optimize for outrage and trolling. RashtraLink replaces flat replies with peer-reviewed consensus and real-world citations.
+            <!-- Minimalist Navigation Bar -->
+            <div class="flex items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200">
+                <button onclick="window.switchPage('home')" class="px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:border-rashtraOrange hover:text-rashtraOrange text-xs font-black shadow-xs flex items-center gap-2 transition-all active:scale-95">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>Back to RashtraLink Home</span>
+                </button>
+                <div class="text-center hidden sm:block">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-rashtraOrange text-[11px] font-black uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-rashtraOrange animate-ping"></span>
+                        <span>Interactive Discovery Map</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="window.surpriseBharatCitizen()" class="px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800 text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 active:scale-95">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-orange-400"></i>
+                        <span>Surprise Me</span>
+                    </button>
+                    <button onclick="window.switchPage('early-access')" class="px-4 py-2 rounded-xl bg-gradient-to-r from-rashtraOrange to-indiaSaffron text-white text-xs font-black shadow-md hover:scale-105 active:scale-95 transition-all hidden sm:flex items-center gap-1.5">
+                        <span>Join Early Access</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Page Title -->
+            <div class="text-center mb-6">
+                <h1 class="text-3xl sm:text-5xl font-black text-rashtraBlue tracking-tight">
+                    Voices of Bharat <span class="title-gradient">(भारत की आवाज़)</span>
+                </h1>
+                <p class="text-slate-600 font-medium max-w-xl mx-auto text-xs sm:text-sm mt-1.5 leading-relaxed">
+                    Tap any glowing beacon on the real map to meet your hometown's animated mascot and mother-tongue greeting.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
-                    <div class="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-rashtraOrange mb-6">
-                        <i data-lucide="scale" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Live Structured Consensus</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
-                        Every debate tracks supporting and counter-arguments in an auditable ledger. Mathematical ratios calculate real public consensus rather than whoever screams loudest.
-                    </p>
-                </div>
-
-                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-700 mb-6">
-                        <i data-lucide="shield" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Incognito Citizen Protocol</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
-                        Engage in serious intellectual debate without fear of doxxing or targeted harassment. Posts are verified for genuine human origin while safeguarding your privacy.
-                    </p>
-                </div>
-
-                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
-                    <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-rashtraBlue mb-6">
-                        <i data-lucide="link-2" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Evidence & Citation Index</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
-                        Arguments linked with primary research papers, PIB bulletins, or economic data receive prioritized visibility scores over baseless speculation.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- 4. SOVEREIGN PILLARS SECTION -->
-    <section id="pillars-section" class="relative py-24 px-6 bg-slate-50/50">
-        <div class="max-w-6xl mx-auto z-10 relative">
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="px-4 py-1.5 rounded-full bg-rashtraBlue/10 text-rashtraBlue border border-rashtraBlue/20 text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">
-                    Sovereignty by Design
-                </span>
-                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-rashtraBlue mb-4">
-                    Built for Bharat, by Bharat.
-                </h2>
-                <p class="text-slate-600 font-medium max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-                    Why India must stop relying on Silicon Valley infrastructure for its national consciousness.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Pillar 1 -->
-                <div class="glass-panel p-8 rounded-3xl scroll-reveal">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i data-lucide="sliders" class="w-6 h-6 text-rashtraOrange"></i>
-                        <h3 class="text-xl font-black text-rashtraBlue">User-Governed Algorithmic Feed</h3>
-                    </div>
-                    <p class="text-xs text-slate-600 font-medium leading-relaxed mb-4">
-                        No opaque recommendation black boxes pushing rage-bait or behavioral addictions. You directly set your topic priorities with simple, transparent feed controls.
-                    </p>
-                    <div class="p-3 rounded-xl bg-orange-50/70 border border-orange-200/80 text-xs font-bold text-slate-700 flex items-center gap-2">
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-rashtraOrange flex-shrink-0"></i>
-                        <span>100% User-Governed • Zero Shadowbanning • Chronological Option</span>
-                    </div>
-                </div>
-
-                <!-- Pillar 2 -->
-                <div class="glass-panel p-8 rounded-3xl scroll-reveal">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i data-lucide="shield-check" class="w-6 h-6 text-rashtraBlue"></i>
-                        <h3 class="text-xl font-black text-rashtraBlue">Indian Cloud Data Residency</h3>
-                    </div>
-                    <p class="text-xs text-slate-600 font-medium leading-relaxed mb-3">
-                        In full compliance with the Digital Personal Data Protection (DPDP) Act 2023, all citizen data is hosted securely on certified Indian cloud infrastructure. Zero telemetry exports to foreign brokerages.
-                    </p>
-                    <div class="p-2.5 rounded-xl bg-emerald-50/60 border border-emerald-200/70 text-[11px] font-bold text-emerald-800 flex items-center gap-2">
-                        <i data-lucide="lock" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
-                        <span>Statutory DPDP Act 2023 Compliance</span>
-                    </div>
-                </div>
-
-                <!-- Pillar 3 -->
-                <div class="glass-panel p-8 rounded-3xl scroll-reveal">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i data-lucide="languages" class="w-6 h-6 text-indiaSaffron"></i>
-                        <h3 class="text-xl font-black text-rashtraBlue">Multilingual Indic Intelligence</h3>
-                    </div>
-                    <p class="text-xs text-slate-600 font-medium leading-relaxed">
-                        Trained on authentic Indic datasets across Hindi, Bengali, Tamil, Telugu, Marathi, and Gujarati — enabling fluid natural discourse in Bharat's native languages.
-                    </p>
+            <!-- Minimalist Quick Hometown Pills (1-Tap Selection) -->
+            <div class="mb-6 flex items-center justify-center">
+                <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar max-w-5xl px-2">
+                    <span class="text-[11px] font-black text-slate-400 uppercase tracking-wider whitespace-nowrap mr-1">Hometowns:</span>
+                    <button onclick="window.selectHometownCity('Kolkata')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        🔴 Kolkata
+                    </button>
+                    <button onclick="window.selectHometownCity('Amritsar')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        🌾 Punjab / Amritsar
+                    </button>
+                    <button onclick="window.selectHometownCity('Mumbai')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        🌊 Mumbai
+                    </button>
+                    <button onclick="window.selectHometownCity('Varanasi')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        🪔 Varanasi
+                    </button>
+                    <button onclick="window.selectHometownCity('Bengaluru')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        💻 Bengaluru
+                    </button>
+                    <button onclick="window.selectHometownCity('Madurai')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        🏛️ Tamil Nadu / Madurai
+                    </button>
+                    <button onclick="window.selectHometownCity('Srinagar')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        ⛰️ Kashmir / Srinagar
+                    </button>
+                    <button onclick="window.selectHometownCity('Jaipur')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        🏜️ Jaipur
+                    </button>
+                    <button onclick="window.selectHometownCity('Jorhat')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        ☕ Assam / Jorhat
+                    </button>
+                    <button onclick="window.selectHometownCity('Surat')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        💎 Gujarat / Surat
+                    </button>
+                    <button onclick="window.selectHometownCity('Alappuzha')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        🌴 Kerala / Alappuzha
+                    </button>
+                    <button onclick="window.selectHometownCity('Patna')" class="whitespace-nowrap px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-800 hover:border-rashtraOrange text-xs font-bold shadow-xs transition-all active:scale-95">
+                        📚 Bihar / Patna
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 4.5 A NOTE FROM THE FOUNDER (TWEET / MESSAGE FORMAT) -->
-    <section id="founder-note-section" class="relative py-24 px-6 overflow-hidden">
-        <div class="max-w-3xl mx-auto relative z-10">
-            
-            <div class="text-center mb-10 scroll-reveal">
-                <span class="px-4 py-1.5 rounded-full bg-orange-50 text-rashtraOrange border border-orange-200/70 text-[10px] font-black uppercase tracking-[0.2em] mb-3 inline-block">
-                    Official Dispatch
-                </span>
-                <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-rashtraBlue">
-                    A Note from the Founder
-                </h2>
-            </div>
-
-            <!-- Authentic Social Post / Tweet Card -->
-            <div class="glass-panel p-6 sm:p-10 rounded-[2rem] shadow-xl border border-slate-200/90 relative overflow-hidden scroll-reveal bg-white/95">
+            <!-- THE CINEMATIC APPLE-GRADE STAGE (Side-by-side on desktop, stacked on mobile) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
-                <!-- Tweet Header: Profile, Name, Verified Badge, Timestamp -->
-                <div class="flex items-start justify-between gap-4 mb-6">
-                    <div class="flex items-center gap-3.5">
-                        <div class="relative flex-shrink-0 group cursor-pointer" id="founder-avatar-wrapper" title="Debaprabho Paul - Founder & CEO">
-                            <img id="founder-photo" 
-                                 src="founder.jpg" 
-                                 alt="Debaprabho Paul - Founder & CEO" 
-                                 class="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover object-top border-2 border-white shadow-md">
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-1.5 flex-wrap">
-                                <h3 class="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none">Debaprabho Paul</h3>
-                                <span class="inline-flex items-center text-rashtraOrange" title="Verified Founder">
-                                    <i data-lucide="check-circle-2" class="w-4 h-4 fill-orange-500 text-white"></i>
-                                </span>
-                                <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-extrabold uppercase tracking-wide">
-                                    Founder & CEO
-                                </span>
-                            </div>
-                            <p class="text-xs font-bold text-slate-400 mt-1">@debaprabho • Official Founding Dispatch</p>
-                        </div>
-                    </div>
-
-                    <!-- Pinned Tag -->
-                    <div class="hidden sm:flex items-center gap-1 text-[11px] font-bold text-slate-400 px-3 py-1 rounded-full bg-slate-50 border border-slate-100">
-                        <i data-lucide="pin" class="w-3 h-3 text-rashtraOrange"></i>
-                        <span>Pinned</span>
+                <!-- LEFT: THE FLOATING DISCOVERY CARD (3D MASCOT MANNEQUIN + WHITE SCREEN) (lg:col-span-5) -->
+                <div class="lg:col-span-5 order-2 lg:order-1">
+                    <div id="bharat-apple-card" class="sticky top-28">
+                        <!-- Populated dynamically with mascot and Apple-style reveal -->
                     </div>
                 </div>
 
-                <!-- Tweet / Message Body -->
-                <div class="text-sm sm:text-base text-slate-800 leading-relaxed space-y-4 font-normal">
-                    <p class="font-medium text-slate-900 text-base sm:text-lg">
-                        Why are we building RashtraLink?
-                    </p>
-                    <p>
-                        For years, India’s public square has been shaped by black-box algorithms designed thousands of miles away in Silicon Valley. Systems engineered to amplify outrage, maximize polarization, and trap minds in endless dopamine loops—all to sell ad impressions.
-                    </p>
-                    <p>
-                        India is home to 1.4 billion citizens with brilliant researchers, creators, thinkers, and builders. Our intellectual soul and national conversation cannot be rented out to foreign recommendation feeds.
-                    </p>
-                    <div class="p-4 sm:p-5 rounded-2xl bg-orange-50/60 border border-orange-100/80 space-y-2.5 my-3">
-                        <p class="text-xs font-black uppercase tracking-wider text-rashtraOrange">Our Three Guiding Foundations:</p>
-                        <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900 font-bold">1. Transparent Algorithmic Control:</strong> You govern what enters your feed with simple, visible priority levers. No shadowbanning, no hidden manipulation.</p>
-                        <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900 font-bold">2. The Charcha Arena:</strong> Moving past toxic comment wars into structured, evidence-backed civil debates where citations and truth matter.</p>
-                        <p class="text-xs sm:text-sm text-slate-700"><strong class="text-slate-900 font-bold">3. Indian Data Sovereignty:</strong> Built in strict alignment with the DPDP Act 2023. Your personal data stays on Indian soil, guarded by Indian law.</p>
-                    </div>
-                    <p>
-                        We are not building another frivolous feed. We are building India's sovereign attention and social networking platform—a true digital town square for our civilizational future. If this mission speaks to you, I warmly invite you to join our early access cohort and shape this with us.
-                    </p>
-                </div>
+                <!-- RIGHT: THE REAL GOOGLE/APPLE-STYLE LEAFLET MAP OF INDIA (lg:col-span-7) -->
+                <div class="lg:col-span-7 order-1 lg:order-2">
+                    <div class="relative rounded-[2.5rem] p-2 bg-gradient-to-br from-white via-slate-100 to-orange-50 border-2 border-slate-200/90 shadow-2xl overflow-hidden">
+                        
+                        <!-- Map Frame -->
+                        <div id="bharat-leaflet-map" style="height: 420px; min-height: 420px;" class="w-full sm:!h-[620px] rounded-[2.2rem] overflow-hidden relative z-10 bg-slate-100">
+                            <!-- Real tiles & pins rendered by Leaflet in bharat-map.js -->
+                        </div>
 
-                <!-- Tweet Metadata / Timestamp -->
-                <div class="pt-4 mt-6 border-t border-slate-100 text-xs text-slate-400 font-medium flex items-center justify-between">
-                    <span>10:30 AM • August 18 • Public Dispatch</span>
-                    <span class="text-slate-500 font-bold">Web • Sovereign Cloud</span>
-                </div>
+                        <!-- Map Minimal Legend Indicator -->
+                        <div class="p-3.5 flex flex-wrap items-center justify-between text-xs text-slate-500 font-medium">
+                            <span class="flex items-center gap-1.5 text-[11px]">
+                                <span class="w-2 h-2 rounded-full bg-rashtraOrange"></span>
+                                <span>Glowing beacons indicate hometowns. Pan & pinch-zoom freely.</span>
+                            </span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                Real Geographical Navigation
+                            </span>
+                        </div>
 
-                <!-- Action Bar -->
-                <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-                    <div class="flex items-center gap-3 sm:gap-4">
-                        <!-- Like Button -->
-                        <button id="founder-like-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-red-50 text-xs font-bold text-slate-600 hover:text-red-500 border border-slate-200 transition-all group" title="Like dispatch">
-                            <i data-lucide="heart" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
-                            <span id="founder-like-label">Like</span>
-                        </button>
-                        <!-- Repost Button -->
-                        <button id="founder-repost-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-xs font-bold text-slate-600 hover:text-emerald-600 border border-slate-200 transition-all group" title="Share dispatch">
-                            <i data-lucide="repeat-2" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
-                            <span id="founder-repost-label">Share</span>
-                        </button>
-                        <!-- Bookmark Button -->
-                        <button id="founder-bookmark-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-slate-600 hover:text-rashtraBlue border border-slate-200 transition-all group" title="Save dispatch">
-                            <i data-lucide="bookmark" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
-                            <span id="founder-bookmark-label">Save</span>
-                        </button>
-                    </div>
-
-                    <div class="flex items-center gap-2">
-                        <button onclick="window.switchPage('manifesto')" class="px-3.5 sm:px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-all flex items-center gap-1.5">
-                            <i data-lucide="book-open" class="w-3.5 h-3.5 text-slate-600"></i>
-                            <span>Read Manifesto</span>
-                        </button>
-                        <!-- Join Early Access Button -->
-                        <button onclick="window.switchPage('early-access')" class="px-4 sm:px-5 py-2 rounded-xl bg-rashtraBlue hover:bg-slate-900 text-white text-xs font-black shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5">
-                            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
-                            <span>Apply for Access</span>
-                        </button>
                     </div>
                 </div>
 
-            </div>
-
-            <!-- Co-Founder & CBO Quote Card: Mainak Pathak -->
-            <div class="glass-panel p-6 sm:p-8 rounded-[2rem] shadow-xl border border-slate-200/90 relative overflow-hidden scroll-reveal bg-white/95 mt-6">
-                <!-- Header -->
-                <div class="flex items-start justify-between gap-4 mb-4">
-                    <div class="flex items-center gap-3.5">
-                        <div class="relative flex-shrink-0 group cursor-pointer" title="Mainak Pathak - Co-Founder & CBO">
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-rashtraBlue via-indigo-900 to-rashtraOrange flex items-center justify-center text-white font-black text-base sm:text-lg border-2 border-white shadow-md">
-                                MP
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-1.5 flex-wrap">
-                                <h3 class="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none">Mainak Pathak</h3>
-                                <span class="inline-flex items-center text-rashtraOrange" title="Verified Co-Founder">
-                                    <i data-lucide="check-circle-2" class="w-4 h-4 fill-orange-500 text-white"></i>
-                                </span>
-                                <span class="px-2 py-0.5 rounded-full bg-orange-50 text-rashtraOrange border border-orange-200 text-[10px] font-extrabold uppercase tracking-wide">
-                                    Co-Founder & CBO
-                                </span>
-                            </div>
-                            <p class="text-xs font-bold text-slate-400 mt-1">@mainakpathak • Business & Ecosystem Leadership</p>
-                        </div>
-                    </div>
-
-                    <div class="hidden sm:flex items-center gap-1 text-[11px] font-bold text-slate-400 px-3 py-1 rounded-full bg-slate-50 border border-slate-100">
-                        <i data-lucide="sparkles" class="w-3 h-3 text-rashtraOrange"></i>
-                        <span>Co-Founder Quote</span>
-                    </div>
-                </div>
-
-                <!-- Quote Body -->
-                <div class="text-sm sm:text-base text-slate-800 leading-relaxed font-normal">
-                    <p class="italic text-slate-700 border-l-4 border-rashtraOrange pl-4 py-1 bg-orange-50/40 rounded-r-xl">
-                        "Sustainable digital independence is built when culture meets real economic autonomy. RashtraLink is engineered to ensure Indian creators, businesses, and thinkers own their distribution, protect their audience relationships, and monetize fairly without foreign intermediaries dictating their worth."
-                    </p>
-                </div>
-
-                <!-- Footer Timestamp -->
-                <div class="pt-3 mt-4 border-t border-slate-100 text-xs text-slate-400 font-medium flex items-center justify-between">
-                    <span>Executive Leadership • Rashtra Group</span>
-                    <span class="text-slate-500 font-bold">Strategy & Growth</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. FOUNDING CITIZEN PASS & WISHLIST RESERVATION -->
-    <section id="waitlist" class="relative py-28 px-6 overflow-hidden">
-        <div class="max-w-4xl mx-auto z-10 relative">
-            
-            <div class="text-center mb-12 scroll-reveal">
-                <span class="px-4 py-1.5 rounded-full bg-rashtraOrange/10 text-rashtraOrange border border-rashtraOrange/20 text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">
-                    Exclusive Early Access
-                </span>
-                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-rashtraBlue mb-4">
-                    Claim Your Founding Citizen Pass.
-                </h2>
-                <p class="text-slate-600 font-medium max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-                    Reserve your unique @handle before public launch and receive an immutable Founding Citizen Pass with permanent verification privileges.
-                </p>
-            </div>
-
-            <!-- Reservation Form Card -->
-            <div class="glass-panel p-8 md:p-10 rounded-[2.5rem] shadow-xl border border-slate-200 scroll-reveal mb-12">
-                <form id="waitlist-form" class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="text-xs font-black text-slate-700 block mb-1.5">Desired @Handle</label>
-                            <div class="relative">
-                                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">@</span>
-                                <input type="text" id="pass-handle-input" placeholder="yourname" class="w-full pl-8 pr-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none text-sm font-bold bg-white">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="text-xs font-black text-slate-700 block mb-1.5">Official Email</label>
-                            <input type="email" id="pass-email-input" placeholder="you@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange focus:ring-1 focus:ring-rashtraOrange outline-none text-sm font-medium bg-white">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="text-xs font-black text-slate-700 block mb-1.5">Ecosystem Role</label>
-                        <select id="pass-role-select" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-rashtraOrange outline-none text-xs font-bold bg-white text-slate-700">
-                            <option value="Citizen Thinker">Citizen Thinker (General Access)</option>
-                            <option value="Deep Tech Founder">Deep Tech Founder / Builder</option>
-                            <option value="Independent Creator">Independent Creator / Journalist</option>
-                            <option value="Policy Researcher">Policy Researcher / Academic</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" id="generate-pass-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-rashtraOrange via-indiaSaffron to-rashtraOrange text-white font-black text-sm shadow-lg hover:shadow-orange-500/25 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="award" class="w-4 h-4"></i>
-                        <span>Generate Immutable Founding Pass</span>
-                    </button>
-                </form>
-            </div>
-
-            <!-- RESULTING HOLOGRAPHIC PASS (Revealed on submission) -->
-            <div id="founding-pass-result" class="hidden scroll-reveal">
-                <div class="hologram-card text-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-white/20 max-w-md mx-auto relative overflow-hidden">
-                    
-                    <!-- Emblem & Header -->
-                    <div class="flex justify-between items-start mb-8 relative z-10">
-                        <div class="flex items-center gap-2.5">
-                            <img src="Rashtralinkproperlogo.png" alt="RashtraLink" class="h-8 w-auto object-contain">
-                            <div>
-                                <span class="font-black text-sm tracking-tight block">RASHTRALINK</span>
-                                <span class="text-[9px] uppercase tracking-widest text-amber-400 font-extrabold">Founding Citizen Pass</span>
-                            </div>
-                        </div>
-                        <div class="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-[9px] font-black text-emerald-300">
-                            VERIFIED CITIZEN
-                        </div>
-                    </div>
-
-                    <!-- Pass ID -->
-                    <div class="mb-6 relative z-10">
-                        <p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Member Registry No.</p>
-                        <h3 id="result-pass-id" class="text-2xl md:text-3xl font-mono font-black text-amber-300 tracking-wider">#BHARAT-2026-0891</h3>
-                    </div>
-
-                    <!-- Handle & Role -->
-                    <div class="grid grid-cols-2 gap-4 mb-6 relative z-10">
-                        <div>
-                            <p class="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Reserved Handle</p>
-                            <p id="result-pass-handle" class="font-black text-base text-white">@debaprabho</p>
-                        </div>
-                        <div>
-                            <p class="text-[9px] uppercase tracking-wider text-slate-400 font-bold">Ecosystem Role</p>
-                            <p id="result-pass-role" class="font-bold text-xs text-white/90">Deep Tech Founder</p>
-                        </div>
-                    </div>
-
-                    <!-- Footer of Pass -->
-                    <div class="flex justify-between items-end pt-4 border-t border-white/15 text-[9px] text-slate-300 font-bold relative z-10">
-                        <div>
-                            <p>Issued: <span id="result-pass-date">Sep 18, 2026</span></p>
-                            <p class="text-amber-400">Rashtra Group Sovereign Node</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xs">🇮🇳</span>
-                            <p>Viksit Bharat 2047</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pass Actions -->
-                <div class="flex justify-center gap-3 mt-6">
-                    <button id="copy-pass-link-btn" class="px-5 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 font-black text-xs hover:border-rashtraOrange flex items-center gap-1.5 shadow-sm">
-                        <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-                        <span>Copy Verification Link</span>
-                    </button>
-                    <button id="share-pass-x-btn" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white font-black text-xs hover:bg-black flex items-center gap-1.5 shadow-sm">
-                        <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
-                        <span>Share on X / Twitter</span>
-                    </button>
-                </div>
             </div>
 
         </div>
-    </section>
-
-    <!-- 6. SOVEREIGN COMMUNITY & FOUNDING INTAKE -->
-    <section class="relative py-24 px-6 bg-slate-50/70 border-t border-slate-100">
-        <div class="max-w-4xl mx-auto z-10 relative">
-            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] border border-slate-200 shadow-xl">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black text-xl shadow-md">
-                        <i data-lucide="message-circle" class="w-7 h-7"></i>
-                    </div>
-                    <div>
-                        <span class="inline-block px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase tracking-wider mb-1.5">Official WhatsApp Community</span>
-                        <h3 class="text-xl font-black text-rashtraBlue leading-tight">RashtraLink Sovereign Circle</h3>
-                    </div>
-                </div>
-                
-                <p class="text-sm font-medium text-slate-700 leading-relaxed mb-6">
-                    To maintain high signal, prevent bot spam, and cultivate genuine civil discourse, entry to our official WhatsApp Community is application-based. Our founding team reviews every application personally before issuing a private invitation link.
-                </p>
-
-                <div class="flex flex-wrap items-center justify-between pt-6 border-t border-slate-200/70 gap-4">
-                    <button onclick="window.switchPage('early-access')" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black shadow-lg hover:shadow-emerald-600/30 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
-                        <i data-lucide="award" class="w-4 h-4"></i>
-                        <span>Apply for WhatsApp Community Invite</span>
-                    </button>
-                    
-                    <div class="flex items-center gap-3 text-xs font-bold text-slate-500">
-                        <span>Private Cohort</span>
-                        <span>•</span>
-                        <button onclick="window.openLegalModal('contact')" class="text-rashtraBlue hover:text-rashtraOrange transition-colors">Questions? Contact Us</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTERACTIVE COMING SOON: BUILT BY INDIANS FOR INDIANS SECTION -->
-    <section id="coming-soon-section" class="py-20 relative z-10 overflow-hidden bg-gradient-to-b from-transparent via-orange-50/40 to-slate-900 text-white">
-        <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="glass-panel bg-slate-950/85 backdrop-blur-xl border border-slate-800 rounded-[2.5rem] p-8 sm:p-14 shadow-2xl relative overflow-hidden">
-                <!-- Ambient Glow Accents -->
-                <div class="absolute -top-24 -left-24 w-80 h-80 bg-orange-500/15 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute -bottom-24 -right-24 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="text-center max-w-3xl mx-auto relative z-10">
-                    <!-- Sovereign Badge with Tricolor Dot -->
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 mb-6 shadow-inner">
-                        <span class="flex h-2 w-2 relative">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-rashtraOrange"></span>
-                        </span>
-                        <span class="text-[11px] font-black tracking-widest uppercase text-slate-300">Official National Rollout 2026</span>
-                    </div>
-
-                    <!-- Main Coming Soon Headline -->
-                    <h2 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-4 leading-tight">
-                        COMING <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">SOON</span>
-                    </h2>
-
-                    <!-- Tricolor Divider Bar -->
-                    <div class="w-32 h-1.5 mx-auto rounded-full bg-gradient-to-r from-orange-500 via-white to-emerald-500 mb-6 shadow-md"></div>
-
-                    <!-- Core Theme Subheading -->
-                    <p class="text-xl sm:text-2xl font-black text-slate-100 tracking-wide mb-3">
-                        Built by Indians, For Indians.
-                    </p>
-                    <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed mb-8">
-                        The sovereign attention and social networking platform for 1.4 billion voices. Zero foreign surveillance, zero engagement-bait algorithms, and 100% data sovereignty hosted on Indian soil.
-                    </p>
-
-                    <!-- Interactive Pledge & Launch Readiness Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 text-left">
-                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-orange-500/40 transition-all group">
-                            <div class="w-8 h-8 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center font-black mb-2 text-xs group-hover:scale-110 transition-transform">
-                                🇮🇳
-                            </div>
-                            <h4 class="text-xs font-black text-white mb-1">100% Sovereign Stack</h4>
-                            <p class="text-[11px] text-slate-400 leading-normal">Tier-4 data centres located strictly across Mumbai, Bengaluru & Noida under DPDP Act 2023.</p>
-                        </div>
-
-                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-all group">
-                            <div class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-black mb-2 text-xs group-hover:scale-110 transition-transform">
-                                ⚖️
-                            </div>
-                            <h4 class="text-xs font-black text-white mb-1">Charcha Arena</h4>
-                            <p class="text-[11px] text-slate-400 leading-normal">Replacing hate comment loops with citation-backed structured consensus & Bharat score.</p>
-                        </div>
-
-                        <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/40 transition-all group">
-                            <div class="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-black mb-2 text-xs group-hover:scale-110 transition-transform">
-                                🗣️
-                            </div>
-                            <h4 class="text-xs font-black text-white mb-1">22 Scheduled Languages</h4>
-                            <p class="text-[11px] text-slate-400 leading-normal">Native AI translation preserving cultural idioms across Hindi, Bengali, Tamil, Telugu & more.</p>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Citizen Pledge: Bharat Bell -->
-                    <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-5">
-                        <div class="text-left">
-                            <div class="flex items-center gap-2 mb-1">
-                                <span class="text-xs font-black text-orange-400 uppercase tracking-widest">Founding Citizen Pledge</span>
-                                <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[9px] font-bold">Bharat Bell</span>
-                            </div>
-                            <p class="text-xs text-slate-300 max-w-lg">
-                                Ring the sovereign bell to pledge your support for India's technological independence and claim your Founding Citizen reservation.
-                            </p>
-                        </div>
-
-                        <div class="flex items-center gap-3 w-full sm:w-auto justify-end flex-shrink-0">
-                            <button id="ring-pledge-btn" onclick="window.ringPledgeBell()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white text-xs font-black shadow-lg hover:shadow-orange-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2.5">
-                                <i data-lucide="bell" class="w-4 h-4 animate-bounce"></i>
-                                <span id="pledge-btn-text">Ring Bharat Bell</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Quick Action to Early Access -->
-                    <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-                        <button onclick="window.switchPage('early-access')" class="px-8 py-3.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 text-xs font-black tracking-wider uppercase shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
-                            <span>Apply for Early Access Invitation</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4 text-rashtraOrange"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="pt-12 pb-24 sm:pb-16 bg-white relative z-10 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 md:pr-48">
-            <a href="/" onclick="event.preventDefault(); window.switchPage('home');" class="flex items-center gap-3">
-                <img src="Rashtralinkproperlogo.png" alt="RashtraLink" class="h-8 w-auto object-contain hover:scale-105 transition-transform">
-            </a>
-
-            <p class="text-xs font-medium text-slate-500 text-center">
-                © 2026 RashtraLink. All rights reserved. Built for Bharat.
-            </p>
-
-            <div class="flex flex-wrap items-center justify-center gap-5 text-xs font-bold text-slate-600">
-                <a href="https://www.instagram.com/rashtralink/?hl=en" target="_blank" rel="noopener noreferrer" class="hover:text-pink-600 transition-colors py-1 flex items-center gap-1.5" title="Follow RashtraLink on Instagram">
-                    <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-500"></i>
-                    <span>Instagram</span>
-                </a>
-                <button onclick="window.switchPage('manifesto')" class="hover:text-rashtraOrange transition-colors py-1">Founder's Manifesto</button>
-                <button onclick="window.switchPage('terms')" class="hover:text-rashtraOrange transition-colors py-1">Terms of Service</button>
-                <button onclick="window.switchPage('privacy')" class="hover:text-rashtraOrange transition-colors py-1">DPDP Privacy Charter</button>
-                <button onclick="window.switchPage('grievance')" class="hover:text-rashtraOrange transition-colors py-1">IT Rules Grievance Desk</button>
-                <button onclick="window.switchPage('contact')" class="hover:text-rashtraOrange transition-colors py-1">Contact Headquarters</button>
-            </div>
-        </div>
-    </footer>
-
-    </div> <!-- END VIEW MAIN SITE -->
-
+    </div>
+    
     <!-- DEDICATED FOUNDER'S MANIFESTO PAGE VIEW (/manifesto) -->
     <div id="view-manifesto" class="hidden min-h-screen pt-24 pb-20 px-4 sm:px-6 relative z-20 pb-16 md:pb-20">
         <div class="max-w-3xl mx-auto">
@@ -2652,9 +3326,9 @@
             <i data-lucide="home" class="w-4 h-4"></i>
             <span class="text-[9px] font-bold mt-0.5">Home</span>
         </button>
-        <button onclick="if(!document.getElementById('view-main-site').classList.contains('hidden')){document.getElementById('mvp-simulator')?.scrollIntoView({behavior:'smooth'});}else{window.switchPage('home'); setTimeout(()=>document.getElementById('mvp-simulator')?.scrollIntoView({behavior:'smooth'}), 150);}" class="flex flex-col items-center justify-center py-1 px-2 text-slate-600 hover:text-rashtraOrange transition-colors active:scale-95">
-            <i data-lucide="smartphone" class="w-4 h-4"></i>
-            <span class="text-[9px] font-bold mt-0.5">Simulator</span>
+        <button onclick="window.switchPage('preview');" class="flex flex-col items-center justify-center py-1 px-2 text-slate-600 hover:text-rashtraOrange transition-colors active:scale-95">
+            <i data-lucide="smartphone" class="w-4 h-4 text-rashtraOrange"></i>
+            <span class="text-[9px] font-bold mt-0.5">Prototype</span>
         </button>
         <button onclick="if(!document.getElementById('view-main-site').classList.contains('hidden')){document.getElementById('charcha-section')?.scrollIntoView({behavior:'smooth'});}else{window.switchPage('home'); setTimeout(()=>document.getElementById('charcha-section')?.scrollIntoView({behavior:'smooth'}), 150);}" class="flex flex-col items-center justify-center py-1 px-2 text-slate-600 hover:text-rashtraOrange transition-colors active:scale-95">
             <i data-lucide="scale" class="w-4 h-4"></i>
@@ -2675,6 +3349,7 @@
     <!-- INTERACTIVE SCRIPTS -->
     <script src="mvp-interactive.js"></script>
     <script src="gemini-chat.js"></script>
+    <script type="module" src="bharat-map.js"></script>
     <script>
         lucide.createIcons();
 

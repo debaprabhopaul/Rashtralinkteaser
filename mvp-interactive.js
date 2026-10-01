@@ -1255,6 +1255,8 @@ function initWishlistPassGenerator() {
     // --- CLIENT-SIDE ROUTER: MULTI-PAGE VIEW CONTROLLER ---
     const APP_VIEWS = {
         'home': document.getElementById('view-main-site'),
+        'preview': document.getElementById('view-preview'),
+        'bharat': document.getElementById('view-bharat'),
         'early-access': document.getElementById('view-early-access'),
         'manifesto': document.getElementById('view-manifesto'),
         'terms': document.getElementById('view-terms'),
@@ -1285,6 +1287,12 @@ function initWishlistPassGenerator() {
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
+        if (targetKey === 'bharat' && window.initBharatMap) {
+            window.initBharatMap();
+            setTimeout(() => { if (window.initBharatMap) window.initBharatMap(); }, 150);
+            setTimeout(() => { if (window.initBharatMap) window.initBharatMap(); }, 450);
+        }
+
         if (pushToHistory) {
             const newPath = targetKey === 'home' ? '/' : `/${targetKey}`;
             history.pushState({ page: targetKey }, '', newPath);
@@ -1298,7 +1306,11 @@ function initWishlistPassGenerator() {
         const path = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
         const hash = window.location.hash.replace(/^#+/, '').toLowerCase();
 
-        if (['early-access', 'wishlist', 'apply', 'community'].includes(path) || ['early-access', 'wishlist', 'apply', 'community'].includes(hash)) {
+        if (['bharat', 'voices', 'map', 'people', 'citizens'].includes(path) || ['bharat', 'voices', 'map', 'people', 'citizens'].includes(hash)) {
+            window.switchPage('bharat', false);
+        } else if (['preview', 'simulator', 'demo', 'app', 'mvp', 'ralync'].includes(path) || ['preview', 'simulator', 'demo', 'app', 'mvp', 'ralync'].includes(hash)) {
+            window.switchPage('preview', false);
+        } else if (['early-access', 'wishlist', 'apply', 'community'].includes(path) || ['early-access', 'wishlist', 'apply', 'community'].includes(hash)) {
             window.switchPage('early-access', false);
         } else if (['manifesto', 'founder', 'letter'].includes(path) || ['manifesto', 'founder', 'letter'].includes(hash)) {
             window.switchPage('manifesto', false);
