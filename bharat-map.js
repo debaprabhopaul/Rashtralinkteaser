@@ -183,7 +183,7 @@ function renderAppleDiscoveryCard(citizen) {
     </div>
 
     <!-- The Apple-style Pristine White Card -->
-    <div class="relative z-10 rounded-[2.2rem] bg-white p-5 sm:p-7 shadow-2xl border border-slate-100 text-left overflow-hidden">
+    <div data-kinetic-card data-tilt-max="7.5" class="kinetic-card relative z-10 rounded-[2.2rem] bg-white/95 backdrop-blur-xl p-5 sm:p-7 shadow-2xl border border-slate-200/90 text-left overflow-hidden transition-all">
       
       <!-- Ambient Tricolor Top Border -->
       <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-rashtraOrange via-white to-indiaGreen"></div>
@@ -276,6 +276,7 @@ function renderAppleDiscoveryCard(citizen) {
   }
 
   if (window.lucide && lucide.createIcons) lucide.createIcons();
+  if (window.kineticEngine) window.kineticEngine.scan();
 }
 
 // Mascot Interactive Micro-Gestures on Touch/Click

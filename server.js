@@ -11,6 +11,17 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 3000;
 
+// Enterprise Sovereign Security Headers & Anti-Scraping Guards
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  res.setHeader('X-Powered-By', 'RashtraLink-Sovereign-Stack');
+  next();
+});
+
 app.use(express.json());
 app.use(express.static(__dirname));
 

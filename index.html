@@ -380,10 +380,18 @@
         .animate-fadeIn {
             animation: fadeIn 0.25s ease-out forwards;
         }
-        .animate-scaleUp {
-            animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        .kinetic-card {
+            will-change: transform;
+            transform-style: preserve-3d;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
-
+        .kinetic-sheen {
+            mix-blend-mode: overlay;
+        }
+        img, svg, canvas {
+            -webkit-user-drag: none;
+            user-select: none;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-rashtraOrange selection:text-white">
@@ -649,27 +657,42 @@
                 </button>
             </div>
 
-            <!-- Metrics Bar -->
+            <!-- Tactical Kinetic Feature Displays -->
             <div class="gsap-hero grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl text-left">
-                <div class="glass-panel p-4 rounded-2xl">
-                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Your Data</p>
-                    <p class="text-lg font-black text-rashtraBlue">100% in India</p>
-                    <p class="text-[10px] text-emerald-700 font-bold">Safe on Indian soil</p>
+                <div data-kinetic-card data-tilt-max="10" class="kinetic-card group relative p-5 rounded-3xl bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-lg hover:shadow-xl hover:border-emerald-400/60 transition-all duration-300 overflow-hidden cursor-default">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-[10px] uppercase tracking-wider font-black text-slate-400">Data Sovereignty</span>
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    </div>
+                    <p data-kinetic-depth="10" class="text-xl font-black text-rashtraBlue tracking-tight transition-transform">100% in India</p>
+                    <p class="text-[11px] text-emerald-700 font-bold mt-1">Tier-4 domestic residency</p>
                 </div>
-                <div class="glass-panel p-4 rounded-2xl">
-                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Your Feed</p>
-                    <p class="text-lg font-black text-rashtraOrange">You Decide</p>
-                    <p class="text-[10px] text-slate-500 font-bold">Simple topic sliders</p>
+
+                <div data-kinetic-card data-tilt-max="10" class="kinetic-card group relative p-5 rounded-3xl bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-lg hover:shadow-xl hover:border-orange-400/60 transition-all duration-300 overflow-hidden cursor-default">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-[10px] uppercase tracking-wider font-black text-slate-400">Feed Autonomy</span>
+                        <span class="w-2 h-2 rounded-full bg-rashtraOrange animate-ping"></span>
+                    </div>
+                    <p data-kinetic-depth="10" class="text-xl font-black text-rashtraOrange tracking-tight transition-transform">You Decide</p>
+                    <p class="text-[11px] text-slate-500 font-bold mt-1">Direct priority levers</p>
                 </div>
-                <div class="glass-panel p-4 rounded-2xl">
-                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Discussions</p>
-                    <p class="text-lg font-black text-indiaGreen">Fact Based</p>
-                    <p class="text-[10px] text-slate-500 font-bold">Real proof over noise</p>
+
+                <div data-kinetic-card data-tilt-max="10" class="kinetic-card group relative p-5 rounded-3xl bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-lg hover:shadow-xl hover:border-emerald-400/60 transition-all duration-300 overflow-hidden cursor-default">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-[10px] uppercase tracking-wider font-black text-slate-400">Charcha Arena</span>
+                        <span class="text-xs">⚖️</span>
+                    </div>
+                    <p data-kinetic-depth="10" class="text-xl font-black text-indiaGreen tracking-tight transition-transform">Fact-Backed</p>
+                    <p class="text-[11px] text-slate-500 font-bold mt-1">Verified consensus index</p>
                 </div>
-                <div class="glass-panel p-4 rounded-2xl">
-                    <p class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Creator Economy</p>
-                    <p class="text-lg font-black text-rashtraBlue">Fair & Direct</p>
-                    <p class="text-[10px] text-orange-600 font-bold">Higher earnings, low cuts</p>
+
+                <div data-kinetic-card data-tilt-max="10" class="kinetic-card group relative p-5 rounded-3xl bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-lg hover:shadow-xl hover:border-blue-400/60 transition-all duration-300 overflow-hidden cursor-default">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-[10px] uppercase tracking-wider font-black text-slate-400">Creator Guild</span>
+                        <span class="text-xs">🇮🇳</span>
+                    </div>
+                    <p data-kinetic-depth="10" class="text-xl font-black text-rashtraBlue tracking-tight transition-transform">Zero Cut</p>
+                    <p class="text-[11px] text-orange-600 font-bold mt-1">Same-day direct UPI</p>
                 </div>
             </div>
 
@@ -1080,32 +1103,44 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
-                    <div class="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-rashtraOrange mb-6">
-                        <i data-lucide="scale" class="w-6 h-6"></i>
+                <div data-kinetic-card data-tilt-max="9" class="kinetic-card group relative p-8 rounded-[2.2rem] bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-xl hover:shadow-2xl hover:border-orange-400/50 transition-all duration-300 text-left overflow-hidden cursor-default">
+                    <div data-kinetic-depth="15" class="w-14 h-14 rounded-2xl bg-orange-100/90 flex items-center justify-center text-rashtraOrange mb-6 transition-transform shadow-xs">
+                        <i data-lucide="scale" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Live Structured Consensus</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+                        <span class="text-[10px] font-black uppercase tracking-wider text-orange-600">Dynamic Synthesis</span>
+                    </div>
+                    <h3 data-kinetic-depth="8" class="text-xl font-black text-rashtraBlue mb-3 tracking-tight">Live Structured Consensus</h3>
+                    <p class="text-xs text-slate-600 font-medium leading-relaxed">
                         Every debate tracks supporting and counter-arguments in an auditable ledger. Mathematical ratios calculate real public consensus rather than whoever screams loudest.
                     </p>
                 </div>
 
-                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-700 mb-6">
-                        <i data-lucide="shield" class="w-6 h-6"></i>
+                <div data-kinetic-card data-tilt-max="9" class="kinetic-card group relative p-8 rounded-[2.2rem] bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-xl hover:shadow-2xl hover:border-emerald-400/50 transition-all duration-300 text-left overflow-hidden cursor-default">
+                    <div data-kinetic-depth="15" class="w-14 h-14 rounded-2xl bg-emerald-100/90 flex items-center justify-center text-emerald-700 mb-6 transition-transform shadow-xs">
+                        <i data-lucide="shield" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Incognito Citizen Protocol</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-[10px] font-black uppercase tracking-wider text-emerald-700">Zero Doxxing</span>
+                    </div>
+                    <h3 data-kinetic-depth="8" class="text-xl font-black text-rashtraBlue mb-3 tracking-tight">Incognito Citizen Protocol</h3>
+                    <p class="text-xs text-slate-600 font-medium leading-relaxed">
                         Engage in serious intellectual debate without fear of doxxing or targeted harassment. Posts are verified for genuine human origin while safeguarding your privacy.
                     </p>
                 </div>
 
-                <div class="glass-panel p-8 rounded-3xl text-left scroll-reveal">
-                    <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-rashtraBlue mb-6">
-                        <i data-lucide="link-2" class="w-6 h-6"></i>
+                <div data-kinetic-card data-tilt-max="9" class="kinetic-card group relative p-8 rounded-[2.2rem] bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-xl hover:shadow-2xl hover:border-blue-400/50 transition-all duration-300 text-left overflow-hidden cursor-default">
+                    <div data-kinetic-depth="15" class="w-14 h-14 rounded-2xl bg-blue-100/90 flex items-center justify-center text-rashtraBlue mb-6 transition-transform shadow-xs">
+                        <i data-lucide="link-2" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-black text-rashtraBlue mb-3">Evidence & Citation Index</h3>
-                    <p class="text-xs text-slate-500 font-medium leading-relaxed">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                        <span class="text-[10px] font-black uppercase tracking-wider text-blue-700">Verifiable Primary Proof</span>
+                    </div>
+                    <h3 data-kinetic-depth="8" class="text-xl font-black text-rashtraBlue mb-3 tracking-tight">Evidence & Citation Index</h3>
+                    <p class="text-xs text-slate-600 font-medium leading-relaxed">
                         Arguments linked with primary research papers, PIB bulletins, or economic data receive prioritized visibility scores over baseless speculation.
                     </p>
                 </div>
@@ -2762,7 +2797,7 @@
             <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
                 
                 <!-- LEFT CARD: FOREIGN BIG TECH (THE EXPLOITATION HAMSTER WHEEL) -->
-                <div class="rounded-[2.2rem] bg-gradient-to-b from-slate-900 to-slate-950 p-6 sm:p-8 text-white border-2 border-red-500/30 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                <div data-kinetic-card data-tilt-max="6.5" class="kinetic-card rounded-[2.2rem] bg-gradient-to-b from-slate-900 to-slate-950 p-6 sm:p-8 text-white border-2 border-red-500/30 shadow-2xl relative overflow-hidden flex flex-col justify-between">
                     
                     <!-- Danger Aura -->
                     <div class="absolute -top-24 -left-24 w-60 h-60 rounded-full bg-red-600/15 blur-3xl pointer-events-none"></div>
@@ -2834,7 +2869,7 @@
                 </div>
 
                 <!-- RIGHT CARD: RASHTRALINK SOVEREIGN GUILD (THE EMPOWERED CREATOR) -->
-                <div class="rounded-[2.2rem] bg-white p-6 sm:p-8 text-slate-900 border-2 border-emerald-500/40 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                <div data-kinetic-card data-tilt-max="6.5" class="kinetic-card rounded-[2.2rem] bg-white p-6 sm:p-8 text-slate-900 border-2 border-emerald-500/40 shadow-2xl relative overflow-hidden flex flex-col justify-between">
                     
                     <!-- Sovereign Emerald & Tricolor Aura -->
                     <div class="absolute -top-24 -right-24 w-60 h-60 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
@@ -3894,6 +3929,8 @@
     <script src="gemini-chat.js"></script>
     <script type="module" src="bharat-map.js"></script>
     <script type="module" src="creator-reality-slider.js"></script>
+    <script type="module" src="kinetic-cards.js"></script>
+    <script type="module" src="rashtra-security.js"></script>
     <script>
         lucide.createIcons();
 

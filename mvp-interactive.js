@@ -1306,6 +1306,7 @@ function initWishlistPassGenerator() {
         }
 
         if (window.lucide && lucide.createIcons) lucide.createIcons();
+        if (window.kineticEngine) window.kineticEngine.scan();
     };
 
     window.goToCreatorRealityCheck = function() {
