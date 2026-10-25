@@ -23,7 +23,19 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use(express.static(__dirname));
+
+// Block public access to backend source files, applicant database, config files, and /admin probes
+const BLOCKED_PATTERNS = /^\/(server\.js|applications\.json|package\.json|bun\.lock|vercel\.json|knowledge\.js|firebase-applet-config\.json|metadata\.json|\.env.*|\.aistudio.*|api\/.*\.js|admin(\/.*)?)$/i;
+app.use((req, res, next) => {
+  if (BLOCKED_PATTERNS.test(req.path)) {
+    return res.status(403).json({
+      error: '403 Forbidden — RashtraLink Sovereign Security Shield: Unauthorized access attempt blocked and logged.'
+    });
+  }
+  next();
+});
+
+app.use(express.static(__dirname, { dotfiles: 'deny' }));
 
 // Lazy-initialized Gemini client
 let geminiClient = null;
@@ -143,13 +155,13 @@ app.post('/api/grievance', async (req, res) => {
   }
 });
 
-// Secure Founder-Only Export (Guarded by Secret Passkey)
+// Secure Founder-Only Export (Strictly requires server-side ADMIN_SECRET_KEY environment variable; no hardcoded fallback)
 app.get('/api/admin/export', (req, res) => {
-  const secretKey = req.query.key || req.headers['x-admin-key'];
-  const expectedKey = process.env.ADMIN_SECRET_KEY || 'rashtralink2026';
+  const secretKey = req.headers['x-admin-key'];
+  const expectedKey = process.env.ADMIN_SECRET_KEY;
 
-  if (!secretKey || secretKey !== expectedKey) {
-    return res.status(401).send('Unauthorized. Invalid or missing Founder Access Key.');
+  if (!expectedKey || expectedKey.length < 16 || !secretKey || secretKey !== expectedKey) {
+    return res.status(403).json({ error: '403 Forbidden — Endpoint disabled or invalid credentials.' });
   }
 
   try {
@@ -182,13 +194,13 @@ app.get('/api/admin/export', (req, res) => {
   }
 });
 
-// Push existing applications to Google Sheet on demand (Founder protected)
+// Push existing applications to Google Sheet on demand (Strictly requires server-side ADMIN_SECRET_KEY)
 app.get('/api/admin/sync-sheet', async (req, res) => {
-  const secretKey = req.query.key || req.headers['x-admin-key'];
-  const expectedKey = process.env.ADMIN_SECRET_KEY || 'rashtralink2026';
+  const secretKey = req.headers['x-admin-key'];
+  const expectedKey = process.env.ADMIN_SECRET_KEY;
 
-  if (!secretKey || secretKey !== expectedKey) {
-    return res.status(401).send('Unauthorized.');
+  if (!expectedKey || expectedKey.length < 16 || !secretKey || secretKey !== expectedKey) {
+    return res.status(403).json({ error: '403 Forbidden — Endpoint disabled or invalid credentials.' });
   }
 
   try {
